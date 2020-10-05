@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
-import 
-  { 
-    Component, 
-    ComponentTitle, 
-    Title,
-    Balances,
-    Balance,
-    HeaderBalance,
-    BalanceType,
-    BalanceValue,
-  } from './styles';
+import { 
+  Component, 
+  ComponentTitle, 
+  Title,
+  Balances,
+  Balance,
+  HeaderBalance,
+  BalanceType,
+  BalanceValue,
+} from './styles';
 
 import mock from './data-mock';
 import helper from './helper';

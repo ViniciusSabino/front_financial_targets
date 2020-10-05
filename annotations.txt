@@ -1,5 +1,14 @@
 CSS (PESQUISAR)
 
-display: inline-block; display: flex; display: table;
-margin: 0
-line-height
+- display: inline-block; display: flex; display: table;
+- margin: 0
+- line-height
+
+REACT (PESQUISAR)
+
+- </React.StrictMode>
+
+WEBPACK (PESQUISAR)
+
+- HtmlWebpackPlugin
+- historyApiFallback

@@ -7,16 +7,16 @@ import {
 
 import GlobalStyle from './styles/global';
 
-import Home from './pages/Home'
-import Accounts from './pages/Accounts'
+import Home from './pages/Home/index.jsx'
+import Accounts from './pages/Accounts/index.jsx'
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
-          <Route path="/" component={ Accounts } /> 
-          <Route path="*" component={ Home } />
+          <Route exact path="/" component={ Home } /> 
+          <Route exact path="/accounts" component={ Accounts } />
         </Switch>
       </Router>
       <GlobalStyle />
