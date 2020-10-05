@@ -18,12 +18,6 @@ const getCurrentBalances = async () => Promise.resolve([
     balanceType: 'SAVINGS'
   },
   {
-    id: 4,
-    name: 'Caixa',
-    currentBalance: 0.00,
-    balanceType: 'SAVINGS'
-  },
-  {
     id: 5,
     name: 'Easynvest',
     currentBalance: 4999.00,

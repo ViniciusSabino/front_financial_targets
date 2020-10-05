@@ -7,10 +7,3 @@ FIX
 
 - Verificar erro com o react-router-dom (Apenas a rota principal que renderiza a página)
 - Corrigir responsividade do componente HeaderCurrentBalance
-
-CSS (PESQUISAR)
-
-display: inline-block; display: flex; display: table;
-align-items; center
-margin: 0
-line-height:

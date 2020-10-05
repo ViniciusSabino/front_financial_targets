@@ -5,18 +5,22 @@ import {
   Route, 
 } from 'react-router-dom';
 
+import GlobalStyle from './styles/global';
+
 import Home from './pages/Home'
 import Accounts from './pages/Accounts'
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Accounts} />
-        <Route path="/accounts" component={Accounts} />
-        <Route path="*" component={Home} />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/" component={ Accounts } /> 
+          <Route path="*" component={ Home } />
+        </Switch>
+      </Router>
+      <GlobalStyle />
+    </>
   )
 }
 

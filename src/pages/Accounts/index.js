@@ -1,11 +1,14 @@
 import React from 'react';
 
-import HeaderCurrentBalance from '../../components/HeaderCurrentBalance';
+import Header from '../../components/Header';
+import CurrentBalance from '../../components/CurrentBalance';
 
 const Accounts = () => {
   return (
     <div>
-      <HeaderCurrentBalance />
+      <Header title='Financial Targets' />
+      <CurrentBalance /> 
+      <Header title='Contas e Mensalidades' />
     </div>
   )
 }
