@@ -1,4 +1,4 @@
-import constants from '../../helpers/current-balance/constants';
+import constants from '../../../helpers/current-balance/constants';
 
 const getBalanceType = (type) => constants.balanceType[type];
 

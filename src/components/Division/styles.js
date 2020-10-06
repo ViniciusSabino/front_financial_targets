@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Header = styled.header`
+const Division = styled.header`
   align-items: center;
-  background-color: #FFF;
+  background-color: #505050;
   display: flex;
   height: 40px;
   justify-content: center; 
@@ -10,10 +10,10 @@ const Header = styled.header`
 `;
 
 const Title = styled.h1`
-  color: #10C9AA;
+  color: #FFF;
   font-family: 'Lucida Grande';
-  font-size: 22px;
+  font-size: 18px;
   text-transform: uppercase;
 `;
 
-export { Header, Title }
+export { Division, Title }

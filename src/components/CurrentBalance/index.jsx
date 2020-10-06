@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
+import Balance from './Balance/index.jsx';
+
 import { 
   Component, 
   ComponentTitle, 
   Title,
-  Balances,
-  Balance,
-  HeaderBalance,
-  BalanceType,
-  BalanceValue,
+  Balances
 } from './styles';
 
 import mock from './data-mock';
-import helper from './helper';
 
 const HeaderCurrentBalance = () => {
   const [ currentBalances, setCurrentBalances ] = useState([]);
@@ -33,17 +30,12 @@ const HeaderCurrentBalance = () => {
       </ComponentTitle>
       <Balances>
        {currentBalances.map((balance) => 
-          <Balance key={balance.id}>
-            <HeaderBalance>
-              {balance.name}
-              <BalanceType>
-                {helper.getBalanceType(balance.balanceType)}
-              </BalanceType>
-            </HeaderBalance>
-            <BalanceValue>
-              {`R$ ${balance.currentBalance}`}
-            </BalanceValue> 
-          </Balance> 
+          <Balance 
+            id={balance.id} 
+            name={balance.name} 
+            type={balance.balanceType} 
+            value={balance.currentBalance} 
+          />
       )} 
       </Balances>
     </Component>
