@@ -1,18 +1,20 @@
 import React from 'react';
 
 import {
-  Component
+  Module
 } from './styles';
 
 import Control from '../../components/Control/index.jsx';
 import BillsToPay from '../../components/BillsToPay/index.jsx';
+import Division from '../../components/Division/index.jsx';
 
 const Accounts = () => {
   return (
-    <Component>
+    <Module>
         <Control title='Controle' /> 
         <BillsToPay title='Minhas Contas' />
-    </Component>
+        <Division title='Resumo' />
+    </Module>
   )
 }
 

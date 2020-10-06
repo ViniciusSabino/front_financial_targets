@@ -13,7 +13,6 @@ const Accounts = () => {
       <CurrentBalance /> 
       <Division title='Contas' />
       <Module />
-      <Division title='Resumo' />
     </>
   )
 }

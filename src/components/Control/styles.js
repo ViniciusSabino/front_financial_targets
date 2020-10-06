@@ -14,13 +14,20 @@ const Header = styled.div`
   display: flex;
   font-family: 'Lucida Grande';
   font-size: 16px;
-  height: 45px;
+  height: 11.25%;
   justify-content: center;
+  width: 100%;
+`;
+
+const Body = styled.div`
+  background-color: #FFF;
+  height: 88.75%;
   width: 100%;
 `;
 
 
 export {
   Component,
-  Header
+  Header,
+  Body
 }

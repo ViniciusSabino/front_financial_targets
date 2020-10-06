@@ -2,7 +2,8 @@ import React from 'react';
 
 import {
   Component,
-  Header
+  Header,
+  Body,
 } from './styles';
 
 const BillsToPay = ({ title }) => {
@@ -10,6 +11,8 @@ const BillsToPay = ({ title }) => {
   return (
     <Component>
       <Header>{title}</Header>
+      <Body>
+      </Body>
     </Component>
   )
 }
