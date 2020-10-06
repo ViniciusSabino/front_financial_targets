@@ -11,6 +11,6 @@ html,
 body,
 #root { min-height: 100%; }
 body {
-  background: #FFF
+  background: #505050;
 }
 `;

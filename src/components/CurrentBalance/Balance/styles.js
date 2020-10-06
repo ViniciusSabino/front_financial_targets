@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  background-color: #DADADA;
+  background-color: #FFF;
   border-left: 1px solid #D5D3D3;
   display: inline-block;
   height: 100% ;
@@ -34,7 +34,7 @@ const Type = styled.span`
 
 const Value = styled.div`
   align-items: center;
-  color: #10C9AF;
+  color: #505050;
   display: flex;
   font-size: 20px;
   font-family: 'Lucida Grande';
