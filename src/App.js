@@ -2,27 +2,24 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route, 
+  Route,
 } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
-import Home from './pages/Home/index.jsx'
-import Accounts from './pages/Accounts/index.jsx'
+import Home from './pages/Home';
+import Accounts from './pages/Accounts';
 
-const App = () => {
-  return (
-    <>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={ Home } /> 
-          <Route exact path="/accounts" component={ Accounts } />
-        </Switch>
-      </Router>
-      <GlobalStyle />
-    </>
-  )
-}
+const App = () => (
+  <>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/accounts" component={Accounts} />
+      </Switch>
+    </Router>
+    <GlobalStyle />
+  </>
+);
 
 export default App;
-  
