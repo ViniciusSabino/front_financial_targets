@@ -4,4 +4,4 @@ const getBalanceType = (type) => constants.balanceType[type];
 
 export default {
   getBalanceType,
-}
+};

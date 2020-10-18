@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
-const Header = styled.header`
+const Component = styled.header`
   align-items: center;
-  background-color: #505050;
+  background-color: #10C9AF;
   display: flex;
-  height: 40px;
+  height: 45px;
   justify-content: center; 
   width: 100%;
 `;
 
 const Title = styled.h1`
-  color: #10C9AA;
+  color: #FFF;
   font-family: 'Lucida Grande';
   font-size: 22px;
   text-transform: uppercase;
 `;
 
-export { Header, Title }
+export { Component, Title };

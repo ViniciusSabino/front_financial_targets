@@ -10,10 +10,11 @@ const Component = styled.div`
 
 const Header = styled.div`
   align-items: center;
-  background-color: #10C9AF;
+  background-color: #B3CBC7;
   color: #FFF;
   display: flex;
   font-family: 'Lucida Grande';
+  font-size: 15px;
   font-weight: bold;
   height: 25%;
   justify-content: center;
@@ -22,9 +23,9 @@ const Header = styled.div`
 `;
 
 const Type = styled.span`
-  background-color: #DADADA;
+  background-color: #10C9AF;
   border-radius: 12px;
-  color: #10C9AF;
+  color: #FFF;
   font-size: 8px;
   font-family: 'Lucida Grande';
   margin-left: 12px;
@@ -36,7 +37,7 @@ const Value = styled.div`
   align-items: center;
   color: #505050;
   display: flex;
-  font-size: 20px;
+  font-size: 17px;
   font-family: 'Lucida Grande';
   height: 75%;
   justify-content: center;
@@ -47,5 +48,5 @@ export {
   Component,
   Header,
   Type,
-  Value
-}
+  Value,
+};

@@ -1,42 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// import {
- 
-// } from './styles';
+import {
+  Component,
+  Head,
+  Body,
+  Footer,
+} from './styles';
 
-const Table = ({ header, data, total }) => {
+const Table = ({ header, items, total }) => (
+  <Component>
+    <Head>
+      <tr>
+        {header.map((item) => <th key={item}>{item}</th>)}
+      </tr>
+    </Head>
+    <Body>
+      {items.map((item) => (
+        <tr>
+          {Object.keys(item).map((key) => <td key={key}>{item[key]}</td>)}
+        </tr>
+      ))}
+    </Body>
+    <Footer>
+      <tr>
+        <td>Total</td>
+        {Object.keys(total).map((key) => <td key={key}>{total[key]}</td>)}
+      </tr>
+    </Footer>
+  </Component>
+);
 
-  return (
-    <table>
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Valor Sugerido</th>
-              <th>Valor Customizado</th>
-              <th>Valor Pago</th>
-              <th>Valor Restante</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Teste</td>
-              <td>Teste</td>
-              <td>Teste</td>
-              <td>Teste</td>
-              <td>Teste</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td>Total</td>
-              <td>100</td>
-              <td>200</td>
-              <td>300</td>
-              <td>400</td>
-            </tr>
-          </tfoot>
-        </table>
-  )
-}
+Table.propTypes = {
+  header: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
-export default Table
+export default Table;

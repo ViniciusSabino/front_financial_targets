@@ -1,14 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
-  Header,
+  Component,
   Title,
 } from './styles';
 
-export default ({ title }) => {
-  return (
-    <Header>
-      <Title>{title}</Title>   
-    </Header>
-  )
-}
+const Header = ({ title }) => (
+  <Component>
+    <Title>{title}</Title>
+  </Component>
+);
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+export default Header;

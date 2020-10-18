@@ -1,21 +1,19 @@
 import React from 'react';
 
 import {
-  Module
+  Module,
 } from './styles';
 
-import Control from '../../components/Control/index.jsx';
-import BillsToPay from '../../components/BillsToPay/index.jsx';
-import Division from '../../components/Division/index.jsx';
+import Control from './components/Control';
+import BillsToPay from './components/BillsToPay';
+import Division from '../../components/Division';
 
-const Accounts = () => {
-  return (
-    <Module>
-        <Control title='Controle' /> 
-        <BillsToPay title='Minhas Contas' />
-        <Division title='Resumo' />
-    </Module>
-  )
-}
+const Accounts = () => (
+  <Module>
+    <Division title="Contas" />
+    <Control title="Metas" />
+    <BillsToPay title="Minhas Contas" />
+  </Module>
+);
 
-export default Accounts
+export default Accounts;

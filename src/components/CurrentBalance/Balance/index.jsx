@@ -1,18 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import helper from './helper.js';
+import helper from './helper';
 
-import { 
-  Component, 
+import {
+  Component,
   Header,
   Type,
   Value,
 } from './styles';
 
-const Balance = ({ id, name, type, value }) => {
+const Balance = (props) => {
+  const { name, type, value } = props;
 
   return (
-    <Component key={id}>
+    <Component>
       <Header>
         {name}
         <Type>
@@ -21,9 +23,15 @@ const Balance = ({ id, name, type, value }) => {
       </Header>
       <Value>
         {`R$ ${value}`}
-      </Value> 
-    </Component> 
-  )
-}
+      </Value>
+    </Component>
+  );
+};
+
+Balance.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+};
 
 export default Balance;
