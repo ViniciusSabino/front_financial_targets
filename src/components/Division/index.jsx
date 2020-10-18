@@ -6,14 +6,14 @@ import {
   Title,
 } from './styles';
 
-const Header = ({ title }) => (
+const Division = ({ title }) => (
   <Component>
     <Title>{title}</Title>
   </Component>
 );
 
-Header.propTypes = {
+Division.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default Header;
+export default Division;

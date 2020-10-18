@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 
 import {
   Component,
-  Title,
+  Header,
+  Body,
 } from './styles';
 
-const Header = ({ title }) => (
+const BillsToPay = ({ title }) => (
   <Component>
-    <Title>{title}</Title>
+    <Header>{title}</Header>
+    <Body />
   </Component>
 );
 
-Header.propTypes = {
+BillsToPay.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default Header;
+export default BillsToPay;

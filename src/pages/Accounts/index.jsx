@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Header from '../../components/Header/index.jsx';
-import CurrentBalance from '../../components/CurrentBalance/index.jsx';
+import Header from '../../components/Header';
+import CurrentBalance from '../../components/CurrentBalance';
 
-const Accounts = () => {
-  return (
-    <>
-      <Header title='Financial Targets' />
-      <CurrentBalance /> 
-      <Header title='Contas e Mensalidades' />
-    </>
-  )
-}
+import Module from '../../modules/Accounts';
+
+const Accounts = () => (
+  <>
+    <Header title="Financial Targets" />
+    <CurrentBalance />
+    <Module />
+  </>
+);
 
 export default Accounts;
