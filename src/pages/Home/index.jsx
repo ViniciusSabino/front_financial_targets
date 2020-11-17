@@ -1,15 +1,13 @@
 import React from 'react';
 
-import Header from '../../components/Header/index.jsx';
-import CurrentBalance from '../../components/CurrentBalance/index.jsx';
+import Header from '../../components/Header';
+import CurrentBalance from '../../components/CurrentBalance';
 
-const Home = () => {
-  return (
-    <>
-      <Header title='Financial Targets' />
-      <CurrentBalance /> 
-    </>
-  )
-}
+const Home = () => (
+  <>
+    <Header title="Financial Targets" />
+    <CurrentBalance />
+  </>
+);
 
 export default Home;
