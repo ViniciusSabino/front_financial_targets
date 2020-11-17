@@ -1,8 +1,9 @@
 CSS (PESQUISAR)
 
-- display: inline-block; display: flex; display: table;
+- display: inline-block; flex; table; table-cell;
 - margin: 0
 - line-height
+- Pesquisar sobre todos as propriedades de css desconhecidas e que impactos ela causou no projeto
 
 REACT (PESQUISAR)
 

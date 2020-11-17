@@ -1,9 +1,2 @@
-SETUP do projeto
 
-- configurar Eslint 
-- configurar Prettier
 
-FIX
-
-- Verificar erro com o react-router-dom (Apenas a rota principal que renderiza a página)
-- Corrigir responsividade do componente HeaderCurrentBalance
