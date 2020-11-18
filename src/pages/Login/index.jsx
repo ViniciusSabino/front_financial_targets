@@ -1,10 +1,22 @@
 import React from 'react';
-import { Page, Component } from './styles';
+
+import {
+  Page,
+  Component,
+  Logo,
+  LoginForm,
+  Title,
+} from './styles';
 
 const Login = () => (
   <Page>
     <Component>
-      <h1>Login</h1>
+      <Logo>
+        <Title>
+          <h1>Financial Targets</h1>
+        </Title>
+      </Logo>
+      <LoginForm />
     </Component>
   </Page>
 );
