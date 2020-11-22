@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  height: 115px;
+  height: 100px;
   width: 100%;
 `;
 
 const ComponentTitle = styled.div`
-  background-color: #B3CBC7;
+  background-color: #1260A9;
   display: inline-block;  
   height: 100%;
-  line-height: 115px;
+  line-height: 100px;
   text-align: center;
   width: 14%;
 `;
 
 const Title = styled.h1`
   color: #FFF;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
-  font-family: 'Lucida Grande';
   text-transform: uppercase; 
 `;
 

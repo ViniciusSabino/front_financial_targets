@@ -8,6 +8,7 @@ import {
   Header,
   Type,
   Value,
+  Title,
 } from './styles';
 
 const Balance = (props) => {
@@ -16,7 +17,7 @@ const Balance = (props) => {
   return (
     <Component>
       <Header>
-        {name}
+        <Title>{name}</Title>
         <Type>
           {helper.getBalanceType(type)}
         </Type>
