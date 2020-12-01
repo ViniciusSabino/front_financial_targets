@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Page,
   Component,
-  Logo,
+  LoginLogo,
   LoginForm,
   Title,
 } from './styles';
@@ -11,11 +11,11 @@ import {
 const Login = () => (
   <Page>
     <Component>
-      <Logo>
+      <LoginLogo>
         <Title>
-          <h1>Financial Targets</h1>
+          Financial Targets
         </Title>
-      </Logo>
+      </LoginLogo>
       <LoginForm />
     </Component>
   </Page>

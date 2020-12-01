@@ -2,44 +2,46 @@ import styled from 'styled-components';
 
 const Component = styled.div`
   background-color: #FFF;
-  border-left: 1px solid #D5D3D3;
   display: inline-block;
-  height: 100% ;
+  height: 100%;
   width: 25%;
 `;
 
 const Header = styled.div`
   align-items: center;
-  background-color: #B3CBC7;
-  color: #FFF;
+  background-color: #1260A9;
   display: flex;
-  font-family: 'Lucida Grande';
-  font-size: 15px;
-  font-weight: bold;
-  height: 25%;
-  justify-content: center;
-  text-transform: uppercase;
+  height: 35%;
   width: 100%;
 `;
 
+const Title = styled.p`
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding-left: 10px;
+  text-transform: uppercase;
+`;
+
 const Type = styled.span`
-  background-color: #10C9AF;
+  background-color: #12A994;
   border-radius: 12px;
   color: #FFF;
-  font-size: 8px;
-  font-family: 'Lucida Grande';
-  margin-left: 12px;
+  font-size: 9px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+  margin-left: 13px;
   padding: 7px;
   text-transform: uppercase; 
 `;
 
 const Value = styled.div`
   align-items: center;
+  border-left: 1px solid #1260A9;
   color: #505050;
   display: flex;
-  font-size: 17px;
-  font-family: 'Lucida Grande';
-  height: 75%;
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+  height: 65%;
   justify-content: center;
   text-transform: uppercase; 
 `;
@@ -47,6 +49,7 @@ const Value = styled.div`
 export {
   Component,
   Header,
+  Title,
   Type,
   Value,
 };
