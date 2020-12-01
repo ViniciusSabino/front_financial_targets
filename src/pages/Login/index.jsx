@@ -1,22 +1,26 @@
 import React from 'react';
 
+import LoginForm from '../../components/LoginForm';
+
 import {
   Page,
   Component,
-  LoginLogo,
-  LoginForm,
+  LogoContainer,
+  LoginContainer,
   Title,
 } from './styles';
 
 const Login = () => (
   <Page>
     <Component>
-      <LoginLogo>
+      <LogoContainer>
         <Title>
           Financial Targets
         </Title>
-      </LoginLogo>
-      <LoginForm />
+      </LogoContainer>
+      <LoginContainer>
+        <LoginForm />
+      </LoginContainer>
     </Component>
   </Page>
 );

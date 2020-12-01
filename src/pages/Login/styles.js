@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Page = styled.div`
   align-items: center;
-  background-color: #FFF;
+  background-color: #BEBEBE;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -14,12 +14,13 @@ const Component = styled.div`
   width: 60%;
 `;
 
-const LoginLogo = styled.div`
+const LogoContainer = styled.div`
   align-items: center; 
   background-color: #10C9AF;
   display: inline-flexbox;
   height: 100%;
   justify-content: center;
+  text-align: center;
   width: 50%;
 `;
 
@@ -30,7 +31,7 @@ const Title = styled.h1`
   text-transform: uppercase;
 `;
 
-const LoginForm = styled.div`
+const LoginContainer = styled.div`
   background-color: #1260A9;
   float: right;
   height: 100%;
@@ -40,7 +41,7 @@ const LoginForm = styled.div`
 export {
   Page,
   Component,
-  LoginLogo,
-  LoginForm,
+  LogoContainer,
+  LoginContainer,
   Title,
 };
