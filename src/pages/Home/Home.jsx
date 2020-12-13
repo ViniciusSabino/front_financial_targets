@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from '../../components/Header';
-import CurrentBalance from '../../components/CurrentBalance';
+import Header from '../../components/Template/Header';
+import CurrentBalance from '../../components/Template/CurrentBalance';
 
 const Home = () => (
   <>

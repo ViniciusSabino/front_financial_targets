@@ -1,10 +1,9 @@
-/* eslint-disable import/no-unresolved */
-import Accounts from './Accounts';
 import Home from './Home';
+import Bills from './Bills';
 import Login from './Login';
 
 export {
-  Accounts,
+  Bills,
   Home,
   Login,
 };

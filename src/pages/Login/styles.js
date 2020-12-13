@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const Page = styled.div`
-  align-items: center;
   background-color: #BEBEBE;
   display: flex;
   height: 100vh;
@@ -14,13 +13,12 @@ const Component = styled.div`
   width: 60%;
 `;
 
-const LogoContainer = styled.div`
+const CardTitle = styled.div`
   align-items: center; 
   background-color: #10C9AF;
   display: inline-flexbox;
   height: 100%;
   justify-content: center;
-  text-align: center;
   width: 50%;
 `;
 
@@ -31,8 +29,9 @@ const Title = styled.h1`
   text-transform: uppercase;
 `;
 
-const LoginContainer = styled.div`
+const CardLogin = styled.div`
   background-color: #1260A9;
+  display: flex;
   float: right;
   height: 100%;
   width: 50%;
@@ -41,7 +40,7 @@ const LoginContainer = styled.div`
 export {
   Page,
   Component,
-  LogoContainer,
-  LoginContainer,
+  CardTitle,
+  CardLogin,
   Title,
 };
