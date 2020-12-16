@@ -1,1 +1,9 @@
+APLICAÇÃO
+
 - Definir as melhores fontes para aplicação
+- Criar uma lib para validação de modelos para ser utilizado por toda a aplicação (Utilizar a lib: joi)
+
+LOGIN
+
+- Habilitar o botão ENTER para realizar o login na aplicação
+- Adicionar uma Regex para a validaçã da senha informada
