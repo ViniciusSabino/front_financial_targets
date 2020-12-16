@@ -1,4 +1,7 @@
+/* eslint-disable no-alert */
 import React, { useState } from 'react';
+
+import service from './service';
 
 import Field from '../FormField';
 import Button from '../../../UI/Button';
@@ -8,11 +11,15 @@ import {
   Form,
   Link,
   LoginActions,
+  Error,
 } from './styles';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
+  const [emailErrors, setEmailErrors] = useState([]);
+
   const [password, setPassword] = useState('');
+  const [passwordErrors, setPasswordErrors] = useState([]);
 
   const handleChange = (event) => {
     const setValue = new Map([
@@ -23,11 +30,19 @@ const LoginForm = () => {
     setValue(event.target.value);
   };
 
-  const handleSubmit = () => {};
+  const handleLogin = () => {
+    setEmail('');
+    setPassword('');
+
+    const validationErrors = service.validateLogin({ email, password });
+
+    setEmailErrors(validationErrors.email);
+    setPasswordErrors(validationErrors.password);
+  };
 
   return (
     <Component>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <Field
           label="E-mail"
           name="email"
@@ -35,6 +50,7 @@ const LoginForm = () => {
           value={email}
           onChange={handleChange}
         />
+        {!!emailErrors.length && emailErrors.map((message) => <Error>{message}</Error>)}
         <Field
           label="Senha"
           name="password"
@@ -42,9 +58,10 @@ const LoginForm = () => {
           value={password}
           onChange={handleChange}
         />
+        {!!passwordErrors.length && passwordErrors.map((message) => <Error>{message}</Error>)}
         <LoginActions>
           <Link href="http://google.com">Esqueci minha senha</Link>
-          <Button type="button" label="Entrar" onClick={() => { }} />
+          <Button type="button" label="Entrar" onClick={handleLogin} />
         </LoginActions>
       </Form>
     </Component>
