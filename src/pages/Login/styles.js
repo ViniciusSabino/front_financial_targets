@@ -24,8 +24,9 @@ const CardTitle = styled.div`
 
 const Title = styled.h1`
   color: #FFF;
-  font-size: 40px;
+  font-size: 42px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
   text-transform: uppercase;
 `;
 
