@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import Balance from './components/Balance';
-import mock from './data-mock';
+import Balance from '../Balance';
+import mock from './mock';
 
 import {
   Component,

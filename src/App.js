@@ -7,15 +7,15 @@ import {
 
 import GlobalStyle from './styles/global';
 
-import Home from './pages/Home';
-import Accounts from './pages/Accounts';
+import { Home, Login, Bills } from './pages';
 
 const App = () => (
   <>
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/accounts" component={Accounts} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/bills" component={Bills} />
       </Switch>
     </Router>
     <GlobalStyle />

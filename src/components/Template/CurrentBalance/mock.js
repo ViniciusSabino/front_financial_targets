@@ -19,7 +19,7 @@ const getCurrentBalances = () => Promise.resolve([
   },
   {
     id: '5',
-    name: 'Easynvest',
+    name: 'Reserva de Emergência',
     currentBalance: 4999.00,
     balanceType: 'INVESTMENT',
   },
