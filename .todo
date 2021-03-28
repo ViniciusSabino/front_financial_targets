@@ -1,7 +1,8 @@
-APLICAÇÃO
+APLICAÇÃO GERAL
 
-- Definir as melhores fontes para aplicação
-- Criar uma lib para validação de modelos para ser utilizado por toda a aplicação (Utilizar a lib: joi)
+- Definir e configurar a melhor font para a aplicação (Roboto)
+- Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib: Joi)
+
 
 LOGIN
 
