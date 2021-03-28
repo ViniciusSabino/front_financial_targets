@@ -8,7 +8,7 @@ const prepareBalanceData = (summary) => {
     ACCOUNT: '- Conta Principal',
     INVESTIMENT: '- Principal',
   };
-  E;
+
   const balances = [];
 
   const totalBalances = Object.keys(summary.totalBalance);
