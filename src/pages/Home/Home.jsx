@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Header from '../../components/Template/Header';
-import CurrentBalance from '../../components/Template/CurrentBalance';
+import SummaryBalancesContainer from '../../components/Template/SummaryBalances/SummaryBalancesContainer';
 
 const Home = () => (
   <>
     <Header title="Financial Targets" />
-    <CurrentBalance />
+    <SummaryBalancesContainer />
   </>
 );
 

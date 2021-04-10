@@ -31,9 +31,16 @@ const LoginActions = styled.div`
   }
 `;
 
+const Error = styled.p`
+  color: #E9BFBF;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 13px;
+`;
+
 export {
   Component,
   Form,
   Link,
   LoginActions,
+  Error,
 };

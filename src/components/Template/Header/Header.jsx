@@ -8,6 +8,7 @@ import {
 
 const Header = ({ title }) => (
   <Component>
+    {/* TODO: Adicionar componente MENU */}
     <Title>{title}</Title>
   </Component>
 );

@@ -3,7 +3,7 @@ CSS (PESQUISAR)
 - display: inline-block; flex; table; table-cell; grid
 - margin: 0
 - line-height
-- Pesquisar sobre todos as propriedades de css desconhecidas e que impactos ela causou no projeto
+- position: relative, absolute
 
 REACT (PESQUISAR)
 

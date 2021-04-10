@@ -1,1 +1,11 @@
-- Definir as melhores fontes para aplicação
+APLICAÇÃO GERAL
+
+- Definir e configurar a melhor font para a aplicação (Roboto)
+- Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib: Joi)
+- Funções auxiliares - Função para receber um decimal e formatar para o formato correta de moeda (R$) para exibição
+
+
+LOGIN
+
+- Habilitar o botão ENTER para realizar o login na aplicação
+- Adicionar uma Regex para a validação da senha informada (Senha forte)
