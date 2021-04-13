@@ -2,7 +2,8 @@ APLICAÇÃO GERAL
 
 - Definir e configurar a melhor font para a aplicação (Roboto)
 - Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib: Joi)
-- Funções auxiliares - Função para receber um decimal e formatar para o formato correta de moeda (R$) para exibição
+- Funções auxiliares 
+  - Função para receber um decimal e formatar para o formato correta de moeda (R$) para exibição
 
 
 LOGIN
