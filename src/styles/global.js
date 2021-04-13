@@ -11,6 +11,6 @@ html,
 body,
 #root { min-height: 100%; }
 body {
-  background: #BEBEBE;
+  background: #E5E5E5;
 }
 `;

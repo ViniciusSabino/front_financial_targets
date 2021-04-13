@@ -4,20 +4,37 @@ import SummaryBalances from './SummaryBalances';
 
 import MOCK from './mock';
 
+import { currentBalancesAdapter, summarizedClosingsAdapter } from './helpers';
+
 const SummaryBalancesContainer = () => {
-  const [summaryBalances, setSummaryBalances] = useState();
+  const [currentBalances, setCurrentBalances] = useState();
+  const [summarizedClosings, setSummarizedClosings] = useState();
+
+  const getCurrentBalances = async () => {
+    const data = await MOCK.getCurrentBalances();
+    const balances = currentBalancesAdapter(data);
+
+    setCurrentBalances(balances);
+  };
+
+  const getSummarizedClosings = async () => {
+    const data = await MOCK.getSummarizedClosings();
+    const closings = summarizedClosingsAdapter(data);
+
+    setSummarizedClosings(closings);
+  };
 
   // Hooks
   useEffect(() => {
-    const getSummaryBalances = async () => {
-      const data = await MOCK.getSummaryBalances();
-      setSummaryBalances(data);
-    };
-    getSummaryBalances();
+    getCurrentBalances();
+    getSummarizedClosings();
   }, []);
 
   return (
-    <SummaryBalances summary={summaryBalances} />
+    <SummaryBalances
+      balancesGroup={currentBalances}
+      closings={summarizedClosings}
+    />
   );
 };
 

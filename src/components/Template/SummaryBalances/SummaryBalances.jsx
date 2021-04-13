@@ -1,50 +1,60 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import helpers from './helpers';
+import CurrentBalance from './CurrentBalance/CurrentBalance';
+import SummaryClosing from './SummaryClosing/SummaryClosing';
 
 import {
   Component,
-  SummaryTitleComponent,
-  SummaryTitle,
-  Balance,
-  BalanceHeader,
-  BalanceName,
-  BalanceBody,
-  BalanceValue,
+  CurrentBalances,
+  SummarizedClosings,
 } from './styles';
 
-const { prepareBalanceData } = helpers;
-
-const SummaryBalances = ({ summary }) => {
-  const balances = summary ? prepareBalanceData(summary) : [];
-
-  return (
-    <Component>
-      <SummaryTitleComponent position="left">
-        <SummaryTitle>Saldo Atual</SummaryTitle>
-      </SummaryTitleComponent>
-
-      <SummaryTitleComponent position="right">
-        <SummaryTitle>Saldo Total</SummaryTitle>
-      </SummaryTitleComponent>
-
-      {balances.map((balance) => (
-        <Balance
-          key={balance.name}
-          position={balance.position}
-          bordered={balance.bordered}
-        >
-          <BalanceHeader>
-            <BalanceName>{balance.name}</BalanceName>
-          </BalanceHeader>
-          <BalanceBody>
-            <BalanceValue>{balance.value}</BalanceValue>
-          </BalanceBody>
-        </Balance>
+const SummaryBalances = ({ balancesGroup, closings }) => (
+  <Component>
+    <CurrentBalances>
+      {balancesGroup.map((group) => (
+        <CurrentBalance
+          key={group.title}
+          title={group.title}
+          position={group.position}
+          balances={group.balances}
+        />
       ))}
-    </Component>
+    </CurrentBalances>
+    <SummarizedClosings>
+      {closings.map((closing, index) => (
+        <SummaryClosing
+          position={index % 2 ? 'left' : 'right'}
+          description={closing.description}
+          value={closing.value}
+        />
+      ))}
+    </SummarizedClosings>
+  </Component>
+);
 
-  );
+SummaryBalances.propTypes = {
+  balancesGroup: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    position: PropTypes.oneOf(['right', 'left']).isRequired,
+    balances: PropTypes.arrayOf(PropTypes.shape({
+      position: PropTypes.oneOf(['right', 'left']).isRequired,
+      bordered: PropTypes.bool.isRequired,
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })),
+  })),
+
+  closings: PropTypes.arrayOf(PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  })),
+};
+
+SummaryBalances.defaultProps = {
+  balancesGroup: [],
+  closings: [],
 };
 
 export default SummaryBalances;
