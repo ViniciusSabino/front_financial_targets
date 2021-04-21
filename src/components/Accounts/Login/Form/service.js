@@ -1,22 +1,22 @@
 import model from './schemas';
-import configs from '../../../../helpers/configs';
+import { JOI } from '../../../../utils/configs';
 
-const validateLogin = (loginModel) => {
-  const schemaValidation = model.LoginSchema.validate(loginModel, configs.JOI_VALIDATE_OPTIONS);
+const validateLogin = ({ email, password }) => {
+  const schemaValidation = model.LoginSchema
+    .validate({ email, password }, JOI.VALIDATE_OPTIONS);
 
   if (schemaValidation.error) {
     const { details: errorDetails } = schemaValidation.error;
 
-    const errorMessages = errorDetails.reduce((errors, detail) => {
-      errors[detail.context.key].push(detail.message);
+    const errors = errorDetails.map(({ context, message }) => ({
+      field: context.key,
+      message,
+    }));
 
-      return errors;
-    }, { email: [], password: [] });
-
-    return errorMessages;
+    return errors;
   }
 
-  return { email: [], password: [] };
+  return [];
 };
 
 export default {

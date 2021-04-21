@@ -15,7 +15,7 @@ const LoginSchema = Joi.object({
     .pattern(new RegExp('^[a-zA-Z0-9]{5,30}$'))
     .messages({
       'string.empty': '* A senha é obrigatória',
-      'string.pattern.base': '* A senha está inválida',
+      'string.pattern.base': '* A senha está inválida', // TODO: Adaptar mensagem de erro
     }),
 });
 

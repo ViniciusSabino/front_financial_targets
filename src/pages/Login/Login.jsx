@@ -1,26 +1,26 @@
 import React from 'react';
 
-import LoginForm from '../../components/Accounts/Login/Form';
+import { APPLICATION_NAME } from '../../utils/constants';
+
+import LoginFormContainer from '../../components/Accounts/Login/Form/LoginFormContainer';
 
 import {
   Page,
   Component,
-  CardTitle,
-  CardLogin,
+  ComponentTitle,
+  ComponentLogin,
   Title,
 } from './styles';
 
 const Login = () => (
   <Page>
     <Component>
-      <CardTitle>
-        <Title>
-          Financial Targets
-        </Title>
-      </CardTitle>
-      <CardLogin>
-        <LoginForm />
-      </CardLogin>
+      <ComponentTitle>
+        <Title>{APPLICATION_NAME}</Title>
+      </ComponentTitle>
+      <ComponentLogin>
+        <LoginFormContainer />
+      </ComponentLogin>
     </Component>
   </Page>
 );

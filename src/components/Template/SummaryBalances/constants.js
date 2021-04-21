@@ -1,6 +1,6 @@
 const BALANCE_NAME_RATING = {
   ACCOUNT: '- Conta Principal',
-  INVESTMENT: '- Investimento Principal',
+  INVESTMENT: '- Principal',
 };
 
 const COMPONENT_BALANCE_POSITION = {
