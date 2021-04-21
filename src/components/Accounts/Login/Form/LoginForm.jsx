@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,7 +8,7 @@ import {
   Component,
   Form,
   Link,
-  LoginActions,
+  Actions,
   Error,
 } from './styles';
 
@@ -44,10 +43,10 @@ const LoginForm = ({
         .filter((error) => error.field === 'password')
         .map((error) => <Error key={error.message}>{error.message}</Error>)}
 
-      <LoginActions>
+      <Actions>
         <Link href="http://google.com">Esqueci minha senha</Link>
         <Button type="button" label="Entrar" onClick={handleLogin} />
-      </LoginActions>
+      </Actions>
     </Form>
   </Component>
 );

@@ -9,16 +9,17 @@ const Label = styled.label`
   color: #FFFF;
   display: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   justify-content: center;
   padding: 5px 5px;
 `;
 
 const Input = styled.input`
-  color: #000000;
-  font-size: 14px;
+  color: #637580;
+  border: none;
+  font-size: 16px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding: 5px;
+  padding: 6px;
   width: 100%;
 `;
 
