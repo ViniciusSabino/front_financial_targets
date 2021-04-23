@@ -4,6 +4,7 @@ CSS (PESQUISAR)
 - margin: 0
 - line-height
 - position: relative, absolute
+- border-collapse: collapse;
 
 REACT (PESQUISAR)
 
