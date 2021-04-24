@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CurrentBalance from './CurrentBalance/CurrentBalance';
-import SummaryClosing from './SummaryClosing/SummaryClosing';
+import { CurrentBalance, SummaryClosing } from './childrens';
 
 import {
   Component,

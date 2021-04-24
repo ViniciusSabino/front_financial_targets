@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import {
   BALANCE_NAME_RATING,
   COMPONENT_BALANCE_POSITION,
