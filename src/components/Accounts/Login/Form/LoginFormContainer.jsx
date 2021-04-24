@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import service from './service';
 
@@ -30,7 +30,7 @@ const LoginFormContainer = () => {
 
     if (!errors.length) {
       resetLogin();
-      alert('LOGIN OK');
+      alert('Login OK');
     }
   };
 
