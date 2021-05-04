@@ -4,8 +4,7 @@ import { APPLICATION_NAME } from '../../utils/constants';
 
 import Header from '../../components/Template/Header';
 import SummaryBalancesContainer from '../../components/Template/SummaryBalances/SummaryBalancesContainer';
-
-import ReleasesComponent from '../../components/Releases/Releases';
+import ReleasesContainer from '../../components/Releases/ReleasesContainer';
 
 const Releases = () => (
   <>
@@ -13,7 +12,8 @@ const Releases = () => (
     <Header title={APPLICATION_NAME} />
     <SummaryBalancesContainer />
 
-    <ReleasesComponent />
+    {/* Releases */}
+    <ReleasesContainer />
   </>
 );
 
