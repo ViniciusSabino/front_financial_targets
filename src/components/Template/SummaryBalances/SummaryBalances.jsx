@@ -21,9 +21,11 @@ const SummaryBalances = ({ balancesGroup, closings }) => (
         />
       ))}
     </CurrentBalances>
+
     <SummarizedClosings>
       {closings.map((closing, index) => (
         <SummaryClosing
+          key={closing.description}
           position={index % 2 ? 'left' : 'right'}
           description={closing.description}
           value={closing.value}
@@ -44,7 +46,6 @@ SummaryBalances.propTypes = {
       value: PropTypes.string.isRequired,
     })),
   })),
-
   closings: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,

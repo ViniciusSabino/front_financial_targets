@@ -1,32 +1,32 @@
-const BALANCE_NAME_RATING = {
-  ACCOUNT: '- Conta Principal',
-  INVESTMENT: '- Principal',
+const CURRENT_BALANCE = {
+  TITLE_COMPLEMENT: {
+    ACCOUNT: '- Conta Principal',
+    INVESTMENT: '- Principal',
+  },
+  POSITION: 'left',
+  MAIN_TITLE: 'Saldo Atual',
+  TYPES: {
+    ACCOUNT: 'ACCOUNT',
+    INVESTMENT: 'INVESTMENT',
+  },
 };
 
-const COMPONENT_BALANCE_POSITION = {
-  CURRENT: 'left',
-  TOTAL: 'right',
+const TOTAL_BALANCE = {
+  POSITION: 'right',
+  MAIN_TITLE: 'Saldo Total',
+  BALANCE_OPTIONS: {
+    GENERAL: 'Geral',
+    INVESTMENTS: 'Investimentos',
+  },
 };
 
-const BALANCE_TITLE = {
-  CURRENT: 'Saldo Atual',
-  TOTAL: 'Saldo Total',
-};
-
-const TOTAL_BALANCES_LABELS = {
-  GENERAL: 'Geral',
-  INVESTMENTS: 'Investimentos',
-};
-
-const CURRENT_BALANCE_TYPES = {
-  ACCOUNT: 'ACCOUNT',
-  INVESTMENT: 'INVESTMENT',
+const TYPES_OF_BALANCES = {
+  CURRENT: 'CURRENT_BALANCE',
+  TOTAL: 'TOTAL_BALANCE',
 };
 
 export {
-  BALANCE_NAME_RATING,
-  COMPONENT_BALANCE_POSITION,
-  BALANCE_TITLE,
-  TOTAL_BALANCES_LABELS,
-  CURRENT_BALANCE_TYPES,
+  CURRENT_BALANCE,
+  TOTAL_BALANCE,
+  TYPES_OF_BALANCES,
 };

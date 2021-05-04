@@ -1,9 +1,11 @@
 import {
-  BALANCE_NAME_RATING,
-  COMPONENT_BALANCE_POSITION,
-  BALANCE_TITLE,
-  TOTAL_BALANCES_LABELS,
-} from './constants';
+  mountCurrentBalanceTitle,
+  getTotalBalanceTitle,
+  getBalanceGroupPosition,
+  getBalanceMainTitle,
+} from './childrens/CurrentBalance/helpers';
+
+import { TYPES_OF_BALANCES } from './constants';
 
 const currentBalancesAdapter = (summary) => {
   const balances = [];
@@ -11,29 +13,29 @@ const currentBalancesAdapter = (summary) => {
   const currentBalances = Object.keys(summary.currentBalances)
     .reduce((acc, balanceName) => [...acc, ...summary.currentBalances[balanceName]]
       .map((balance, index) => ({
-        name: `${balance.name} ${balance.isMain ? BALANCE_NAME_RATING[balance.type] : ''}`,
+        name: mountCurrentBalanceTitle(balance),
         value: `R$ ${balance.value}`,
-        position: COMPONENT_BALANCE_POSITION.CURRENT,
+        position: getBalanceGroupPosition(TYPES_OF_BALANCES.CURRENT),
         bordered: index > 0,
       })), []);
 
   balances.push({
-    title: BALANCE_TITLE.CURRENT,
-    position: COMPONENT_BALANCE_POSITION.CURRENT,
+    title: getBalanceMainTitle(TYPES_OF_BALANCES.CURRENT),
+    position: getBalanceGroupPosition(TYPES_OF_BALANCES.CURRENT),
     balances: currentBalances,
   });
 
   const totalBalances = Object.keys(summary.totalBalance)
     .map((balanceName, index) => ({
-      name: TOTAL_BALANCES_LABELS[balanceName.toUpperCase()],
+      name: getTotalBalanceTitle(balanceName),
       value: `R$ ${summary.totalBalance[balanceName]}`,
-      position: 'right',
+      position: getBalanceGroupPosition(TYPES_OF_BALANCES.TOTAL),
       bordered: index > 0,
     }));
 
   balances.push({
-    title: 'Saldo Total',
-    position: 'right',
+    title: getBalanceMainTitle(TYPES_OF_BALANCES.TOTAL),
+    position: getBalanceGroupPosition(TYPES_OF_BALANCES.TOTAL),
     balances: totalBalances,
   });
 
