@@ -4,6 +4,7 @@ const SUMMARY_BALANCES_DATA = {
   currentBalances: {
     accounts: [
       {
+        id: 1,
         name: 'Itaú 01',
         type: CURRENT_BALANCE.TYPES.ACCOUNT,
         value: 3400,
@@ -12,6 +13,7 @@ const SUMMARY_BALANCES_DATA = {
     ],
     investments: [
       {
+        id: 2,
         name: 'Investimento 1',
         type: CURRENT_BALANCE.TYPES.INVESTMENT,
         value: 10400,
@@ -19,10 +21,19 @@ const SUMMARY_BALANCES_DATA = {
       },
     ],
   },
-  totalBalance: {
-    investments: 129384,
-    general: 40989.29,
-  },
+  totalBalances: [
+    {
+      id: 1,
+      name: 'investments',
+      value: 129384,
+    },
+    {
+      id: 2,
+      name: 'general',
+      value: 40989.29,
+    },
+
+  ],
 };
 
 const SUMMARIZED_CLOSINGS_DATA = [

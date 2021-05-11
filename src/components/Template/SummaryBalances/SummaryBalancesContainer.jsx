@@ -6,9 +6,16 @@ import service from './service';
 
 const SummaryBalancesContainer = () => {
   const [currentBalances, setCurrentBalances] = useState();
-  const [summarizedClosings, setSummarizedClosings] = useState();
+  const [totalBalances, setTotalBalances] = useState();
+  const [summarizedClosings, setSummarizedClosings] = useState([]);
 
-  const getCurrentBalances = async () => setCurrentBalances(await service.getCurrentBalances());
+  const getCurrentBalances = async () => {
+    const data = await service.getCurrentBalances();
+
+    setCurrentBalances(data.currentBalances);
+    setTotalBalances(data.totalBalances);
+  };
+
   const getSummarizedClosings = async () => setSummarizedClosings(await service.getSummarizedClosings());
 
   // Hooks
@@ -19,7 +26,8 @@ const SummaryBalancesContainer = () => {
 
   return (
     <SummaryBalances
-      balancesGroup={currentBalances}
+      currentBalances={currentBalances}
+      totalBalances={totalBalances}
       closings={summarizedClosings}
     />
   );

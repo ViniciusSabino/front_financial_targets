@@ -2,50 +2,67 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { CurrentBalance, SummaryClosing } from './childrens';
+import { CURRENT_BALANCE, TYPES_OF_BALANCES } from './constants';
 
-import {
-  Component,
-  CurrentBalances,
-  SummarizedClosings,
-} from './styles';
+import { Component, CurrentBalances, SummarizedClosings } from './styles';
 
-const SummaryBalances = ({ balancesGroup, closings }) => (
-  <Component>
-    <CurrentBalances>
-      {balancesGroup.map((group) => (
-        <CurrentBalance
-          key={group.title}
-          title={group.title}
-          position={group.position}
-          balances={group.balances}
-        />
-      ))}
-    </CurrentBalances>
+const SummaryBalances = ({ currentBalances, totalBalances, closings }) => {
+  const balances = [];
 
-    <SummarizedClosings>
-      {closings.map((closing, index) => (
-        <SummaryClosing
-          key={closing.description}
-          position={index % 2 ? 'left' : 'right'}
-          description={closing.description}
-          value={closing.value}
-        />
-      ))}
-    </SummarizedClosings>
-  </Component>
-);
+  if (currentBalances) balances.push(currentBalances);
+  if (totalBalances) balances.push(totalBalances);
+
+  return (
+    <Component>
+      <CurrentBalances>
+        {balances.map((group) => (
+          <CurrentBalance
+            key={group.title}
+            title={group.title}
+            type={group.type}
+            balances={group.balances}
+          />
+        ))}
+      </CurrentBalances>
+
+      <SummarizedClosings>
+        {closings.map((closing, index) => (
+          <SummaryClosing
+            key={closing.description}
+            position={index % 2 ? 'left' : 'right'}
+            description={closing.description}
+            value={closing.value}
+          />
+        ))}
+      </SummarizedClosings>
+    </Component>
+  );
+};
 
 SummaryBalances.propTypes = {
-  balancesGroup: PropTypes.arrayOf(PropTypes.shape({
+  currentBalances: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    position: PropTypes.oneOf(['right', 'left']).isRequired,
+    type: PropTypes.oneOf([TYPES_OF_BALANCES.CURRENT]).isRequired,
     balances: PropTypes.arrayOf(PropTypes.shape({
-      position: PropTypes.oneOf(['right', 'left']).isRequired,
-      bordered: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
+      type: PropTypes.oneOf([CURRENT_BALANCE.TYPES.ACCOUNT, CURRENT_BALANCE.TYPES.INVESTMENT]).isRequired,
+      value: PropTypes.number.isRequired,
+      index: PropTypes.number.isRequired,
     })),
-  })),
+  }),
+
+  totalBalances: PropTypes.shape({
+    title: PropTypes.string,
+    position: PropTypes.oneOf([TYPES_OF_BALANCES.TOTAL]),
+    balances: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+      index: PropTypes.number.isRequired,
+    })),
+  }),
+
   closings: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -53,7 +70,8 @@ SummaryBalances.propTypes = {
 };
 
 SummaryBalances.defaultProps = {
-  balancesGroup: [],
+  currentBalances: null,
+  totalBalances: null,
   closings: [],
 };
 

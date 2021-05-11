@@ -1,10 +1,13 @@
-import { currentBalancesAdapter, summarizedClosingsAdapter } from './helpers';
+import { currentBalanceMapping, totalBalancesMapping, summarizedClosingsAdapter } from './helpers';
 import MOCKS from './MOCKS';
 
 const getCurrentBalances = async () => {
   const data = await MOCKS.getCurrentBalances();
 
-  return currentBalancesAdapter(data);
+  return {
+    currentBalances: currentBalanceMapping(data.currentBalances),
+    totalBalances: totalBalancesMapping(data.totalBalances),
+  };
 };
 
 const getSummarizedClosings = async () => {

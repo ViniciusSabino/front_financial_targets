@@ -8,11 +8,10 @@ import ReleasesContainer from '../../components/Releases/ReleasesContainer';
 
 const Releases = () => (
   <>
-    {/* Template */}
+
     <Header title={APPLICATION_NAME} />
     <SummaryBalancesContainer />
 
-    {/* Releases */}
     <ReleasesContainer />
   </>
 );
