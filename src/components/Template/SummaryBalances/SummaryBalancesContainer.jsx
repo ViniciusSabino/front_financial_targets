@@ -2,27 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 import SummaryBalances from './SummaryBalances';
 
-import MOCK from './mock';
-
-import { currentBalancesAdapter, summarizedClosingsAdapter } from './helpers';
+import service from './service';
 
 const SummaryBalancesContainer = () => {
   const [currentBalances, setCurrentBalances] = useState();
-  const [summarizedClosings, setSummarizedClosings] = useState();
+  const [totalBalances, setTotalBalances] = useState();
+  const [summarizedClosings, setSummarizedClosings] = useState([]);
 
   const getCurrentBalances = async () => {
-    const data = await MOCK.getCurrentBalances();
-    const balances = currentBalancesAdapter(data);
+    const data = await service.getCurrentBalances();
 
-    setCurrentBalances(balances);
+    setCurrentBalances(data.currentBalances);
+    setTotalBalances(data.totalBalances);
   };
 
-  const getSummarizedClosings = async () => {
-    const data = await MOCK.getSummarizedClosings();
-    const closings = summarizedClosingsAdapter(data);
-
-    setSummarizedClosings(closings);
-  };
+  const getSummarizedClosings = async () => setSummarizedClosings(await service.getSummarizedClosings());
 
   // Hooks
   useEffect(() => {
@@ -32,7 +26,8 @@ const SummaryBalancesContainer = () => {
 
   return (
     <SummaryBalances
-      balancesGroup={currentBalances}
+      currentBalances={currentBalances}
+      totalBalances={totalBalances}
       closings={summarizedClosings}
     />
   );

@@ -30,7 +30,7 @@ const LoginFormContainer = () => {
 
     if (!errors.length) {
       resetLogin();
-      alert('LOGIN OK');
+      alert('Login OK');
     }
   };
 

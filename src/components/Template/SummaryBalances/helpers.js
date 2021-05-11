@@ -1,50 +1,30 @@
-/* eslint-disable import/prefer-default-export */
-import {
-  BALANCE_NAME_RATING,
-  COMPONENT_BALANCE_POSITION,
-  BALANCE_TITLE,
-  TOTAL_BALANCES_LABELS,
-} from './constants';
+import { getBalanceMainTitle } from './childrens/CurrentBalance/helpers';
+import { TYPES_OF_BALANCES } from './constants';
 
-const currentBalancesAdapter = (summary) => {
-  const balances = [];
+const currentBalanceMapping = (balances) => {
+  const currentBalances = Object.keys(balances)
+    .reduce((acc, balanceName) => [...acc, ...balances[balanceName]]
+      .map((balance, index) => ({ ...balance, index })), []);
 
-  const currentBalances = Object.keys(summary.currentBalances)
-    .reduce((acc, balanceName) => [...acc, ...summary.currentBalances[balanceName]]
-      .map((balance, index) => ({
-        name: `${balance.name} ${balance.isMain ? BALANCE_NAME_RATING[balance.type] : ''}`,
-        value: `R$ ${balance.value}`,
-        position: COMPONENT_BALANCE_POSITION.CURRENT,
-        bordered: index > 0,
-      })), []);
-
-  balances.push({
-    title: BALANCE_TITLE.CURRENT,
-    position: COMPONENT_BALANCE_POSITION.CURRENT,
+  return {
+    title: getBalanceMainTitle(TYPES_OF_BALANCES.CURRENT),
+    type: TYPES_OF_BALANCES.CURRENT,
     balances: currentBalances,
-  });
-
-  const totalBalances = Object.keys(summary.totalBalance)
-    .map((balanceName, index) => ({
-      name: TOTAL_BALANCES_LABELS[balanceName.toUpperCase()],
-      value: `R$ ${summary.totalBalance[balanceName]}`,
-      position: 'right',
-      bordered: index > 0,
-    }));
-
-  balances.push({
-    title: 'Saldo Total',
-    position: 'right',
-    balances: totalBalances,
-  });
-
-  return balances;
+  };
 };
+
+const totalBalancesMapping = (totalBalances) => ({
+  title: getBalanceMainTitle(TYPES_OF_BALANCES.TOTAL),
+  type: TYPES_OF_BALANCES.TOTAL,
+  balances: totalBalances
+    .map((totalBalance, index) => ({ ...totalBalance, index })),
+});
 
 const summarizedClosingsAdapter = (closings) => closings.map((closing) => (
   { ...closing, value: `R$ ${closing.value}` }));
 
 export {
-  currentBalancesAdapter,
+  currentBalanceMapping,
+  totalBalancesMapping,
   summarizedClosingsAdapter,
 };

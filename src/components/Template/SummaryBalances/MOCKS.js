@@ -1,28 +1,39 @@
-import { CURRENT_BALANCE_TYPES } from './constants';
+import { CURRENT_BALANCE } from './constants';
 
 const SUMMARY_BALANCES_DATA = {
   currentBalances: {
     accounts: [
       {
+        id: 1,
         name: 'Itaú 01',
-        type: CURRENT_BALANCE_TYPES.ACCOUNT,
-        value: 3400.00,
+        type: CURRENT_BALANCE.TYPES.ACCOUNT,
+        value: 3400,
         isMain: true,
       },
     ],
     investments: [
       {
+        id: 2,
         name: 'Investimento 1',
-        type: CURRENT_BALANCE_TYPES.INVESTMENT,
-        value: 10400.00,
+        type: CURRENT_BALANCE.TYPES.INVESTMENT,
+        value: 10400,
         isMain: true,
       },
     ],
   },
-  totalBalance: {
-    investments: 129384,
-    general: 40989.29,
-  },
+  totalBalances: [
+    {
+      id: 1,
+      name: 'investments',
+      value: 129384,
+    },
+    {
+      id: 2,
+      name: 'general',
+      value: 40989.29,
+    },
+
+  ],
 };
 
 const SUMMARIZED_CLOSINGS_DATA = [
