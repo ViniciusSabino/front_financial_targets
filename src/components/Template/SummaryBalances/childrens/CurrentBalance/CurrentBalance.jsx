@@ -16,28 +16,29 @@ import {
 } from './styles';
 
 const CurrentBalance = ({ title, type, balances }) => {
-  const POSITION = getBalanceGroupPosition(type);
+  const balancePosition = getBalanceGroupPosition(type);
 
   return (
-    <Component position={POSITION}>
-      <ComponentTitle position={POSITION}>
+    <Component position={balancePosition}>
+      <ComponentTitle position={balancePosition}>
         <Title>{title}</Title>
       </ComponentTitle>
 
-      {balances.map((balance) => (
-        <Balance
-          key={balance.id}
-          position={POSITION}
-          bordered={shouldPutBorderBalance(balance.index)}
-        >
-          <Header>
-            <BalanceName>{mountBalanceTitle(balance, type)}</BalanceName>
-          </Header>
-          <Body>
-            <BalanceValue>{balance.value}</BalanceValue>
-          </Body>
-        </Balance>
-      ))}
+      {balances.map((balance) => {
+        const balanceTitle = mountBalanceTitle(balance, type);
+        const isBorderedBalance = shouldPutBorderBalance(balance.index);
+
+        return (
+          <Balance key={balance.id} position={balancePosition} bordered={isBorderedBalance}>
+            <Header>
+              <BalanceName>{balanceTitle}</BalanceName>
+            </Header>
+            <Body>
+              <BalanceValue>{balance.value}</BalanceValue>
+            </Body>
+          </Balance>
+        );
+      })}
     </Component>
   );
 };
