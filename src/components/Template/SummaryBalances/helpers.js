@@ -20,11 +20,7 @@ const totalBalancesMapping = (totalBalances) => ({
     .map((totalBalance, index) => ({ ...totalBalance, index })),
 });
 
-const summarizedClosingsAdapter = (closings) => closings.map((closing) => (
-  { ...closing, value: `R$ ${closing.value}` }));
-
 export {
   currentBalanceMapping,
   totalBalancesMapping,
-  summarizedClosingsAdapter,
 };

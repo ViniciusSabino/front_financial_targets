@@ -1,4 +1,4 @@
-import { CURRENT_BALANCE } from './constants';
+import { CURRENT_BALANCE, TYPES_OF_CLOSINGS } from './constants';
 
 const SUMMARY_BALANCES_DATA = {
   currentBalances: {
@@ -36,17 +36,19 @@ const SUMMARY_BALANCES_DATA = {
   ],
 };
 
-const SUMMARIZED_CLOSINGS_DATA = [
-  {
-    description: 'Fechamento estimado para o mês de Março',
-    value: 10400,
-  },
-
-  {
-    description: 'Fechamento atual para o mês de Março',
-    value: 900,
-  },
-];
+const SUMMARIZED_CLOSINGS_DATA = {
+  month: 5,
+  closings: [
+    {
+      type: TYPES_OF_CLOSINGS.ESTIMATED.name,
+      value: 10400,
+    },
+    {
+      type: TYPES_OF_CLOSINGS.CURRENT.name,
+      value: 900,
+    },
+  ],
+};
 
 const getCurrentBalances = () => Promise.resolve(SUMMARY_BALANCES_DATA);
 
