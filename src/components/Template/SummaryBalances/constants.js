@@ -1,3 +1,4 @@
+// currentBalances
 const CURRENT_BALANCE = {
   TITLE_COMPLEMENT: {
     ACCOUNT: '- Conta Principal',
@@ -25,8 +26,21 @@ const TYPES_OF_BALANCES = {
   TOTAL: 'TOTAL_BALANCE',
 };
 
+// summaryClosing
+const TYPES_OF_CLOSINGS = {
+  ESTIMATED: {
+    name: 'ESTIMATED',
+    templateDescription: 'Fechamento estimado para o mês de {{month}}',
+  },
+  CURRENT: {
+    name: 'CURRENT',
+    templateDescription: 'Fechamento atual para o mês de {{month}}',
+  },
+};
+
 export {
   CURRENT_BALANCE,
   TOTAL_BALANCE,
   TYPES_OF_BALANCES,
+  TYPES_OF_CLOSINGS,
 };

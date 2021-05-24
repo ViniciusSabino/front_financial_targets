@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { CurrentBalance, SummaryClosing } from './childrens';
-import { CURRENT_BALANCE, TYPES_OF_BALANCES } from './constants';
+import { CURRENT_BALANCE, TYPES_OF_BALANCES, TYPES_OF_CLOSINGS } from './constants';
 
 import { Component, CurrentBalances, SummarizedClosings } from './styles';
 
-const SummaryBalances = ({ currentBalances, totalBalances, closings }) => {
+const SummaryBalances = ({ currentBalances, totalBalances, summarizedClosings }) => {
   const balances = [];
 
   if (currentBalances) balances.push(currentBalances);
@@ -26,12 +26,13 @@ const SummaryBalances = ({ currentBalances, totalBalances, closings }) => {
       </CurrentBalances>
 
       <SummarizedClosings>
-        {closings.map((closing, index) => (
+        {summarizedClosings.closings.map((closure, index) => (
           <SummaryClosing
-            key={closing.description}
+            month={summarizedClosings.month}
+            key={closure.type}
+            type={closure.type}
+            value={closure.value}
             position={index % 2 ? 'left' : 'right'}
-            description={closing.description}
-            value={closing.value}
           />
         ))}
       </SummarizedClosings>
@@ -46,7 +47,9 @@ SummaryBalances.propTypes = {
     balances: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([CURRENT_BALANCE.TYPES.ACCOUNT, CURRENT_BALANCE.TYPES.INVESTMENT]).isRequired,
+      type: PropTypes.oneOf([
+        CURRENT_BALANCE.TYPES.ACCOUNT,
+        CURRENT_BALANCE.TYPES.INVESTMENT]).isRequired,
       value: PropTypes.number.isRequired,
       index: PropTypes.number.isRequired,
     })),
@@ -63,16 +66,24 @@ SummaryBalances.propTypes = {
     })),
   }),
 
-  closings: PropTypes.arrayOf(PropTypes.shape({
-    description: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  })),
+  summarizedClosings: PropTypes.shape({
+    month: PropTypes.number,
+    closings: PropTypes.arrayOf(PropTypes.shape({
+      type: PropTypes.oneOf([
+        TYPES_OF_CLOSINGS.CURRENT.name,
+        TYPES_OF_CLOSINGS.ESTIMATED.name]).isRequired,
+      value: PropTypes.number.isRequired,
+    })).isRequired,
+  }),
 };
 
 SummaryBalances.defaultProps = {
   currentBalances: null,
   totalBalances: null,
-  closings: [],
+  summarizedClosings: {
+    month: null,
+    closings: [],
+  },
 };
 
 export default SummaryBalances;

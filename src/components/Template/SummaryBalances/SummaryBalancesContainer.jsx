@@ -7,7 +7,7 @@ import service from './service';
 const SummaryBalancesContainer = () => {
   const [currentBalances, setCurrentBalances] = useState();
   const [totalBalances, setTotalBalances] = useState();
-  const [summarizedClosings, setSummarizedClosings] = useState([]);
+  const [summarizedClosings, setSummarizedClosings] = useState();
 
   const getCurrentBalances = async () => {
     const data = await service.getCurrentBalances();
@@ -28,7 +28,7 @@ const SummaryBalancesContainer = () => {
     <SummaryBalances
       currentBalances={currentBalances}
       totalBalances={totalBalances}
-      closings={summarizedClosings}
+      summarizedClosings={summarizedClosings}
     />
   );
 };
