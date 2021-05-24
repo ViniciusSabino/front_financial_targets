@@ -22,7 +22,6 @@ const Title = styled.h1`
 `;
 
 const Body = styled.div`
-  background-color: #899;
   height: 100%;
 `;
 

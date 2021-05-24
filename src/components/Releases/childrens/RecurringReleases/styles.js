@@ -20,7 +20,8 @@ const Subtitle = styled.p`
 `;
 
 const Body = styled.div`
-  background-color: #515E67;
+  background-color: #E7E7E7;
+  border: 1px solid #515E67;
   height: 93%;
 `;
 
