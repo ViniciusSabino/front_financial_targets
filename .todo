@@ -11,4 +11,7 @@ LOGIN
 - Habilitar o botão ENTER para realizar o login na aplicação
 - Adicionar uma Regex para a validação da senha informada (Senha forte)
 
-RELEASES
+TABLE
+
+- possibilidade de passar via props um array de campos que deverão ser desconsidaderados para o componente tabela
+com base nos dados enviados
