@@ -1,19 +1,22 @@
 /* eslint-disable import/prefer-default-export */
+import { formatInReal } from '../../utils/currency';
 import { RELEASES_RECURRENCE, RELEASES } from './constants';
 
-const releasesAdapter = (data) => {
+const releasesMapping = (data) => {
   const result = data.reduce((acc, item) => {
     if (item.recurrence === RELEASES_RECURRENCE.MONTLHY.value) {
-      acc.recurringReleases.push({
+      acc.recurring.push({
         ...item,
+        value: formatInReal(item.value),
         type: RELEASES[item.type].label,
         recurrence: RELEASES_RECURRENCE[item.recurrence].label,
       });
     }
 
     if (item.recurrence === RELEASES_RECURRENCE.WITHOUT_RECURRENCE.value) {
-      acc.otherReleases.push({
+      acc.other.push({
         ...item,
+        value: formatInReal(item.value),
         type: RELEASES[item.type].label,
         recurrence: RELEASES_RECURRENCE[item.recurrence].label,
       });
@@ -21,13 +24,13 @@ const releasesAdapter = (data) => {
 
     return acc;
   }, {
-    recurringReleases: [],
-    otherReleases: [],
+    recurring: [],
+    other: [],
   });
 
   return result;
 };
 
 export {
-  releasesAdapter,
+  releasesMapping,
 };

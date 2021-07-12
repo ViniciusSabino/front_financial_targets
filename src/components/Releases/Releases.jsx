@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { OtherReleases, RecurringReleases } from './childrens';
+import { TableReleases } from './childrens';
 
 import {
   Component,
@@ -11,22 +11,22 @@ import {
   Footer,
 } from './styles';
 
-const Releases = ({ currentMonth, recurringReleases, otherReleases }) => (
-  <Component>
-    <Header>
-      <Title>
-        Lançamentos de
-        {' '}
-        {currentMonth}
-      </Title>
-    </Header>
-    <Body>
-      <RecurringReleases releases={recurringReleases} />
-      <OtherReleases releases={otherReleases} />
-    </Body>
-    <Footer />
-  </Component>
-);
+const Releases = ({ currentMonth, recurringReleases, otherReleases }) => {
+  const title = `Lançamentos de ${currentMonth}`;
+
+  return (
+    <Component>
+      <Header>
+        <Title>{title}</Title>
+      </Header>
+      <Body>
+        <TableReleases releases={recurringReleases} subtitle="Recorrentes" />
+        <TableReleases releases={otherReleases} subtitle="Outras Entradas" />
+      </Body>
+      <Footer />
+    </Component>
+  );
+};
 
 Releases.propTypes = {
   currentMonth: PropTypes.string.isRequired,

@@ -41,7 +41,7 @@ const SUMMARIZED_CLOSINGS_DATA = {
   closings: [
     {
       type: TYPES_OF_CLOSINGS.ESTIMATED.name,
-      value: 10400,
+      value: 109400,
     },
     {
       type: TYPES_OF_CLOSINGS.CURRENT.name,

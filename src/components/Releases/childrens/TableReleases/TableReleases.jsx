@@ -11,10 +11,10 @@ import {
   Body,
 } from './styles';
 
-const RecurringReleases = ({ releases }) => (
+const TableReleases = ({ releases, subtitle }) => (
   <Component>
     <Header>
-      <Subtitle>Recorrentes</Subtitle>
+      <Subtitle>{subtitle}</Subtitle>
     </Header>
     <Body>
       <Table
@@ -26,7 +26,7 @@ const RecurringReleases = ({ releases }) => (
   </Component>
 );
 
-RecurringReleases.propTypes = {
+TableReleases.propTypes = {
   releases: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -35,6 +35,7 @@ RecurringReleases.propTypes = {
     recurrence: PropTypes.string.isRequired,
     account: PropTypes.string.isRequired,
   })).isRequired,
+  subtitle: PropTypes.string.isRequired,
 };
 
-export default RecurringReleases;
+export default TableReleases;

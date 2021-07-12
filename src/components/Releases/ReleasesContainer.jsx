@@ -10,13 +10,19 @@ const ReleasesContainer = () => {
   const [otherReleases, setOtherReleases] = useState([]);
   const [currentMonth, setCurrentMonth] = useState('');
 
-  const getCurrentMonth = () => setCurrentMonth(date.translationMonthsByName(date.getCurrentMonthName()));
+  const getCurrentMonth = () => {
+    const monthName = date.getCurrentMonthName();
+
+    const monthTraslated = date.translationMonthsByName(monthName);
+
+    setCurrentMonth(monthTraslated);
+  };
 
   const getCurrentReleases = async () => {
-    const releases = await service.getCurrentReleases();
+    const { recurring, other } = await service.getCurrentReleases();
 
-    setRecurringReleases(releases.recurringReleases);
-    setOtherReleases(releases.otherReleases);
+    setRecurringReleases(recurring);
+    setOtherReleases(other);
   };
 
   // Hooks

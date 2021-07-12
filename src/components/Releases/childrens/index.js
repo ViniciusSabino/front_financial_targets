@@ -1,7 +1,6 @@
-import OtherReleases from './OtherReleases/OtherReleases';
-import RecurringReleases from './RecurringReleases/RecurringReleases';
+/* eslint-disable import/prefer-default-export */
+import TableReleases from './TableReleases/TableReleases';
 
 export {
-  OtherReleases,
-  RecurringReleases,
+  TableReleases,
 };

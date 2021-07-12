@@ -1,14 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 import { getCurrentMonth } from '../../utils/dates';
 import MOCKS from './MOCKS';
-import { releasesAdapter } from './helpers';
+import { releasesMapping } from './helpers';
 
 const getCurrentReleases = async () => {
   const currentMonth = getCurrentMonth();
 
   const data = await MOCKS.getReleases(currentMonth);
 
-  return releasesAdapter(data.releases);
+  const { recurring, other } = releasesMapping(data.releases);
+
+  return { recurring, other };
 };
 
 export default {
