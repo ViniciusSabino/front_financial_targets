@@ -12,7 +12,6 @@ const ReleasesContainer = () => {
 
   const getCurrentMonth = () => {
     const monthName = date.getCurrentMonthName();
-
     const monthTraslated = date.translationMonthsByName(monthName);
 
     setCurrentMonth(monthTraslated);

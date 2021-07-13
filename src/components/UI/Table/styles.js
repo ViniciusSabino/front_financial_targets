@@ -27,9 +27,9 @@ const Body = styled.tbody`
 `;
 
 const Cell = styled.td`
-  background-color:#E7E7E7;
+  background-color: #F7F7F7;
   padding: 6px 6px 6px 10px;
-  border-bottom: 1px solid #515E67;
+  border-bottom: 1px solid #E8E8E8;
 `;
 
 export {
