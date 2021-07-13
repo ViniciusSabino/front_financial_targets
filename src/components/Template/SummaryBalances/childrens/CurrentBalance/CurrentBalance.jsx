@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { CURRENT_BALANCE, TYPES_OF_BALANCES } from '../../constants';
 import { getBalanceGroupPosition, mountBalanceTitle, shouldPutBorderBalance } from './helpers';
+import { formatInReal } from '../../../../../utils/currency';
 
 import {
   Component,
@@ -34,7 +35,7 @@ const CurrentBalance = ({ title, type, balances }) => {
               <BalanceName>{balanceTitle}</BalanceName>
             </Header>
             <Body>
-              <BalanceValue>{balance.value}</BalanceValue>
+              <BalanceValue>{formatInReal(balance.value)}</BalanceValue>
             </Body>
           </Balance>
         );

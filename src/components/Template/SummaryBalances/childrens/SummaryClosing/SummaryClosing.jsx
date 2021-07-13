@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { TYPES_OF_CLOSINGS } from '../../constants';
 import { mountDescription } from './helpers';
+import { formatInReal } from '../../../../../utils/currency';
 
 import {
   Component,
@@ -23,7 +24,7 @@ const SummaryClosing = ({
         <Title position={position}>{description}</Title>
       </ComponentTitle>
       <ComponentValue position={position}>
-        <Value>{value}</Value>
+        <Value>{formatInReal(value)}</Value>
       </ComponentValue>
     </Component>
   );
