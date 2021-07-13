@@ -31,7 +31,7 @@ TableReleases.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
     recurrence: PropTypes.string.isRequired,
     account: PropTypes.string.isRequired,
   })).isRequired,
