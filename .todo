@@ -15,3 +15,5 @@ TABLE
 
 - possibilidade de passar via props um array de campos que deverão ser desconsidaderados para o componente tabela
 com base nos dados enviados
+- as cores dos elementos da tabela, está definido na tabela, e se for preciso reutilizar o componente de tabela em outra pagina ou componente mas com outras cores? 
+como deverá ser feito?
