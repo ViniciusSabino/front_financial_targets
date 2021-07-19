@@ -13,6 +13,12 @@ const getCurrentReleases = async () => {
   return { recurring, other };
 };
 
+const getTotalValueRecurringReleases = (recurringReleases) => recurringReleases.reduce((total, release) => total + release.value, 0);
+
+const getTotalValueOtherReleases = (otherReleases) => otherReleases.reduce((total, release) => total + release.value, 0);
+
 export default {
   getCurrentReleases,
+  getTotalValueRecurringReleases,
+  getTotalValueOtherReleases,
 };

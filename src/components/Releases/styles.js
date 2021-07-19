@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  height: 600px;
+  height: 800px;
   margin: auto;
   padding-top: 50px;
   width: 90%;
@@ -9,7 +9,7 @@ const Component = styled.div`
 
 const Header = styled.div`
   background-color: #637580;
-  height: 55px;
+  height: 10%;
 `;
 
 const Title = styled.h1`
@@ -22,12 +22,12 @@ const Title = styled.h1`
 `;
 
 const Body = styled.div`
-  height: 100%;
+  height: 85%;
 `;
 
 const Footer = styled.div`
   background-color: #637580;
-  height: 30px;
+  height: 5%;
 `;
 
 export {

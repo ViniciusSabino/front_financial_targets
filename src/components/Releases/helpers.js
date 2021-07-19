@@ -7,7 +7,7 @@ const releasesMapping = (data) => {
     if (item.recurrence === RELEASES_RECURRENCE.MONTLHY.value) {
       acc.recurring.push({
         ...item,
-        value: formatInReal(item.value),
+        // value: formatInReal(item.value),
         type: RELEASES[item.type].label,
         recurrence: RELEASES_RECURRENCE[item.recurrence].label,
       });
@@ -16,7 +16,7 @@ const releasesMapping = (data) => {
     if (item.recurrence === RELEASES_RECURRENCE.WITHOUT_RECURRENCE.value) {
       acc.other.push({
         ...item,
-        value: formatInReal(item.value),
+        // value: formatInReal(item.value),
         type: RELEASES[item.type].label,
         recurrence: RELEASES_RECURRENCE[item.recurrence].label,
       });

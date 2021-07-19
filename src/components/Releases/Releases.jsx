@@ -11,7 +11,13 @@ import {
   Footer,
 } from './styles';
 
-const Releases = ({ currentMonth, recurringReleases, otherReleases }) => {
+const Releases = ({
+  currentMonth,
+  recurringReleases,
+  otherReleases,
+  totalValueRecurringReleases,
+  totalVaueOtherReleases,
+}) => {
   const title = `Lançamentos de ${currentMonth}`;
 
   return (
@@ -20,8 +26,22 @@ const Releases = ({ currentMonth, recurringReleases, otherReleases }) => {
         <Title>{title}</Title>
       </Header>
       <Body>
-        <TableReleases releases={recurringReleases} subtitle="Recorrentes" />
-        <TableReleases releases={otherReleases} subtitle="Outras Entradas" />
+        <TableReleases
+          releases={recurringReleases}
+          subtitle="Recorrentes"
+          totalReleases={{
+            title: 'Total de Entradas Recorrentes',
+            value: totalValueRecurringReleases,
+          }}
+        />
+        <TableReleases
+          releases={otherReleases}
+          subtitle="Outras Entradas"
+          totalReleases={{
+            title: 'Total para Outras Entradas',
+            value: totalVaueOtherReleases,
+          }}
+        />
       </Body>
       <Footer />
     </Component>
@@ -46,6 +66,8 @@ Releases.propTypes = {
     recurrence: PropTypes.string.isRequired,
     account: PropTypes.string.isRequired,
   })),
+  totalValueRecurringReleases: PropTypes.number.isRequired,
+  totalVaueOtherReleases: PropTypes.number.isRequired,
 };
 
 Releases.defaultProps = {
