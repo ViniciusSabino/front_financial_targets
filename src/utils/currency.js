@@ -16,7 +16,13 @@ const formatInReal = (value) => {
       return `${number}${formatted}`;
     }, '');
 
-  return `R$ ${formattedValue},${centavos || '00'}`;
+  const partiallyFormatted = `R$ ${formattedValue},`;
+
+  if (centavos) {
+    return `${centavos.length === 1 ? `${partiallyFormatted}${centavos}0` : `${partiallyFormatted}${centavos}`}`;
+  }
+
+  return `${partiallyFormatted}00`;
 };
 
 export {
