@@ -2,13 +2,13 @@ import { MONTH_NUMBER_BY_NAME } from '../../utils/enums/dates';
 import { RELEASES, RELEASES_RECURRENCE } from './constants';
 
 const RELEASES_JULY = {
-  month: 4,
+  month: 7,
   releases: [
     {
       name: 'Salário Dextra',
       type: RELEASES.SALARY.type,
       date: '2021-07-20T20:35:27.780Z',
-      value: 10000,
+      value: 8183,
       recurrence: RELEASES_RECURRENCE.MONTLHY.value,
       account: 'Principal',
     },
@@ -16,7 +16,7 @@ const RELEASES_JULY = {
       name: 'Adiantamento Dextra',
       type: RELEASES.SALARY.type,
       date: '2021-07-20T20:35:27.780Z',
-      value: 100000,
+      value: 5300.50,
       recurrence: RELEASES_RECURRENCE.MONTLHY.value,
       account: 'Principal',
     },
@@ -24,7 +24,7 @@ const RELEASES_JULY = {
       name: 'Pix de Caroline Aguiar',
       type: RELEASES.OTHERS.type,
       date: '2021-07-20T20:35:27.780Z',
-      value: 10000,
+      value: 300,
       recurrence: RELEASES_RECURRENCE.WITHOUT_RECURRENCE.value,
       account: 'Principal',
     },
@@ -32,7 +32,7 @@ const RELEASES_JULY = {
 };
 
 const RELEASES_AUGUST = {
-  month: 5,
+  month: 8,
   releases: [
     {
       name: 'Salário Dextra',

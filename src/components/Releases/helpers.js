@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import { formatInReal } from '../../utils/currency';
 import { RELEASES_RECURRENCE, RELEASES } from './constants';
 
 const releasesMapping = (data) => {
@@ -7,7 +6,6 @@ const releasesMapping = (data) => {
     if (item.recurrence === RELEASES_RECURRENCE.MONTLHY.value) {
       acc.recurring.push({
         ...item,
-        // value: formatInReal(item.value),
         type: RELEASES[item.type].label,
         recurrence: RELEASES_RECURRENCE[item.recurrence].label,
       });
@@ -16,7 +14,6 @@ const releasesMapping = (data) => {
     if (item.recurrence === RELEASES_RECURRENCE.WITHOUT_RECURRENCE.value) {
       acc.other.push({
         ...item,
-        // value: formatInReal(item.value),
         type: RELEASES[item.type].label,
         recurrence: RELEASES_RECURRENCE[item.recurrence].label,
       });

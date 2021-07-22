@@ -14,7 +14,17 @@ const RELEASES = {
 };
 
 const TABLE_RELEASES_COLUMNS = ['Nome', 'Tipo', 'Data', 'Valor', 'Se Repete', 'Conta'];
-const TABLE_RELEASES_ACTIONS = ['EDIT', 'DELETE'];
+
+const TABLE_RELEASES_ACTIONS = [
+  {
+    name: 'EDIT',
+    event: () => alert('Editar Entrada'),
+  },
+  {
+    name: 'DELETE',
+    event: () => alert('Excluir Entrada'),
+  },
+];
 
 const RELEASES_RECURRENCE = {
   MONTLHY: {

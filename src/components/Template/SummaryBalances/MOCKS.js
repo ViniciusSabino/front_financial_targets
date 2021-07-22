@@ -37,7 +37,7 @@ const SUMMARY_BALANCES_DATA = {
 };
 
 const SUMMARIZED_CLOSINGS_DATA = {
-  month: 5,
+  month: 7,
   closings: [
     {
       type: TYPES_OF_CLOSINGS.ESTIMATED.name,

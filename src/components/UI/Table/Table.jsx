@@ -2,8 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TABLE_ALL_ACTIONS } from './constants';
-
 import {
   Component,
   Head,
@@ -11,9 +9,10 @@ import {
   HeaderCell,
   Body,
   Cell,
+  LinkAction,
 } from './styles';
 
-import { mountActions } from './helpers';
+import { mountAction } from './helpers';
 
 const Table = ({ headers, actions, data }) => (
   headers.length
@@ -29,7 +28,15 @@ const Table = ({ headers, actions, data }) => (
           {data.map((cell, index) => (
             <Row key={`row${index}`}>
               {Object.values(cell).map((value) => <Cell key={value}>{value}</Cell>)}
-              {actions.length && <Cell>{mountActions(actions)}</Cell> }
+              {actions.length && (
+              <Cell isAction>
+                {actions.map((action) => (
+                  <LinkAction key={action.name} onClick={action.event} actionName={action.name}>
+                    {mountAction(action.name)}
+                  </LinkAction>
+                ))}
+              </Cell>
+              ) }
             </Row>
           ))}
         </Body>
@@ -40,7 +47,10 @@ const Table = ({ headers, actions, data }) => (
 
 Table.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string).isRequired,
-  actions: PropTypes.arrayOf(PropTypes.oneOf(TABLE_ALL_ACTIONS)).isRequired,
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    event: PropTypes.func.isRequired,
+  })).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
