@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TableReleases } from './childrens';
+import { ContentReleases, HeaderReleasesMonth } from './childrens';
 
 import {
   Component,
-  Header,
-  Title,
   Body,
   Footer,
 } from './styles';
@@ -17,36 +15,30 @@ const Releases = ({
   otherReleases,
   totalValueRecurringReleases,
   totalVaueOtherReleases,
-}) => {
-  const title = `Lançamentos de ${currentMonth}`;
-
-  return (
-    <Component>
-      <Header>
-        <Title>{title}</Title>
-      </Header>
-      <Body>
-        <TableReleases
-          releases={recurringReleases}
-          subtitle="Recorrentes"
-          totalReleases={{
-            title: 'Total de Entradas Recorrentes',
-            value: totalValueRecurringReleases,
-          }}
-        />
-        <TableReleases
-          releases={otherReleases}
-          subtitle="Outras Entradas"
-          totalReleases={{
-            title: 'Total para Outras Entradas',
-            value: totalVaueOtherReleases,
-          }}
-        />
-      </Body>
-      <Footer />
-    </Component>
-  );
-};
+}) => (
+  <Component>
+    <HeaderReleasesMonth currentMonth={currentMonth} />
+    <Body>
+      <ContentReleases
+        releases={recurringReleases}
+        subtitle="Recorrentes"
+        totalReleases={{
+          title: 'Total de Entradas Recorrentes',
+          value: totalValueRecurringReleases,
+        }}
+      />
+      <ContentReleases
+        releases={otherReleases}
+        subtitle="Outras Entradas"
+        totalReleases={{
+          title: 'Total para Outras Entradas',
+          value: totalVaueOtherReleases,
+        }}
+      />
+    </Body>
+    <Footer />
+  </Component>
+);
 
 Releases.propTypes = {
   currentMonth: PropTypes.string.isRequired,
@@ -54,7 +46,7 @@ Releases.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
     recurrence: PropTypes.string.isRequired,
     account: PropTypes.string.isRequired,
   })),
@@ -62,7 +54,7 @@ Releases.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
     recurrence: PropTypes.string.isRequired,
     account: PropTypes.string.isRequired,
   })),

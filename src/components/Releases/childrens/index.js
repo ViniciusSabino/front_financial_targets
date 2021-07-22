@@ -1,6 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-import TableReleases from './TableReleases/TableReleases';
+import ContentReleases from './ContentReleases/ContentReleases';
+import HeaderReleasesMonth from './HeaderReleasesMonth/HeaderReleasesMonth';
 
 export {
-  TableReleases,
+  ContentReleases,
+  HeaderReleasesMonth,
 };

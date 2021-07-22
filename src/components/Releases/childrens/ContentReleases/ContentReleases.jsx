@@ -15,7 +15,7 @@ import {
   TotalReleasesValue,
 } from './styles';
 
-const TableReleases = ({ releases, subtitle, totalReleases }) => {
+const ContentReleases = ({ releases, subtitle, totalReleases }) => {
   const data = releases.map((release) => ({
     ...release,
     value: formatInReal(release.value),
@@ -45,7 +45,7 @@ const TableReleases = ({ releases, subtitle, totalReleases }) => {
   );
 };
 
-TableReleases.propTypes = {
+ContentReleases.propTypes = {
   releases: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -61,4 +61,4 @@ TableReleases.propTypes = {
   }).isRequired,
 };
 
-export default TableReleases;
+export default ContentReleases;

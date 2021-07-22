@@ -1,4 +1,4 @@
-import { CURRENT_BALANCE, TYPES_OF_CLOSINGS } from './constants';
+import { CURRENT_BALANCE, TYPES_OF_CLOSINGS } from '../constants';
 
 const SUMMARY_BALANCES_DATA = {
   currentBalances: {

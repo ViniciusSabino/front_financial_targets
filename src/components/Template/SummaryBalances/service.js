@@ -1,5 +1,5 @@
 import { currentBalanceMapping, totalBalancesMapping } from './helpers';
-import MOCKS from './MOCKS';
+import MOCKS from './MOCKS/MOCKS';
 
 const getCurrentBalances = async () => {
   const data = await MOCKS.getCurrentBalances();

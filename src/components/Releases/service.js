@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { getCurrentMonth } from '../../utils/dates';
-import MOCKS from './MOCKS';
+import MOCKS from './MOCKS/MOCKS';
 import { releasesMapping } from './helpers';
 
 const getCurrentReleases = async () => {

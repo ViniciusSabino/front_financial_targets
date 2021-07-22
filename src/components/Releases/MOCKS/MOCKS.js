@@ -1,5 +1,5 @@
-import { MONTH_NUMBER_BY_NAME } from '../../utils/enums/dates';
-import { RELEASES, RELEASES_RECURRENCE } from './constants';
+import { MONTH_NUMBER_BY_NAME } from '../../../utils/enums/dates';
+import { RELEASES, RELEASES_RECURRENCE } from '../constants';
 
 const RELEASES_JULY = {
   month: 7,
