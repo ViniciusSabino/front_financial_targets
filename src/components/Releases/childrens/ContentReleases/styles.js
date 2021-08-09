@@ -34,7 +34,7 @@ const TotalReleases = styled.p`
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 6px;
+  padding: 7px;
 `;
 
 const TotalReleasesValue = styled.a` 

@@ -2,22 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ContentReleases, HeaderReleasesMonth } from './childrens';
+import { formatInReal } from '../../utils/currency';
 
 import {
   Component,
   Body,
   Footer,
+  TotalReleases,
+  TotalReleasesValue,
 } from './styles';
 
 const Releases = ({
-  currentMonth,
+  currentDate,
   recurringReleases,
   otherReleases,
   totalValueRecurringReleases,
   totalVaueOtherReleases,
+  totalValueReleases,
 }) => (
   <Component>
-    <HeaderReleasesMonth currentMonth={currentMonth} />
+    <HeaderReleasesMonth currentDate={currentDate} />
     <Body>
       <ContentReleases
         releases={recurringReleases}
@@ -36,12 +40,22 @@ const Releases = ({
         }}
       />
     </Body>
-    <Footer />
+    <Footer>
+      <TotalReleases>
+        {'Total de Entradas no mês: '}
+        <TotalReleasesValue>
+          {formatInReal(totalValueReleases)}
+        </TotalReleasesValue>
+      </TotalReleases>
+    </Footer>
   </Component>
 );
 
 Releases.propTypes = {
-  currentMonth: PropTypes.string.isRequired,
+  currentDate: PropTypes.shape({
+    monthName: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+  }).isRequired,
   recurringReleases: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -60,6 +74,7 @@ Releases.propTypes = {
   })),
   totalValueRecurringReleases: PropTypes.number.isRequired,
   totalVaueOtherReleases: PropTypes.number.isRequired,
+  totalValueReleases: PropTypes.number.isRequired,
 };
 
 Releases.defaultProps = {

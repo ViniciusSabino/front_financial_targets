@@ -52,10 +52,13 @@ const getEveryMonthTranslated = () => [
   'Novembro',
   'Dezembro'];
 
+const getCurrentYear = () => new Date().getFullYear();
+
 export {
   translationMonthsByName,
   getCurrentMonth,
   getCurrentMonthName,
   getEveryMonthTranslated,
   getMonthNameByNumber,
+  getCurrentYear,
 };

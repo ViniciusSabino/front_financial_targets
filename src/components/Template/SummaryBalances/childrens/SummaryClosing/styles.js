@@ -20,6 +20,7 @@ const Title = styled.p`
   float: ${(props) => (props.position === 'left' ? 'right' : 'left')};
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 15px;
+  font-weight: bold;
   text-transform: uppercase;
 
   ${(props) => `

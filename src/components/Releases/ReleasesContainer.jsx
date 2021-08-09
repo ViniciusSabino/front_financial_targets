@@ -9,15 +9,21 @@ const ReleasesContainer = () => {
   // State
   const [recurringReleases, setRecurringReleases] = useState([]);
   const [otherReleases, setOtherReleases] = useState([]);
-  const [currentMonth, setCurrentMonth] = useState('');
+  const [currentDate, setCurrentDate] = useState({});
   const [totalValueRecurringReleases, setTotalValueRecurringReleases] = useState(0);
   const [totalVaueOtherReleases, setTotalVaueOtherReleases] = useState(0);
+  const [totalValueReleases, setTotalValueReleases] = useState(0);
 
-  const getCurrentMonth = () => {
+  const getCurrentDate = () => {
     const monthName = date.getCurrentMonthName();
     const monthTraslated = date.translationMonthsByName(monthName);
 
-    setCurrentMonth(monthTraslated);
+    const year = date.getCurrentYear();
+
+    setCurrentDate({
+      monthName: monthTraslated,
+      year,
+    });
   };
 
   const getCurrentReleases = async () => {
@@ -39,9 +45,11 @@ const ReleasesContainer = () => {
     setTotalVaueOtherReleases(total);
   };
 
+  const getTotalValueReleases = (totalRecurringReleases, totalOtherReleases) => setTotalValueReleases(totalRecurringReleases + totalOtherReleases);
+
   // Hooks
   useEffect(() => {
-    getCurrentMonth();
+    getCurrentDate();
     getCurrentReleases();
   }, []);
 
@@ -50,13 +58,18 @@ const ReleasesContainer = () => {
     getTotalValueOtherReleases(otherReleases);
   }, [recurringReleases, otherReleases]);
 
+  useEffect(() => {
+    getTotalValueReleases(totalValueRecurringReleases, totalVaueOtherReleases);
+  }, [totalValueRecurringReleases, totalVaueOtherReleases]);
+
   return (
     <Releases
-      currentMonth={currentMonth}
+      currentDate={currentDate}
       recurringReleases={recurringReleases}
       otherReleases={otherReleases}
       totalValueRecurringReleases={totalValueRecurringReleases}
       totalVaueOtherReleases={totalVaueOtherReleases}
+      totalValueReleases={totalValueReleases}
     />
   );
 };

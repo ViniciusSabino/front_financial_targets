@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Header = styled.div`
-  background-color: #4439;
+  background-color: #637580;
   height: 7%;
 
   .changeMonthIcon {

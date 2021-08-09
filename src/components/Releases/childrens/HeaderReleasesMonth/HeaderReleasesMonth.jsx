@@ -11,8 +11,8 @@ import {
   Title,
 } from './styles';
 
-const HeaderReleasesMonth = ({ currentMonth }) => {
-  const title = `Lançamentos de ${currentMonth}`;
+const HeaderReleasesMonth = ({ currentDate }) => {
+  const title = `Lançamentos de ${currentDate.monthName} de ${currentDate.year}`;
 
   return (
     <Header>
@@ -36,7 +36,10 @@ const HeaderReleasesMonth = ({ currentMonth }) => {
 };
 
 HeaderReleasesMonth.propTypes = {
-  currentMonth: PropTypes.string.isRequired,
+  currentDate: PropTypes.shape({
+    monthName: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default HeaderReleasesMonth;

@@ -29,7 +29,7 @@ const Body = styled.tbody`
 
 const Cell = styled.td`
   background-color: #F7F7F7;
-  padding: 6px 6px 6px 10px;
+  padding: 10px 6px 9px 10px;
   border-bottom: 1px solid #E8E8E8;
 
   ${(props) => props.isAction && `
@@ -51,9 +51,11 @@ const LinkAction = styled.a`
 
   border-radius: 2px;
   color: #FFF;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: bold;
   margin: 5px;
   padding: 5px;
+  text-transform: uppercase;
 
   :hover {
     background-color: ${(props) => {
