@@ -50,7 +50,7 @@ CurrentBalance.propTypes = {
   balances: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    type: PropTypes.oneOf([CURRENT_BALANCE.TYPES.ACCOUNT, CURRENT_BALANCE.TYPES.INVESTMENT]),
+    type: PropTypes.oneOf([CURRENT_BALANCE.TYPES.ACCOUNT, CURRENT_BALANCE.TYPES.INVESTMENTS]),
     value: PropTypes.number.isRequired,
     isMain: PropTypes.bool,
     index: PropTypes.number.isRequired,

@@ -6,7 +6,7 @@ const mountBalanceTitle = (balance, type) => {
   }
 
   if (type === TYPES_OF_BALANCES.TOTAL) {
-    return TOTAL_BALANCE.BALANCE_OPTIONS[balance.name.toUpperCase()];
+    return TOTAL_BALANCE.BALANCE_OPTIONS[balance.name];
   }
 
   return '';

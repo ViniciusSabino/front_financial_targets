@@ -2,13 +2,13 @@
 const CURRENT_BALANCE = {
   TITLE_COMPLEMENT: {
     ACCOUNT: '- Conta Principal',
-    INVESTMENT: '- Principal',
+    INVESTMENTS: '- Principal',
   },
   POSITION: 'left',
   MAIN_TITLE: 'Saldo Atual',
   TYPES: {
     ACCOUNT: 'ACCOUNT',
-    INVESTMENT: 'INVESTMENT',
+    INVESTMENTS: 'INVESTMENTS',
   },
 };
 
@@ -18,6 +18,10 @@ const TOTAL_BALANCE = {
   BALANCE_OPTIONS: {
     GENERAL: 'Geral',
     INVESTMENTS: 'Investimentos',
+  },
+  TYPES: {
+    GENERAL: 'GENERAL',
+    INVESTMENTS: 'INVESTMENTS',
   },
 };
 

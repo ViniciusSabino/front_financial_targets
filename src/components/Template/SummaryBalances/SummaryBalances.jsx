@@ -49,7 +49,7 @@ SummaryBalances.propTypes = {
       name: PropTypes.string.isRequired,
       type: PropTypes.oneOf([
         CURRENT_BALANCE.TYPES.ACCOUNT,
-        CURRENT_BALANCE.TYPES.INVESTMENT]).isRequired,
+        CURRENT_BALANCE.TYPES.INVESTMENTS]).isRequired,
       value: PropTypes.number.isRequired,
       index: PropTypes.number.isRequired,
     })),
