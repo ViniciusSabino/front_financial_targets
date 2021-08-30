@@ -1,4 +1,4 @@
-CSS (PESQUISAR)
+CSS - PESQUISAS
 
 - display: inline-block; flex; table; table-cell; grid
 - margin: 0

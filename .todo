@@ -1,18 +1,16 @@
 APLICAÇÃO GERAL
 
 - Definir e configurar a melhor font para a aplicação (Opção 1: Roboto)
-- Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib Joi)
-- Funções auxiliares 
+- Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib Joi como base)
 - Atualizar as informações do Package.json
 
-LOGIN
+COMPONENTS -> TABLE
 
-- Habilitar o botão ENTER para realizar o login na aplicação
-- Adicionar uma Regex para a validação da senha informada (Senha forte)
-
-TABLE
-
-- Possibilidade de passar via props um array de campos que deverão ser desconsidaderados para o componente tabela
+- Possibilidade de passar via props um array de campos que deverão ser desconsiderados para o componente tabela
 com base nos dados enviados
-- As cores dos elementos da tabela, está definido na tabela, e se for preciso reutilizar o componente de tabela em outra pagina ou componente mas com outras cores? 
+- As cores dos elementos da tabela, está definido na própria tabela, mas e se for preciso reutilizar o componente de tabela em outra pagina ou componente, mas com outras cores? 
 como deverá ser feito?
+
+GERENCIAMENTO DE ESTADOS
+
+- Setup inicial do Redux Toolkit
