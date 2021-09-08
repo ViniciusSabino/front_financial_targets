@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Component = styled.div`
   float: ${(props) => (props.position)};
   height: 100%;
-  width: 47.4%; 
+  width: 47.4%;
 `;
 
 const ComponentTitle = styled.div`
