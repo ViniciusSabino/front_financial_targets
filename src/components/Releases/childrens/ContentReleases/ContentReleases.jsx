@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as R from 'ramda';
 
 import Table from '../../../UI/Table';
-import { TABLE_RELEASES_COLUMNS, TABLE_RELEASES_ACTIONS } from '../../constants';
+import {
+  TABLE_RELEASES_COLUMNS, TABLE_RELEASES_ACTIONS, RELEASES, RELEASES_RECURRENCE,
+} from '../../constants';
 import { formatInReal } from '../../../../utils/currency';
 
 import {
@@ -17,8 +20,10 @@ import {
 
 const ContentReleases = ({ releases, subtitle, totalReleases }) => {
   const data = releases.map((release) => ({
-    ...release,
+    ...R.omit(['id'], release),
     value: formatInReal(release.value),
+    type: RELEASES[release.type].label,
+    recurrence: RELEASES_RECURRENCE[release.recurrence].label,
   }));
 
   return (

@@ -27,8 +27,8 @@ const TABLE_RELEASES_ACTIONS = [
 ];
 
 const RELEASES_RECURRENCE = {
-  MONTLHY: {
-    value: 'MONTLHY',
+  MONTHLY: {
+    value: 'MONTHLY',
     label: 'Mensal',
   },
   WITHOUT_RECURRENCE: {

@@ -1,14 +1,9 @@
-/* eslint-disable import/prefer-default-export */
-import { getCurrentMonth } from '../../utils/dates';
-import MOCKS from './MOCKS/MOCKS';
-import { releasesMapping } from './helpers';
+import api from '../../services/api';
+
+const { releasesApi } = api;
 
 const getCurrentReleases = async () => {
-  const currentMonth = getCurrentMonth();
-
-  const data = await MOCKS.getReleases(currentMonth);
-
-  const { recurring, other } = releasesMapping(data.releases);
+  const { recurring, other } = await releasesApi.listReleasesByPeriod('2021-09-01T00:00:00.000Z', '2021-09-30T23:59:00.000Z');
 
   return { recurring, other };
 };
