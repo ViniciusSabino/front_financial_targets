@@ -4,8 +4,7 @@ import SummaryBalances from './SummaryBalances';
 
 import service from './service';
 
-const SummaryBalancesContainer = () => {
-  // State
+const SummaryBalancesContainer = (): JSX.Element => {
   const [currentBalances, setCurrentBalances] = useState();
   const [totalBalances, setTotalBalances] = useState();
   const [summarizedClosings, setSummarizedClosings] = useState();

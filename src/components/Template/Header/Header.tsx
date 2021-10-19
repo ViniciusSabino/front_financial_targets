@@ -6,7 +6,11 @@ import {
   Title,
 } from './styles';
 
-const Header = ({ title }) => (
+interface IHeader {
+  title: string,
+}
+
+const Header = ({ title }: IHeader): JSX.Element => (
   <Component>
     <Title>{title}</Title>
   </Component>

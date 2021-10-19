@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
 import { Home, Login, Releases } from './pages';
 
-const App = () => (
+const App = (): JSX.Element => (
   <>
     <Router>
       <Switch>

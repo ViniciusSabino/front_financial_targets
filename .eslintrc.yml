@@ -4,9 +4,18 @@ env:
 extends:
   - 'plugin:react/recommended'
   - airbnb
+  - 'plugin:@typescript-eslint/recommended'
+parser: '@typescript-eslint/parser'
+globals:
+  JSX: readonly
+settings:
+  import/resolver:
+    node: 
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
 parserOptions:
   ecmaFeatures:
     jsx: true
+    tsx: true
   ecmaVersion: 12
   sourceType: module
 plugins:
@@ -54,4 +63,7 @@ rules:
   semi: [2, always]
   linebreak-style: [1, unix]
   no-plusplus: 2
-  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }]
+  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+  import/extensions: 0
+  typescript-eslint/no-use-before-define": 0
+  no-use-before-define: 0
