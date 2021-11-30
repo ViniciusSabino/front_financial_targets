@@ -1,4 +1,7 @@
-// currentBalances
+import { CurrentBalanceTypes } from '../../../utils/enums/balances';
+
+const CURRENT_BALANCE_TYPES = CurrentBalanceTypes;
+
 const CURRENT_BALANCE = {
   TITLE_COMPLEMENT: {
     ACCOUNT: '- Conta Principal',
@@ -6,10 +9,6 @@ const CURRENT_BALANCE = {
   },
   POSITION: 'left',
   MAIN_TITLE: 'Saldo Atual',
-  TYPES: {
-    ACCOUNT: 'ACCOUNT',
-    INVESTMENTS: 'INVESTMENTS',
-  },
 };
 
 const TOTAL_BALANCE = {
