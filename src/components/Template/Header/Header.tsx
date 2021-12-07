@@ -6,11 +6,11 @@ import {
   Title,
 } from './styles';
 
-interface IHeader {
+interface HeaderProps {
   title: string,
 }
 
-const Header = ({ title }: IHeader): JSX.Element => (
+const Header = ({ title }: HeaderProps): JSX.Element => (
   <Component>
     <Title>{title}</Title>
   </Component>

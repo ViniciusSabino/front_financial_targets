@@ -16,7 +16,7 @@
       "ES2020", 
       "ESNext",
       "DOM"], 
-    "target": "es5",
+    "target": "es6",
     "jsx": "react",
     "allowJs": true,
     "strictPropertyInitialization": false,
@@ -28,7 +28,8 @@
 
      /* Advanced Options */
      "resolveJsonModule": true,                
-     "forceConsistentCasingInFileNames": true
+     "forceConsistentCasingInFileNames": true,
+     "downlevelIteration": false
     },
     "exclude": [
       "node_modules",
