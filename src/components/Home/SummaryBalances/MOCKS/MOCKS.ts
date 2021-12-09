@@ -1,5 +1,5 @@
-import { CurrentBalanceTypes, TypesOfClosings } from '../../../../utils/enums/balances';
-import { CurrentBalancesResponse, SummarizedClosingsResponse } from '../service';
+import { CurrentBalanceTypes } from '../../../../utils/enums/balances';
+import { CurrentBalancesResponse } from '../service';
 
 const CURRENT_BALANCES_DATA: CurrentBalancesResponse = {
   accounts: [
@@ -22,22 +22,8 @@ const CURRENT_BALANCES_DATA: CurrentBalancesResponse = {
   ],
 };
 
-const SUMMARIZED_CLOSINGS_DATA = [
-  {
-    type: TypesOfClosings.ESTIMATED,
-    value: 109400,
-  },
-  {
-    type: TypesOfClosings.CURRENT,
-    value: 900,
-  },
-];
-
 const getCurrentBalances = (): Promise<CurrentBalancesResponse> => Promise.resolve(CURRENT_BALANCES_DATA);
-
-const getSummarizedClosings = (): Promise<Array<SummarizedClosingsResponse>> => Promise.resolve(SUMMARIZED_CLOSINGS_DATA);
 
 export default {
   getCurrentBalances,
-  getSummarizedClosings,
 };

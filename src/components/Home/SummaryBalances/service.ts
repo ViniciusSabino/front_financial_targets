@@ -1,4 +1,4 @@
-import { TotalBalancesTypes, CurrentBalanceTypes, TypesOfClosings } from '../../../utils/enums/balances';
+import { TotalBalancesTypes, CurrentBalanceTypes } from '../../../utils/enums/balances';
 import { currentBalancesMapping, totalBalancesMapping } from './helpers';
 import MOCKS from './MOCKS/MOCKS';
 
@@ -18,10 +18,6 @@ export interface TotalBalance {
   value: number
 }
 
-export interface SummarizedClosingsResponse {
- type: TypesOfClosings,
-}
-
 const getCurrentBalances = async (): Promise<Array<Balance>> => {
   const data = await MOCKS.getCurrentBalances();
 
@@ -36,14 +32,7 @@ const getTotalBalances = (currentBalances: Array<Balance>): Array<TotalBalance> 
   return totalBalances;
 };
 
-const getSummarizedClosings = async (): Promise<Array<SummarizedClosingsResponse>> => {
-  const data = await MOCKS.getSummarizedClosings();
-
-  return data;
-};
-
 export default {
   getCurrentBalances,
   getTotalBalances,
-  getSummarizedClosings,
 };
