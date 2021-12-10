@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-const formatInReal = (value: string): string => {
+const formatInReal = (value: number): string => {
   const [reais, centavos] = `${value}`.split('.');
 
   const numbers: string[] = [...reais];

@@ -33,7 +33,7 @@ const TotalBalances = (props: BalancesProps): JSX.Element => {
             <TotalName>{getTotalBalancesLabel(balance.type)}</TotalName>
           </Header>
           <Body>
-            <TotalValue>{formatInReal(`${balance.value}`)}</TotalValue>
+            <TotalValue>{formatInReal(balance.value)}</TotalValue>
           </Body>
         </TotalComponent>
       ))}

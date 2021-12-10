@@ -1,5 +1,5 @@
 import { TypesOfClosings } from '../../../../utils/enums/balances';
-import { SummarizedClosings } from '../service';
+import { Closing } from '../service';
 
 const SUMMARIZED_CLOSINGS_DATA = [
   {
@@ -12,7 +12,7 @@ const SUMMARIZED_CLOSINGS_DATA = [
   },
 ];
 
-const getSummarizedClosings = (): Promise<Array<SummarizedClosings>> => Promise.resolve(SUMMARIZED_CLOSINGS_DATA);
+const getSummarizedClosings = (): Promise<Array<Closing>> => Promise.resolve(SUMMARIZED_CLOSINGS_DATA);
 
 export default {
   getSummarizedClosings,

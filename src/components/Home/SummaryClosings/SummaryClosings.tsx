@@ -1,18 +1,45 @@
 import React from 'react';
 
-import { SummarizedClosings } from './service';
+import { Closing } from './service';
+import { formatInReal } from '../../../utils/currency/currency';
 
-import { Component } from './styles';
+import {
+  Component,
+  CurrentClosing,
+  EstimatedClosing,
+  CurrentTitle,
+  EstimatedTitle,
+  CurrentValue,
+  EstimatedValue,
+} from './styles';
 
 interface SummaryClosingsProps {
-  closings: Array<SummarizedClosings>
+  currentClosing: Closing,
+  estimatedClosing: Closing,
 }
 
 const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
-  const { closings } = props;
+  const { currentClosing, estimatedClosing } = props;
 
   return (
-    <Component />
+    <Component>
+      <CurrentClosing>
+        <CurrentTitle>
+          Fechamento Atual para o mês de Dezembro de 2021
+        </CurrentTitle>
+        <CurrentValue>
+          {formatInReal(currentClosing.value)}
+        </CurrentValue>
+      </CurrentClosing>
+      <EstimatedClosing>
+        <EstimatedTitle>
+          Fechamento Estimado para o mês de Dezembro de 2021
+        </EstimatedTitle>
+        <EstimatedValue>
+          {formatInReal(estimatedClosing.value)}
+        </EstimatedValue>
+      </EstimatedClosing>
+    </Component>
   );
 };
 

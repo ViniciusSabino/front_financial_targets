@@ -27,7 +27,7 @@ const Balances = (props: BalancesProps): JSX.Element => {
             <BalanceName>{balance.name}</BalanceName>
           </Header>
           <Body>
-            <BalanceValue>{formatInReal(`${balance.value}`)}</BalanceValue>
+            <BalanceValue>{formatInReal(balance.value)}</BalanceValue>
           </Body>
         </BalanceComponent>
       ))}

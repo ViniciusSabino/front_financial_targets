@@ -1,15 +1,22 @@
 import { TypesOfClosings } from '../../../utils/enums/balances';
 import MOCKS from './MOCKS/MOCKS';
+import { summaryClosingsMapping } from './helpers';
 
-export interface SummarizedClosings {
+export interface Closing {
   type: TypesOfClosings,
   value: number;
+}
+export interface SummarizedClosings {
+   current: Closing,
+   estimated: Closing;
  }
 
-const getSummarizedClosings = async (): Promise<Array<SummarizedClosings>> => {
+const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
   const data = await MOCKS.getSummarizedClosings();
 
-  return data;
+  const closings = summaryClosingsMapping(data);
+
+  return closings;
 };
 
 export default {
