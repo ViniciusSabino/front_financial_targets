@@ -1,0 +1,25 @@
+import styled from 'styled-components';
+
+const Component = styled.div`
+  background-color: #79AEA5;
+  height: 78px;
+  width: 100%;
+`;
+
+const CurrentBalancesContainer = styled.div`
+  background-color: #890;
+  float: left;
+  height: 100%;
+  width: 47%;
+`;
+
+const TotalBalancesContainer = styled(CurrentBalancesContainer)`
+  background-color: #182;
+  float: right;
+`;
+
+export {
+  Component,
+  CurrentBalancesContainer,
+  TotalBalancesContainer,
+};

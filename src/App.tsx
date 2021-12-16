@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
-import { Home } from './pages';
+import { Home } from './components/pages';
 
 const App = (): JSX.Element => (
   <>
