@@ -1,7 +1,10 @@
 import { CurrentBalanceTypes } from '../../utils/enums/balances';
+import { Months } from '../../utils/enums/date';
 import { CurrentBalancesResponse } from './service';
 
 const CURRENT_BALANCES_DATA: CurrentBalancesResponse = {
+  month: Months.JANUARY,
+  year: 2022,
   accounts: [
     {
       id: 1,

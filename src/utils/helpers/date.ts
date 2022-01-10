@@ -1,4 +1,4 @@
-import { Months } from '../enums/dates';
+import { Months } from '../enums/date';
 
 const translationMonthsByName = (monthName: Months): string => ({
   JANUARY: 'Janeiro',
@@ -50,7 +50,8 @@ const getEveryMonthTranslated = (): string[] => [
   'Setembro',
   'Outubro',
   'Novembro',
-  'Dezembro'];
+  'Dezembro',
+];
 
 const getCurrentYear = (): number => new Date().getFullYear();
 

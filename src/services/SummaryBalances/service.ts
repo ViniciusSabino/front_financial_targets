@@ -1,4 +1,5 @@
 import { TotalBalancesTypes, CurrentBalanceTypes } from '../../utils/enums/balances';
+import { Months } from '../../utils/enums/date';
 import { currentBalancesMapping, totalBalancesMapping } from './helper';
 import MOCKS from './mocks';
 
@@ -10,6 +11,8 @@ export interface Balance {
   isMain: boolean
 }
 export interface CurrentBalancesResponse {
+  month: Months,
+  year: number,
   accounts: Array<Balance>
   investments: Array<Balance>
 }
