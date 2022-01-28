@@ -3,7 +3,7 @@ enum CurrentBalanceTypes {
   INVESTMENTS = 'INVESTMENTS'
 }
 
-enum CurrentBalancesResponseTypes {
+enum CurrentBalancesResponseKeys {
   accounts = 'accounts',
   investments = 'investments'
 }
@@ -13,4 +13,14 @@ enum TotalBalancesTypes {
   INVESTMENTS = 'INVESTMENTS'
 }
 
-export { CurrentBalanceTypes, CurrentBalancesResponseTypes, TotalBalancesTypes };
+enum TypesOfClosings {
+  ESTIMATED = 'ESTIMATED',
+  CURRENT = 'CURRENT',
+}
+
+export {
+  CurrentBalanceTypes,
+  CurrentBalancesResponseKeys,
+  TotalBalancesTypes,
+  TypesOfClosings,
+};
