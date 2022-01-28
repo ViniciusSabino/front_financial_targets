@@ -13,6 +13,21 @@ enum Months {
   DECEMBER = 'DECEMBER',
 }
 
+enum MonthsTranslated {
+  JANUARY = 'Janeiro',
+  FEBRUARY = 'Fevereiro',
+  MARCH = 'Março',
+  APRIL = 'Abril',
+  MAY = 'Maio',
+  JUNE = 'Junho',
+  JULY = 'Julio',
+  AUGUST = 'Agosto',
+  SEPTEMBER = 'Setembro',
+  OCTOBER = 'Outubro',
+  NOVEMBER = 'Novembro',
+  DECEMBER = 'Dezembro',
+}
+
 enum MonthNumberByName {
   JANUARY = 1,
   FEBRUARY = 2,
@@ -30,5 +45,6 @@ enum MonthNumberByName {
 
 export {
   Months,
+  MonthsTranslated,
   MonthNumberByName,
 };

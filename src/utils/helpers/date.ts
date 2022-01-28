@@ -1,21 +1,23 @@
-import { Months } from '../enums/date';
+import moment from 'moment';
 
-const translationMonthsByName = (monthName: Months): string => ({
-  JANUARY: 'Janeiro',
-  FEBRUARY: 'Fevereiro',
-  MARCH: 'Março',
-  APRIL: 'Abril',
-  MAY: 'Maio',
-  JUNE: 'Junho',
-  JULY: 'Julho',
-  AUGUST: 'Agosto',
-  SEPTEMBER: 'Setembro',
-  OCTOBER: 'Outubro',
-  NOVEMBER: 'Novembro',
-  DECEMBER: 'Dezembro',
+import { Months, MonthsTranslated } from '../enums/date';
+
+const translationMonthsByName = (monthName: Months): MonthsTranslated => ({
+  JANUARY: MonthsTranslated.JANUARY,
+  FEBRUARY: MonthsTranslated.FEBRUARY,
+  MARCH: MonthsTranslated.MARCH,
+  APRIL: MonthsTranslated.APRIL,
+  MAY: MonthsTranslated.MAY,
+  JUNE: MonthsTranslated.JUNE,
+  JULY: MonthsTranslated.JULY,
+  AUGUST: MonthsTranslated.AUGUST,
+  SEPTEMBER: MonthsTranslated.SEPTEMBER,
+  OCTOBER: MonthsTranslated.OCTOBER,
+  NOVEMBER: MonthsTranslated.NOVEMBER,
+  DECEMBER: MonthsTranslated.DECEMBER,
 }[monthName]);
 
-const getMonthNameByNumber = (number: number): string => ({
+const getMonthNameByNumber = (number: number): Months => ({
   1: Months.JANUARY,
   2: Months.FEBRUARY,
   3: Months.MARCH,
@@ -32,7 +34,7 @@ const getMonthNameByNumber = (number: number): string => ({
 
 const getCurrentMonth = (): number => new Date().getMonth() + 1;
 
-const getCurrentMonthName = (): string => {
+const getCurrentMonthName = (): Months => {
   const monthNumber = getCurrentMonth();
 
   return getMonthNameByNumber(monthNumber);
@@ -55,6 +57,8 @@ const getEveryMonthTranslated = (): string[] => [
 
 const getCurrentYear = (): number => new Date().getFullYear();
 
+const getCurrentDate = (): string => moment().format('YYYY-MM-DD');
+
 export {
   translationMonthsByName,
   getCurrentMonth,
@@ -62,4 +66,5 @@ export {
   getEveryMonthTranslated,
   getMonthNameByNumber,
   getCurrentYear,
+  getCurrentDate,
 };
