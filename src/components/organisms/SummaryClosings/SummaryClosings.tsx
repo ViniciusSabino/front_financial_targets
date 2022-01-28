@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Closing } from '../../../services/SummaryClosings/service';
 import { formatInReal } from '../../../utils/helpers/currency';
+import { InitialDataState } from '../../../features/application/initialDataSlice';
 
 import {
   Component,
@@ -18,15 +19,16 @@ import {
 interface SummaryClosingsProps {
   currentClosing: Closing,
   estimatedClosing: Closing,
+  initialData: InitialDataState
 }
 
 const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
-  const { currentClosing, estimatedClosing } = props;
+  const { currentClosing, estimatedClosing, initialData } = props;
 
   return (
     <Component>
       <Header>
-        Fechamento de Dezembro de 2021
+        {`Fechamento de ${initialData.currentMonth.name} de ${initialData.currentYear}`}
       </Header>
       <ClosingsContainer>
         <CurrentClosing>

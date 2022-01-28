@@ -29,6 +29,7 @@ const CurrentBalances = (props: TotalBalancesProps): JSX.Element => {
       <Body>
         {balances.map((balance, index) => (
           <BalanceComponent
+            key={balance.type}
             id={balance.type}
             index={index}
             total={balances.length}

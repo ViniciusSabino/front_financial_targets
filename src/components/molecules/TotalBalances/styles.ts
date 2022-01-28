@@ -20,7 +20,6 @@ const TitleContainer = styled.div`
 `;
 
 const Body = styled.div`
-  background-color: #128;
   float: right;
   height: 100%;
   width: 70%;

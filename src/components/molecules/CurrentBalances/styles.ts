@@ -12,7 +12,6 @@ const TitleContainer = styled.div`
   height: 100%;
   float: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 14px;
   font-weight: bold;
   line-height: 78px;
   text-align: center;
@@ -21,7 +20,6 @@ const TitleContainer = styled.div`
 `;
 
 const Body = styled.div`
-  background-color: #128;
   float: right;
   height: 100%;
   width: 70%;
