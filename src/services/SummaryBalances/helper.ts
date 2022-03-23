@@ -1,7 +1,15 @@
-/* eslint-disable no-param-reassign */
-
+import { Balance } from '../../slices/SummaryBalancesSlice';
 import { CurrentBalancesResponseKeys, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/balances';
-import { TotalBalance, CurrentBalancesResponse, Balance } from './service';
+import { CurrentBalancesResponse } from './service';
+
+interface ITotalBalance {
+  type: TotalBalancesTypes;
+  value: number
+}
+export interface ITotalBalances {
+  general: ITotalBalance
+  investments: ITotalBalance
+}
 
 const currentBalancesMapping = (data: CurrentBalancesResponse): Array<Balance> => {
   const infoTypes = [
@@ -17,28 +25,40 @@ const currentBalancesMapping = (data: CurrentBalancesResponse): Array<Balance> =
   return currentBalances;
 };
 
-const totalBalancesMapping = (currentBalances: Array<Balance>): Array<TotalBalance> => {
-  const totalBalancesEmptyState: Array<TotalBalance> = [];
+const totalBalancesMapping = (currentBalances: Array<Balance>): ITotalBalances => {
+  const totalEmptyState = {
+    general: {
+      type: TotalBalancesTypes.GENERAL,
+      value: 0,
+    },
+    investments: {
+      type: TotalBalancesTypes.INVESTMENTS,
+      value: 0,
+    },
+  };
 
-  const totalBalances = currentBalances.reduce((totalBalancesAcc, balance) => {
-    const totalBalanceTypes = [TotalBalancesTypes.GENERAL];
-
-    if (balance.type === CurrentBalanceTypes.INVESTMENTS) {
-      totalBalanceTypes.push(TotalBalancesTypes.INVESTMENTS);
+  const totalBalances = currentBalances.reduce((total, balance) => {
+    if (balance.type === CurrentBalanceTypes.ACCOUNT) {
+      return {
+        ...total,
+        general: {
+          ...total.general,
+          value: total.general.value + balance.value,
+        },
+      };
     }
 
-    totalBalanceTypes.forEach((type) => {
-      const index = totalBalancesAcc.findIndex((total) => total.type === type);
-
-      if (index > -1) {
-        totalBalancesAcc[index].value += balance.value;
-      } else {
-        totalBalancesAcc.push({ type, value: balance.value });
-      }
-    });
-
-    return totalBalancesAcc;
-  }, totalBalancesEmptyState);
+    return {
+      general: {
+        ...total.general,
+        value: total.general.value + balance.value,
+      },
+      investments: {
+        ...total.investments,
+        value: total.investments.value + balance.value,
+      },
+    };
+  }, totalEmptyState);
 
   return totalBalances;
 };

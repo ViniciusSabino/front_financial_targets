@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { Balance, TotalBalance } from '../../../services/SummaryBalances/service';
+import { Balance } from '../../../slices/SummaryBalancesSlice';
 import { CurrentBalances, TotalBalances } from '../../molecules';
+import { ITotalBalances } from '../../../services/SummaryBalances/helper';
 
 import { Component, CurrentBalancesContainer, TotalBalancesContainer } from './styles';
 
 export interface SummaryBalancesProps {
   currentBalances: Array<Balance>;
-  totalBalances: Array<TotalBalance>;
+  totalBalances: ITotalBalances;
 }
 
 const SummaryBalances = (props: SummaryBalancesProps): JSX.Element => {
@@ -21,7 +22,7 @@ const SummaryBalances = (props: SummaryBalancesProps): JSX.Element => {
         />
       </CurrentBalancesContainer>
       <TotalBalancesContainer>
-        <TotalBalances balances={totalBalances} />
+        <TotalBalances total={totalBalances} />
       </TotalBalancesContainer>
     </Component>
   );

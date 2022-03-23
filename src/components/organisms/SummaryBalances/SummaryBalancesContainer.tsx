@@ -1,33 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-import service, { TotalBalance, Balance } from '../../../services/SummaryBalances/service';
-import { useAppSelector } from '../../../hooks';
+import { useAppDispatch } from '../../../hooks';
+import { ITotalBalances } from '../../../services/SummaryBalances/helper';
+import service from '../../../services/SummaryBalances/service';
+import { Balance, summaryBalancesActions } from '../../../slices/SummaryBalancesSlice';
+import { TotalBalancesTypes } from '../../../utils/enums/balances';
 
 import SummaryBalances from './SummaryBalances';
-import { InitialDataState } from '../../../features/application/initialDataSlice';
 
 const currentBalancesEmptyState: Array<Balance> = [];
-const totalBalancesEmptyState: Array<TotalBalance> = [];
+const totalBalancesEmptyState: ITotalBalances = {
+  general: { type: TotalBalancesTypes.GENERAL, value: 0 },
+  investments: { type: TotalBalancesTypes.INVESTMENTS, value: 0 },
+};
 
 const SummaryBalancesContainer = (): JSX.Element => {
+  const isMountedRef = useRef(false);
+
   const [currentBalances, setCurrentBalances] = useState(currentBalancesEmptyState);
   const [totalBalances, setTotalBalances] = useState(totalBalancesEmptyState);
 
-  const initialDataState = useAppSelector<InitialDataState>((state) => state.initialData);
+  const dispatch = useAppDispatch();
 
   const getAllBalances = async () => {
     const balances = await service.getCurrentBalances();
 
-    const total = service.getTotalBalances(balances);
+    dispatch(summaryBalancesActions.loadAllCurrentBalances(balances));
 
-    setCurrentBalances(balances);
+    return balances;
+  };
+
+  const getTotalBalances = () => {
+    const total = service.getTotalBalances(currentBalances);
+
     setTotalBalances(total);
   };
 
   // Hooks
   useEffect(() => {
-    getAllBalances();
+    isMountedRef.current = true;
+
+    getAllBalances().then((balances) => {
+      if (isMountedRef.current) {
+        setCurrentBalances(balances);
+      }
+    });
+
+    return () => {
+      isMountedRef.current = false;
+    };
   }, []);
+
+  useEffect(() => {
+    getTotalBalances();
+  }, [currentBalances]);
 
   return (
     <SummaryBalances

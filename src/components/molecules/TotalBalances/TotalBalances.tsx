@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TotalBalance } from '../../../services/SummaryBalances/service';
+import { ITotalBalances } from '../../../services/SummaryBalances/helper';
 import { TotalBalancesTypes } from '../../../utils/enums/balances';
 
 import BalanceComponent from '../../atoms/Balance/Balance';
@@ -12,31 +12,41 @@ import {
 } from './styles';
 
 interface TotalBalancesProps {
-  balances: Array<TotalBalance>;
+  total: ITotalBalances;
 }
 
-const getTotalBalancesLabel = (type: TotalBalancesTypes) => ({
-  [TotalBalancesTypes.GENERAL]: 'Geral',
-  [TotalBalancesTypes.INVESTMENTS]: 'Investimentos',
-})[type];
+const TOTAL_BALANCES_LABEL = {
+  general: 'Geral',
+  investments: 'Investimentos',
+};
 
 const CurrentBalances = (props: TotalBalancesProps): JSX.Element => {
-  const { balances } = props;
+  const { total } = props;
 
   return (
     <Component>
       <TitleContainer>Saldo Total</TitleContainer>
       <Body>
-        {balances.map((balance, index) => (
-          <BalanceComponent
-            key={balance.type}
-            id={balance.type}
-            index={index}
-            total={balances.length}
-            name={getTotalBalancesLabel(balance.type)}
-            value={balance.value}
-          />
-        ))}
+        <BalanceComponent
+          key={TotalBalancesTypes.GENERAL}
+          id={TotalBalancesTypes.GENERAL}
+          index={0}
+          total={2}
+          name={TOTAL_BALANCES_LABEL.general}
+          value={total.general.value}
+          hasIteration={false}
+          type={TotalBalancesTypes.GENERAL}
+        />
+        <BalanceComponent
+          key={TotalBalancesTypes.INVESTMENTS}
+          id={TotalBalancesTypes.INVESTMENTS}
+          index={1}
+          total={2}
+          name={TOTAL_BALANCES_LABEL.investments}
+          value={total.investments.value}
+          hasIteration={false}
+          type={TotalBalancesTypes.INVESTMENTS}
+        />
       </Body>
     </Component>
   );

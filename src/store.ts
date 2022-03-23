@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import initialDataReducer from './features/application/initialDataSlice';
+import initialDataReducer from './slices/initialDataSlice';
+import summaryBalancesReducer from './slices/SummaryBalancesSlice';
 
 export const store = configureStore({
   reducer: {
     initialData: initialDataReducer,
+    summaryBalances: summaryBalancesReducer,
   },
 });
 

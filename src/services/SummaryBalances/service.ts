@@ -1,35 +1,29 @@
-import { TotalBalancesTypes, CurrentBalanceTypes } from '../../utils/enums/balances';
 import { Months } from '../../utils/enums/date';
-import { currentBalancesMapping, totalBalancesMapping } from './helper';
-import MOCKS from './mocks';
+import { currentBalancesMapping, ITotalBalances, totalBalancesMapping } from './helper';
+import accountsApi from '../apis/accounts';
+import { Balance } from '../../slices/SummaryBalancesSlice';
 
-export interface Balance {
-  id: number
-  name: string
-  type: CurrentBalanceTypes
-  value: number
-  isMain: boolean
-}
 export interface CurrentBalancesResponse {
   month: Months,
   year: number,
   accounts: Array<Balance>
   investments: Array<Balance>
 }
-export interface TotalBalance {
-  type: TotalBalancesTypes
-  value: number
-}
 
 const getCurrentBalances = async (): Promise<Array<Balance>> => {
-  const data = await MOCKS.getCurrentBalances();
+  const response = await accountsApi.get('/public/balances/current',
+    {
+      headers: { userId: '62019c68cfdad112f35788e4' },
+    });
 
-  const currentBalances = currentBalancesMapping(data);
+  const { data } = response;
+
+  const currentBalances = currentBalancesMapping(data as CurrentBalancesResponse);
 
   return currentBalances;
 };
 
-const getTotalBalances = (currentBalances: Array<Balance>): Array<TotalBalance> => {
+const getTotalBalances = (currentBalances: Array<Balance>): ITotalBalances => {
   const totalBalances = totalBalancesMapping(currentBalances);
 
   return totalBalances;

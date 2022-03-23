@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { TypesOfClosings } from '../../../utils/enums/balances';
 import service, { SummarizedClosings } from '../../../services/SummaryClosings/service';
 import SummaryClosings from './SummaryClosings';
-import { InitialDataState } from '../../../features/application/initialDataSlice';
+import { InitialDataState } from '../../../slices/initialDataSlice';
 import { useAppSelector } from '../../../hooks';
 
 const summarizedClosingsEmptyState: SummarizedClosings = {

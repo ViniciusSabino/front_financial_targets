@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Closing } from '../../../services/SummaryClosings/service';
 import { formatInReal } from '../../../utils/helpers/currency';
-import { InitialDataState } from '../../../features/application/initialDataSlice';
+import { InitialDataState } from '../../../slices/initialDataSlice';
 
 import {
   Component,

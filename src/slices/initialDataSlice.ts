@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { MonthNumberByName, MonthsTranslated } from '../../utils/enums/date';
+import { MonthNumberByName, MonthsTranslated } from '../utils/enums/date';
 import {
   getCurrentDate,
   getCurrentMonth,
   getCurrentMonthName,
   getCurrentYear,
   translationMonthsByName,
-} from '../../utils/helpers/date';
+} from '../utils/helpers/date';
 
 interface Month {
   name: MonthsTranslated,
