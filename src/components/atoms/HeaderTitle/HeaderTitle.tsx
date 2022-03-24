@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Text } from './styles';
+import Styles from './styles';
+
+const { Text } = Styles;
 
 interface HeaderTitleProps {
   value: string,

@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Balance } from '../../../slices/SummaryBalancesSlice';
 import { CurrentBalances, TotalBalances } from '../../molecules';
-import { ITotalBalances } from '../../../services/SummaryBalances/helper';
+import { IBalance, ITotalBalances } from '../../../services/SummaryBalances/mapper';
 
 import { Component, CurrentBalancesContainer, TotalBalancesContainer } from './styles';
 
 export interface SummaryBalancesProps {
-  currentBalances: Array<Balance>;
+  currentBalances: Array<IBalance>;
   totalBalances: ITotalBalances;
 }
 

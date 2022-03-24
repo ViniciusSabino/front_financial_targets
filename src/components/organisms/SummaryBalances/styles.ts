@@ -7,14 +7,12 @@ const Component = styled.div`
 `;
 
 const CurrentBalancesContainer = styled.div`
-  background-color: #890;
   float: left;
   height: 100%;
   width: 47%;
 `;
 
 const TotalBalancesContainer = styled(CurrentBalancesContainer)`
-  background-color: #182;
   float: right;
 `;
 

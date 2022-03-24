@@ -1,6 +1,6 @@
 import { TypesOfClosings } from '../../utils/enums/balances';
 import MOCKS from './mocks';
-import { summaryClosingsMapping } from './helper';
+import mapper from './mapper';
 
 export interface Closing {
   type: TypesOfClosings,
@@ -14,7 +14,7 @@ export interface SummarizedClosings {
 const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
   const data = await MOCKS.getSummarizedClosings();
 
-  const closings = summaryClosingsMapping(data);
+  const closings = mapper.summaryClosingsMapping(data);
 
   return closings;
 };

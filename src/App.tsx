@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
-import { Home } from './components/pages';
+import Pages from './components/pages';
+
+const { Home } = Pages;
 
 const App = (): JSX.Element => (
   <>

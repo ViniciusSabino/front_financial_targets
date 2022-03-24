@@ -1,15 +1,11 @@
 import React from 'react';
 
-import { ITotalBalances } from '../../../services/SummaryBalances/helper';
+import { ITotalBalances } from '../../../services/SummaryBalances/mapper';
 import { TotalBalancesTypes } from '../../../utils/enums/balances';
 
-import BalanceComponent from '../../atoms/Balance/Balance';
+import { Balance } from '../../atoms';
 
-import {
-  Component,
-  TitleContainer,
-  Body,
-} from './styles';
+import { Component, TitleContainer, Body } from './styles';
 
 interface TotalBalancesProps {
   total: ITotalBalances;
@@ -27,7 +23,7 @@ const CurrentBalances = (props: TotalBalancesProps): JSX.Element => {
     <Component>
       <TitleContainer>Saldo Total</TitleContainer>
       <Body>
-        <BalanceComponent
+        <Balance
           key={TotalBalancesTypes.GENERAL}
           id={TotalBalancesTypes.GENERAL}
           index={0}
@@ -37,7 +33,7 @@ const CurrentBalances = (props: TotalBalancesProps): JSX.Element => {
           hasIteration={false}
           type={TotalBalancesTypes.GENERAL}
         />
-        <BalanceComponent
+        <Balance
           key={TotalBalancesTypes.INVESTMENTS}
           id={TotalBalancesTypes.INVESTMENTS}
           index={1}

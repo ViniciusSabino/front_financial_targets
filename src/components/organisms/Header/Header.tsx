@@ -2,7 +2,9 @@ import React from 'react';
 
 import { HeaderTitle } from '../../atoms';
 
-import { Component } from './styles';
+import Styles from './styles';
+
+const { Component } = Styles;
 
 const Header = (): JSX.Element => (
   <Component>

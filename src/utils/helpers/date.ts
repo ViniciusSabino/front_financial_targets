@@ -1,6 +1,11 @@
 import moment from 'moment';
 
-import { Months, MonthsTranslated } from '../enums/date';
+import { MonthNumberByName, Months, MonthsTranslated } from '../enums/date';
+
+export interface Month {
+  name: MonthsTranslated,
+  month: MonthNumberByName,
+}
 
 const translationMonthsByName = (monthName: Months): MonthsTranslated => ({
   JANUARY: MonthsTranslated.JANUARY,
@@ -59,7 +64,7 @@ const getCurrentYear = (): number => new Date().getFullYear();
 
 const getCurrentDate = (): string => moment().format('YYYY-MM-DD');
 
-export {
+export default {
   translationMonthsByName,
   getCurrentMonth,
   getCurrentMonthName,

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { TypesOfClosings } from '../../../utils/enums/balances';
 import service, { SummarizedClosings } from '../../../services/SummaryClosings/service';
 import SummaryClosings from './SummaryClosings';
-import { InitialDataState } from '../../../slices/initialDataSlice';
+import { IInitialDataState } from '../../../slices/initialDataSlice';
 import { useAppSelector } from '../../../hooks';
 
 const summarizedClosingsEmptyState: SummarizedClosings = {
@@ -14,11 +14,10 @@ const summarizedClosingsEmptyState: SummarizedClosings = {
 const SummaryClosingsContainer = (): JSX.Element => {
   const [summarizedClosings, setSummarizedClosings] = useState(summarizedClosingsEmptyState);
 
-  const initialDataState = useAppSelector<InitialDataState>((state) => state.initialData);
+  const initialDataState = useAppSelector<IInitialDataState>((state) => state.initialData);
 
   const getSummarizedClosings = async () => setSummarizedClosings(await service.getSummarizedClosings());
 
-  // Hooks
   useEffect(() => {
     getSummarizedClosings();
   }, []);

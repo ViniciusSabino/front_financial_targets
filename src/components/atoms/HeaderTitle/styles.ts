@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import styled from 'styled-components';
 
 const Text = styled.h1`
@@ -9,4 +7,4 @@ const Text = styled.h1`
   text-transform: uppercase;
 `;
 
-export { Text };
+export default { Text };

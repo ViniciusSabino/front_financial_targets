@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Closing } from '../../../services/SummaryClosings/service';
-import { formatInReal } from '../../../utils/helpers/currency';
-import { InitialDataState } from '../../../slices/initialDataSlice';
+import currency from '../../../utils/helpers/currency';
+import { IInitialDataState } from '../../../slices/initialDataSlice';
 
 import {
   Component,
@@ -19,7 +19,7 @@ import {
 interface SummaryClosingsProps {
   currentClosing: Closing,
   estimatedClosing: Closing,
-  initialData: InitialDataState
+  initialData: IInitialDataState
 }
 
 const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
@@ -32,20 +32,12 @@ const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
       </Header>
       <ClosingsContainer>
         <CurrentClosing>
-          <CurrentTitle>
-            Fechamento Atual
-          </CurrentTitle>
-          <CurrentValue>
-            {formatInReal(currentClosing.value)}
-          </CurrentValue>
+          <CurrentTitle>Fechamento Atual</CurrentTitle>
+          <CurrentValue>{currency.formatInReal(currentClosing.value)}</CurrentValue>
         </CurrentClosing>
         <EstimatedClosing>
-          <EstimatedTitle>
-            Fechamento Estimado
-          </EstimatedTitle>
-          <EstimatedValue>
-            {formatInReal(estimatedClosing.value)}
-          </EstimatedValue>
+          <EstimatedTitle>Fechamento Estimado</EstimatedTitle>
+          <EstimatedValue>{currency.formatInReal(estimatedClosing.value)}</EstimatedValue>
         </EstimatedClosing>
       </ClosingsContainer>
     </Component>

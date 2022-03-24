@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import styled from 'styled-components';
 
 const Page = styled.header`
@@ -7,4 +5,4 @@ const Page = styled.header`
   width: 95%;
 `;
 
-export { Page };
+export default { Page };

@@ -1,6 +1,6 @@
 import React from 'react';
+import { IBalance } from '../../../services/SummaryBalances/mapper';
 
-import { Balance } from '../../../slices/SummaryBalancesSlice';
 import { CurrentBalanceTypes } from '../../../utils/enums/balances';
 
 import BalancesContainer from '../Balances/BalancesContainer';
@@ -12,7 +12,7 @@ import {
 } from './styles';
 
 interface CurrentBalancesProps {
-  balances: Array<Balance>;
+  balances: Array<IBalance>;
 }
 
 const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
@@ -27,10 +27,7 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
         Saldo Atual
       </TitleContainer>
       <Body>
-        {/* Accounts */}
         <BalancesContainer balances={accounts} type={CurrentBalanceTypes.ACCOUNT} />
-
-        {/* Investments */}
         <BalancesContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
       </Body>
     </Component>

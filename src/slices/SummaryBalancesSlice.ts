@@ -1,17 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CurrentBalanceTypes } from '../utils/enums/balances';
-
-export interface Balance {
-  id: number
-  name: string
-  type: CurrentBalanceTypes
-  value: number
-  isMain: boolean
-}
+import { IBalance } from '../services/SummaryBalances/mapper';
 
 export interface CurrentBalances {
-  all: Array<Balance>
+  all: Array<IBalance>
 }
 
 export interface SummaryBalancesState {
@@ -28,7 +20,7 @@ export const summaryBalancesSlice = createSlice({
   name: 'summaryBalances',
   initialState,
   reducers: {
-    loadAllCurrentBalances: (state, action: PayloadAction<Array<Balance>>) => ({
+    loadAllCurrentBalances: (state, action: PayloadAction<Array<IBalance>>) => ({
       ...state,
       currentBalances: {
         ...state.currentBalances,

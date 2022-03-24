@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { Balance } from '../../../slices/SummaryBalancesSlice';
+import { IBalance } from '../../../services/SummaryBalances/mapper';
 import { CurrentBalanceTypes } from '../../../utils/enums/balances';
 
-import BalanceComponent from '../../atoms/Balance/Balance';
+import { Balance } from '../../atoms';
 
-import { Component } from './styles';
+import Styles from './styles';
+
+const { Component } = Styles;
 
 interface BalancesProps {
-  balances: Array<Balance>;
-  balance: Balance;
+  balances: Array<IBalance>;
+  balance: IBalance;
   balanceIndex: number;
   handlePreviousBalance: (previousIndex: number) => void;
   handleNextBalance: (nextIndex: number) => void;
@@ -24,7 +26,7 @@ const Balances = (props: BalancesProps): JSX.Element => {
   if (balance) {
     return (
       <Component type={type}>
-        <BalanceComponent
+        <Balance
           key={balance.id}
           id={balance.id}
           index={balanceIndex}
@@ -36,7 +38,6 @@ const Balances = (props: BalancesProps): JSX.Element => {
           handlePreviousBalance={handlePreviousBalance}
           handleNextBalance={handleNextBalance}
         />
-
       </Component>
     );
   }

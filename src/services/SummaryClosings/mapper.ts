@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import { TypesOfClosings } from '../../utils/enums/balances';
 import { SummarizedClosings, Closing } from './service';
 
@@ -13,4 +11,4 @@ const summaryClosingsMapping = (closings: Array<Closing>): SummarizedClosings =>
   return { current, estimated };
 };
 
-export { summaryClosingsMapping };
+export default { summaryClosingsMapping };

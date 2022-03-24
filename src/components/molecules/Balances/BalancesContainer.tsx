@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
-import { Balance } from '../../../slices/SummaryBalancesSlice';
+import { IBalance } from '../../../services/SummaryBalances/mapper';
 import { CurrentBalanceTypes } from '../../../utils/enums/balances';
 
 import Balances from './Balances';
 
 interface BalancesProps {
-  balances: Array<Balance>;
+  balances: Array<IBalance>;
   type: CurrentBalanceTypes
 }
 
 const BalancesContainer = (props: BalancesProps): JSX.Element => {
   const { balances, type } = props;
 
-  const [currentBalance, setCurrentBalance] = useState<Balance>();
+  const [currentBalance, setCurrentBalance] = useState<IBalance>();
   const [currentBalanceIndex, setCurrentBalanceIndex] = useState<number>();
-  const [allBalances, setAllBalances] = useState<Array<Balance>>([]);
+  const [allBalances, setAllBalances] = useState<Array<IBalance>>([]);
 
   const handlePreviousBalance = (previousIndex: number): void => {
     if (previousIndex >= 0) {

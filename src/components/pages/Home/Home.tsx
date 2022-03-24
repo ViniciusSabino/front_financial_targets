@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Header, SummaryBalances, SummaryClosings } from '../../organisms';
 
-import { Page } from './styles';
+import Style from './styles';
+
+const { Page } = Style;
 
 const Home = (): JSX.Element => (
   <Page>

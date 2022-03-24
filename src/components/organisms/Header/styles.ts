@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 import styled from 'styled-components';
 
 const Component = styled.header`
@@ -11,4 +9,4 @@ const Component = styled.header`
   width: 100%;
 `;
 
-export { Component };
+export default { Component };

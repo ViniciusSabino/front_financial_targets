@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 const formatInReal = (value: number): string => {
   const [reais, centavos] = `${value}`.split('.');
 
@@ -26,6 +24,4 @@ const formatInReal = (value: number): string => {
   return `${partiallyFormatted}00`;
 };
 
-export {
-  formatInReal,
-};
+export default { formatInReal };

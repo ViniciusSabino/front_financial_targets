@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '../../../hooks';
-import { ITotalBalances } from '../../../services/SummaryBalances/helper';
+import { IBalance, ITotalBalances } from '../../../services/SummaryBalances/mapper';
 import service from '../../../services/SummaryBalances/service';
-import { Balance, summaryBalancesActions } from '../../../slices/SummaryBalancesSlice';
+import { summaryBalancesActions } from '../../../slices/SummaryBalancesSlice';
 import { TotalBalancesTypes } from '../../../utils/enums/balances';
 
 import SummaryBalances from './SummaryBalances';
 
-const currentBalancesEmptyState: Array<Balance> = [];
+const currentBalancesEmptyState: Array<IBalance> = [];
 const totalBalancesEmptyState: ITotalBalances = {
   general: { type: TotalBalancesTypes.GENERAL, value: 0 },
   investments: { type: TotalBalancesTypes.INVESTMENTS, value: 0 },
@@ -36,7 +36,6 @@ const SummaryBalancesContainer = (): JSX.Element => {
     setTotalBalances(total);
   };
 
-  // Hooks
   useEffect(() => {
     isMountedRef.current = true;
 

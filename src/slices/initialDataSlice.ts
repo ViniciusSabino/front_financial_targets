@@ -1,39 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { MonthNumberByName, MonthsTranslated } from '../utils/enums/date';
-import {
-  getCurrentDate,
-  getCurrentMonth,
-  getCurrentMonthName,
-  getCurrentYear,
-  translationMonthsByName,
-} from '../utils/helpers/date';
+import date, { Month } from '../utils/helpers/date';
 
-interface Month {
-  name: MonthsTranslated,
-  month: MonthNumberByName,
-}
-
-export interface InitialDataState {
+export interface IInitialDataState {
   currentDate: string,
   currentMonth: Month,
   currentYear: number
 }
 
-const initialState: InitialDataState = {
-  currentDate: getCurrentDate(),
+const initialState: IInitialDataState = {
+  currentDate: date.getCurrentDate(),
   currentMonth: {
-    name: translationMonthsByName(getCurrentMonthName()),
-    month: getCurrentMonth(),
+    name: date.translationMonthsByName(date.getCurrentMonthName()),
+    month: date.getCurrentMonth(),
   },
-  currentYear: getCurrentYear(),
+  currentYear: date.getCurrentYear(),
 };
 
 export const initialDataSlice = createSlice({
   name: 'initialData',
   initialState,
   reducers: {
-    load: (_state, action: PayloadAction<InitialDataState>) => ({
+    load: (_state, action: PayloadAction<IInitialDataState>) => ({
       currentDate: action.payload.currentDate,
       currentMonth: {
         name: action.payload.currentMonth.name,

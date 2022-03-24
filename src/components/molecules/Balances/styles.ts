@@ -12,4 +12,4 @@ const Component = styled.div<BalancesComponentProps>`
   width: 50%;
 `;
 
-export { Component };
+export default { Component };

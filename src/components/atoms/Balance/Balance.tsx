@@ -1,8 +1,9 @@
 /* eslint-disable react/require-default-props */
+
 import React from 'react';
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
 
-import { formatInReal } from '../../../utils/helpers/currency';
+import currency from '../../../utils/helpers/currency';
 import { CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/balances';
 
 import {
@@ -52,7 +53,7 @@ const Balance = (props: BalanceProps): JSX.Element => {
         )}
       </Header>
       <Body>
-        <Value>{formatInReal(value)}</Value>
+        <Value>{currency.formatInReal(value)}</Value>
       </Body>
     </Component>
 
