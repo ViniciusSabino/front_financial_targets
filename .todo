@@ -1,6 +1,5 @@
 APLICAÇÃO GERAL
 
-- Definir e configurar a melhor font para a aplicação (Opção 1: Roboto)
 - Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib Joi como base)
 - Atualizar as informações do Package.json
 - Configurar para a aplicação atualizar automaticamente quando um arquivo for salvo
@@ -11,7 +10,3 @@ COMPONENTS -> TABLE
 com base nos dados enviados
 - As cores dos elementos da tabela, está definido na própria tabela, mas e se for preciso reutilizar o componente de tabela em outra pagina ou componente, mas com outras cores? 
 como deverá ser feito?
-
-GERENCIAMENTO DE ESTADOS
-
-- Setup inicial do Redux Toolkit
