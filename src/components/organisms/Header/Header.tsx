@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { HeaderTitle } from '../../atoms';
+import { Title } from '../../atoms';
 
-import Styles from './styles';
+import { HeaderStyle } from './styles';
 
-const { Component } = Styles;
+interface HeaderProps {
+  title: string,
+}
 
-const Header = (): JSX.Element => (
-  <Component>
-    <HeaderTitle value="Financial Targets" />
-  </Component>
+const Header = ({ title }: HeaderProps): JSX.Element => (
+  <HeaderStyle>
+    <Title text={title} />
+  </HeaderStyle>
 );
 
 export default Header;

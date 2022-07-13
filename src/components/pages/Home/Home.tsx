@@ -2,15 +2,17 @@ import React from 'react';
 
 import { Header, SummaryBalances, SummaryClosings } from '../../organisms';
 
-import Style from './styles';
-
-const { Page } = Style;
+import { Page, Main, Section } from './styles';
 
 const Home = (): JSX.Element => (
   <Page>
-    <Header />
-    <SummaryBalances />
-    <SummaryClosings />
+    <Main>
+      <Section>
+        <Header title="Financial Targets" />
+        <SummaryBalances />
+        <SummaryClosings />
+      </Section>
+    </Main>
   </Page>
 );
 

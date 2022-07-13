@@ -1,7 +1,7 @@
-import Balance from './Balance/Balance';
-import HeaderTitle from './HeaderTitle/HeaderTitle';
+/* eslint-disable import/prefer-default-export */
+
+import Title from './Title/Title';
 
 export {
-  Balance,
-  HeaderTitle,
+  Title,
 };

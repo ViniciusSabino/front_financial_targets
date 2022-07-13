@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Component = styled.header`
+const HeaderStyle = styled.header`
   align-items: center;
   background-color: #7A9CB5;
   display: flex;
@@ -9,4 +9,4 @@ const Component = styled.header`
   width: 100%;
 `;
 
-export default { Component };
+export { HeaderStyle };
