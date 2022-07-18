@@ -1,10 +1,10 @@
-import { Months } from '../../utils/enums/date';
+import { Months } from '../../../utils/enums/date';
 import {
   currentBalancesMapping, IBalance, ITotalBalances, totalBalancesMapping,
 } from './mapper';
-import accountsApi from '../../apis/accounts';
+import api from '../../apis/accounts';
 
-export interface CurrentBalancesResponse {
+export interface CurrentBalancesApi {
   month: Months,
   year: number,
   accounts: Array<IBalance>
@@ -12,14 +12,16 @@ export interface CurrentBalancesResponse {
 }
 
 const getCurrentBalances = async (): Promise<Array<IBalance>> => {
-  const response = await accountsApi.get('/public/balances/current',
+  const response = await api.get('/public/balances/current',
     {
       headers: { userId: '62019c68cfdad112f35788e4' },
     });
 
   const { data } = response;
 
-  const currentBalances = currentBalancesMapping(data as CurrentBalancesResponse);
+  console.log('getCurrentBalances::Data', data);
+
+  const currentBalances = currentBalancesMapping(data as CurrentBalancesApi);
 
   return currentBalances;
 };

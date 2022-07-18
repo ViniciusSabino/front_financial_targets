@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CurrentBalances, TotalBalances } from '../../molecules';
-import { IBalance, ITotalBalances } from '../../../services/SummaryBalances/mapper';
+import { IBalance, ITotalBalances } from '../../../services/accounts/balances/mapper';
 
 import { Component, CurrentBalancesContainer, TotalBalancesContainer } from './styles';
 

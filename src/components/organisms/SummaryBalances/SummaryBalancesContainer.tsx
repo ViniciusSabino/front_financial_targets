@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '../../../hooks';
-import { IBalance, ITotalBalances } from '../../../services/SummaryBalances/mapper';
-import service from '../../../services/SummaryBalances/service';
+import service from '../../../services/accounts/balances/service';
+import { IBalance, ITotalBalances } from '../../../services/accounts/balances/mapper';
 import { summaryBalancesActions } from '../../../slices/SummaryBalancesSlice';
 import { TotalBalancesTypes } from '../../../utils/enums/balances';
 
@@ -16,7 +16,6 @@ const totalBalancesEmptyState: ITotalBalances = {
 
 const SummaryBalancesContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);
-
   const [currentBalances, setCurrentBalances] = useState(currentBalancesEmptyState);
   const [totalBalances, setTotalBalances] = useState(totalBalancesEmptyState);
 

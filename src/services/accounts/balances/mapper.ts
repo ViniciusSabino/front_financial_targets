@@ -1,5 +1,5 @@
-import { CurrentBalancesResponseKeys, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/balances';
-import { CurrentBalancesResponse } from './service';
+import { CurrentBalancesResponseKeys, CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/balances';
+import { CurrentBalancesApi } from './service';
 
 interface ITotalBalance {
   type: TotalBalancesTypes;
@@ -18,7 +18,7 @@ export interface IBalance {
   isMain: boolean
 }
 
-const currentBalancesMapping = (data: CurrentBalancesResponse): Array<IBalance> => {
+const currentBalancesMapping = (data: CurrentBalancesApi): Array<IBalance> => {
   const infoTypes = [
     CurrentBalancesResponseKeys.accounts,
     CurrentBalancesResponseKeys.investments,

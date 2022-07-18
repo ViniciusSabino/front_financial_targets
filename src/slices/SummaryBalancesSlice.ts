@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IBalance } from '../services/SummaryBalances/mapper';
+import { IBalance } from '../services/accounts/balances/mapper';
 
 export interface CurrentBalances {
   all: Array<IBalance>
