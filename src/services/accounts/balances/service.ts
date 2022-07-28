@@ -19,8 +19,6 @@ const getCurrentBalances = async (): Promise<Array<IBalance>> => {
 
   const { data } = response;
 
-  console.log('getCurrentBalances::Data', data);
-
   const currentBalances = currentBalancesMapping(data as CurrentBalancesApi);
 
   return currentBalances;

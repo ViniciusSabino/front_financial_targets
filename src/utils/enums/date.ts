@@ -20,7 +20,7 @@ enum MonthsTranslated {
   APRIL = 'Abril',
   MAY = 'Maio',
   JUNE = 'Junho',
-  JULY = 'Julio',
+  JULY = 'Julho',
   AUGUST = 'Agosto',
   SEPTEMBER = 'Setembro',
   OCTOBER = 'Outubro',

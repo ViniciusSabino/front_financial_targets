@@ -54,10 +54,7 @@ const SummaryBalancesContainer = (): JSX.Element => {
   }, [currentBalances]);
 
   return (
-    <SummaryBalances
-      currentBalances={currentBalances}
-      totalBalances={totalBalances}
-    />
+    <SummaryBalances currentBalances={currentBalances} totalBalances={totalBalances} />
   );
 };
 

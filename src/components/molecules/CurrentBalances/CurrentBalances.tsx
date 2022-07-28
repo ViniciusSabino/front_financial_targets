@@ -23,9 +23,7 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
 
   return (
     <Component>
-      <TitleContainer>
-        Saldo Atual
-      </TitleContainer>
+      <TitleContainer>Saldo Atual</TitleContainer>
       <Body>
         <BalancesContainer balances={accounts} type={CurrentBalanceTypes.ACCOUNT} />
         <BalancesContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />

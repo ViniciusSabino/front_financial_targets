@@ -4,7 +4,7 @@ import { Closing } from './service';
 const SUMMARIZED_CLOSINGS_DATA = [
   {
     type: TypesOfClosings.ESTIMATED,
-    value: 109400,
+    value: 90000,
   },
   {
     type: TypesOfClosings.CURRENT,

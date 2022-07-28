@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { TypesOfClosings } from '../../../utils/enums/balances';
 import service, { SummarizedClosings } from '../../../services/SummaryClosings/service';
@@ -12,14 +12,25 @@ const summarizedClosingsEmptyState: SummarizedClosings = {
 };
 
 const SummaryClosingsContainer = (): JSX.Element => {
+  const isMountedRef = useRef(false);
   const [summarizedClosings, setSummarizedClosings] = useState(summarizedClosingsEmptyState);
 
   const initialDataState = useAppSelector<IInitialDataState>((state) => state.initialData);
 
-  const getSummarizedClosings = async () => setSummarizedClosings(await service.getSummarizedClosings());
+  const getSummarizedClosings = async () => {
+    const closings = await service.getSummarizedClosings();
+
+    if (isMountedRef.current) setSummarizedClosings(closings);
+  };
 
   useEffect(() => {
+    isMountedRef.current = true;
+
     getSummarizedClosings();
+
+    return () => {
+      isMountedRef.current = false;
+    };
   }, []);
 
   return (

@@ -16,9 +16,7 @@ const SummaryBalances = (props: SummaryBalancesProps): JSX.Element => {
   return (
     <Component>
       <CurrentBalancesContainer>
-        <CurrentBalances
-          balances={currentBalances}
-        />
+        <CurrentBalances balances={currentBalances} />
       </CurrentBalancesContainer>
       <TotalBalancesContainer>
         <TotalBalances total={totalBalances} />
