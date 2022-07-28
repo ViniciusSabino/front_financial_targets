@@ -5,23 +5,27 @@ import {
 import api from '../../apis/accounts';
 
 export interface CurrentBalancesApi {
-  month: Months,
-  year: number,
-  accounts: Array<IBalance>
-  investments: Array<IBalance>
+  month: Months;
+  year: number;
+  accounts: Array<IBalance>;
+  investments: Array<IBalance>;
 }
 
 const getCurrentBalances = async (): Promise<Array<IBalance>> => {
-  const response = await api.get('/public/balances/current',
-    {
+  try {
+    const response = await api.get('/public/balances/current', {
       headers: { userId: '62019c68cfdad112f35788e4' },
     });
 
-  const { data } = response;
+    const { data } = response;
 
-  const currentBalances = currentBalancesMapping(data as CurrentBalancesApi);
+    const currentBalances = currentBalancesMapping(data as CurrentBalancesApi);
 
-  return currentBalances;
+    return currentBalances;
+  } catch (error) {
+    // TODO: Implementar tratamento de erro que possa ser reutilizado por toda a aplicação
+    return [];
+  }
 };
 
 const getTotalBalances = (currentBalances: Array<IBalance>): ITotalBalances => {

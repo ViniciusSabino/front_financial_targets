@@ -9,6 +9,7 @@ import {
   Component,
   TitleContainer,
   Body,
+  InfoContainer,
 } from './styles';
 
 interface CurrentBalancesProps {
@@ -25,8 +26,15 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
     <Component>
       <TitleContainer>Saldo Atual</TitleContainer>
       <Body>
-        <BalancesContainer balances={accounts} type={CurrentBalanceTypes.ACCOUNT} />
-        <BalancesContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
+        {accounts.length
+          ? (
+            <>
+              <BalancesContainer balances={accounts} type={CurrentBalanceTypes.ACCOUNT} />
+              <BalancesContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
+            </>
+          )
+          : <><InfoContainer>Não há contas para exibir</InfoContainer></>}
+
       </Body>
     </Component>
   );
