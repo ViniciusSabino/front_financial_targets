@@ -1,9 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-
 import Title from './Title/Title';
 import Balance from './Balance/Balance';
+import Loading from './Loading/Loading';
 
-export {
-  Title,
-  Balance,
-};
+export { Title, Balance, Loading };

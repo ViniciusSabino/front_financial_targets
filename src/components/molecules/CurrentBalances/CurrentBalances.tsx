@@ -2,6 +2,7 @@ import React from 'react';
 
 import { IBalance } from '../../../services/accounts/balances/mapper';
 import { CurrentBalanceTypes } from '../../../utils/enums/balances';
+import { Loading } from '../../atoms';
 
 import BalancesContainer from '../Balances/BalancesContainer';
 
@@ -10,14 +11,16 @@ import {
   TitleContainer,
   Body,
   InfoContainer,
+  LoadingContainer,
 } from './styles';
 
 interface CurrentBalancesProps {
   balances: Array<IBalance>;
+  isLoading: boolean;
 }
 
 const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
-  const { balances } = props;
+  const { balances, isLoading } = props;
 
   const accounts = balances.filter((balance) => balance.type === CurrentBalanceTypes.ACCOUNT);
   const investments = balances.filter((balance) => balance.type === CurrentBalanceTypes.INVESTMENT);
@@ -33,7 +36,17 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
               <BalancesContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
             </>
           )
-          : <><InfoContainer>Não há contas para exibir</InfoContainer></>}
+          : (
+            <>
+              <InfoContainer>
+                {isLoading
+
+                  ? (
+                    <Loading type="bubbles" />
+                  ) : 'Não há contas para exibir' }
+              </InfoContainer>
+            </>
+          )}
 
       </Body>
     </Component>

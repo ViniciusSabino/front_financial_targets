@@ -18,6 +18,7 @@ const SummaryBalancesContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);
   const [currentBalances, setCurrentBalances] = useState(currentBalancesEmptyState);
   const [totalBalances, setTotalBalances] = useState(totalBalancesEmptyState);
+  const [isLoading, setLoading] = useState(true);
 
   const dispatch = useAppDispatch();
 
@@ -41,6 +42,7 @@ const SummaryBalancesContainer = (): JSX.Element => {
     getAllBalances().then((balances) => {
       if (isMountedRef.current) {
         setCurrentBalances(balances);
+        setLoading(false);
       }
     });
 
@@ -54,7 +56,11 @@ const SummaryBalancesContainer = (): JSX.Element => {
   }, [currentBalances]);
 
   return (
-    <SummaryBalances currentBalances={currentBalances} totalBalances={totalBalances} />
+    <SummaryBalances
+      currentBalances={currentBalances}
+      totalBalances={totalBalances}
+      isLoading={isLoading}
+    />
   );
 };
 

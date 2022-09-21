@@ -8,7 +8,7 @@ const summaryClosingsMapping = (closings: Array<Closing>): SummarizedClosings =>
   const current = closings.find((closing) => closing.type === TypesOfClosings.CURRENT) || emptyCurrent;
   const estimated = closings.find((closing) => closing.type === TypesOfClosings.ESTIMATED) || emptyEstimated;
 
-  return { current, estimated };
+  return { current, estimated, isError: false };
 };
 
 export default { summaryClosingsMapping };

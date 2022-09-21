@@ -1,31 +1,41 @@
 import { TypesOfClosings } from '../../utils/enums/balances';
-import MOCKS from './mocks';
 import mapper from './mapper';
 import api from '../apis/accounts';
 
 export interface Closing {
-  type: TypesOfClosings,
+  type: TypesOfClosings;
   value: number;
 }
 export interface SummarizedClosings {
-   current: Closing,
-   estimated: Closing;
- }
+  current: Closing;
+  estimated: Closing;
+  isError: boolean;
+}
 
 const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
-  // const response = await api.get('/public/balances/current', {
-  //   headers: { userId: '62019c68cfdad112f35788e4' },
-  // });
+  try {
+    const response = await api.get('/public/closings/current', {
+      headers: { userId: '62019c68cfdad112f35788e4' },
+    });
 
-  // const data2 = response.data;
+    const { data } = response;
 
-  // console.log('DATA', data2);
+    const closings = mapper.summaryClosingsMapping(data);
 
-  const data = await MOCKS.getSummarizedClosings();
-
-  const closings = mapper.summaryClosingsMapping(data);
-
-  return closings;
+    return closings;
+  } catch (error) {
+    return {
+      current: {
+        type: TypesOfClosings.CURRENT,
+        value: 0,
+      },
+      estimated: {
+        type: TypesOfClosings.ESTIMATED,
+        value: 0,
+      },
+      isError: true,
+    };
+  }
 };
 
 export default {

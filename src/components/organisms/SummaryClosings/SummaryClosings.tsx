@@ -20,26 +20,32 @@ interface SummaryClosingsProps {
   currentClosing: Closing,
   estimatedClosing: Closing,
   initialData: IInitialDataState
+  isError: boolean
 }
 
 const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
-  const { currentClosing, estimatedClosing, initialData } = props;
+  const {
+    currentClosing, estimatedClosing, initialData, isError,
+  } = props;
 
   return (
     <Component>
       <Header>
         {`Fechamento de ${initialData.currentMonth.name} de ${initialData.currentYear}`}
       </Header>
-      <ClosingsContainer>
-        <CurrentClosing>
-          <CurrentTitle>Fechamento Atual</CurrentTitle>
-          <CurrentValue>{currency.formatInReal(currentClosing.value)}</CurrentValue>
-        </CurrentClosing>
-        <EstimatedClosing>
-          <EstimatedTitle>Fechamento Estimado</EstimatedTitle>
-          <EstimatedValue>{currency.formatInReal(estimatedClosing.value)}</EstimatedValue>
-        </EstimatedClosing>
-      </ClosingsContainer>
+      {isError ? (
+        <ClosingsContainer>
+          <CurrentClosing>
+            <CurrentTitle>Fechamento Atual</CurrentTitle>
+            <CurrentValue>{currency.formatInReal(currentClosing.value)}</CurrentValue>
+          </CurrentClosing>
+          <EstimatedClosing>
+            <EstimatedTitle>Fechamento Estimado</EstimatedTitle>
+            <EstimatedValue>{currency.formatInReal(estimatedClosing.value)}</EstimatedValue>
+          </EstimatedClosing>
+        </ClosingsContainer>
+      ) : <h1>ERROR</h1> }
+
     </Component>
   );
 };

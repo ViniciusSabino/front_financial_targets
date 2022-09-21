@@ -9,6 +9,7 @@ import { useAppSelector } from '../../../hooks';
 const summarizedClosingsEmptyState: SummarizedClosings = {
   current: { type: TypesOfClosings.CURRENT, value: 0 },
   estimated: { type: TypesOfClosings.ESTIMATED, value: 0 },
+  isError: false,
 };
 
 const SummaryClosingsContainer = (): JSX.Element => {
@@ -38,6 +39,7 @@ const SummaryClosingsContainer = (): JSX.Element => {
       currentClosing={summarizedClosings.current}
       estimatedClosing={summarizedClosings.estimated}
       initialData={initialDataState}
+      isError={summarizedClosings.isError}
     />
   );
 };

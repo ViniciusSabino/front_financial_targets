@@ -8,15 +8,16 @@ import { Component, CurrentBalancesContainer, TotalBalancesContainer } from './s
 export interface SummaryBalancesProps {
   currentBalances: Array<IBalance>;
   totalBalances: ITotalBalances;
+  isLoading: boolean;
 }
 
 const SummaryBalances = (props: SummaryBalancesProps): JSX.Element => {
-  const { currentBalances, totalBalances } = props;
+  const { currentBalances, totalBalances, isLoading } = props;
 
   return (
     <Component>
       <CurrentBalancesContainer>
-        <CurrentBalances balances={currentBalances} />
+        <CurrentBalances balances={currentBalances} isLoading={isLoading} />
       </CurrentBalancesContainer>
       <TotalBalancesContainer>
         <TotalBalances total={totalBalances} />

@@ -26,17 +26,28 @@ const Body = styled.div`
 `;
 
 const InfoContainer = styled.div`
+  align-items: center;
+  background-color: #637580;
   color: #ffffff;
+  display: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
-  line-height: 78px;
   height: 100%;
+  justify-content: center;
+  line-height: 78px;
   text-align: center;
   text-transform: uppercase;
   width: 100%;
 `;
 
+const LoadingContainer = styled.div`
+  margin: auto;
+  height: 60%;
+  width: 10%;
+  margin-bottom: 30px;
+`;
+
 export {
-  Component, TitleContainer, Body, InfoContainer,
+  Component, TitleContainer, Body, InfoContainer, LoadingContainer,
 };
