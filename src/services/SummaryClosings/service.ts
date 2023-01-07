@@ -25,6 +25,7 @@ const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
     return closings;
   } catch (error) {
     return {
+      // TODO: Adicionar tratamento de erro
       current: {
         type: TypesOfClosings.CURRENT,
         value: 0,

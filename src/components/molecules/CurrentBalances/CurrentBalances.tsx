@@ -11,7 +11,6 @@ import {
   TitleContainer,
   Body,
   InfoContainer,
-  LoadingContainer,
 } from './styles';
 
 interface CurrentBalancesProps {
