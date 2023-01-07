@@ -13,7 +13,7 @@ interface TotalBalancesProps {
 
 const TOTAL_BALANCES_LABEL = {
   general: 'Geral',
-  investments: 'Investimentos',
+  investments: 'Investimentos de Curto Prazo',
 };
 
 const CurrentBalances = (props: TotalBalancesProps): JSX.Element => {
