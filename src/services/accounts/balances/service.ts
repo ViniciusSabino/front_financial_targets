@@ -13,7 +13,7 @@ export interface CurrentBalancesApi {
 
 const getCurrentBalances = async (): Promise<Array<IBalance>> => {
   try {
-    const response = await api.get('/public/balances/current', {
+    const response = await api.get('/private/balances/current', {
       headers: { userId: '62019c68cfdad112f35788e4' },
     });
 

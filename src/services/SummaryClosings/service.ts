@@ -14,7 +14,7 @@ export interface SummarizedClosings {
 
 const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
   try {
-    const response = await api.get('/public/closings/current', {
+    const response = await api.get('/private/closings/current', {
       headers: { userId: '62019c68cfdad112f35788e4' },
     });
 
