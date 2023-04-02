@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { TypesOfClosings } from '../../../utils/enums/balances';
+import { TypesOfClosings } from '../../../utils/enums/accounts.enum';
 import service, { SummarizedClosings } from '../../../services/SummaryClosings/service';
 import SummaryClosings from './SummaryClosings';
 import { IInitialDataState } from '../../../slices/initialDataSlice';

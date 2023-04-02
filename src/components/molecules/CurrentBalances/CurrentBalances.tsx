@@ -1,53 +1,90 @@
 import React from 'react';
 
-import { IBalance } from '../../../services/accounts/mapper';
-import { CurrentBalanceTypes } from '../../../utils/enums/balances';
-import { Loading } from '../../atoms';
+import { Balance, TotalBalances } from '../../../services/accounts/mapper';
+import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
+import currency from '../../../utils/helpers/currency';
 
-import BalancesContainer from '../Balances/BalancesContainer';
+import { Loading, DisplayBalanceContainer } from '../../atoms';
 
 import {
-  Component,
-  TitleContainer,
-  Body,
-  InfoContainer,
+  Component, ComponentCurrent, Label, Body, Feedback, ComponentTotal, DisplayTotal, DisplayHeader, NameHeader, DisplayBody,
+  TextName,
+  TextValue,
 } from './styles';
 
-interface CurrentBalancesProps {
-  balances: Array<IBalance>;
+export interface CurrentBalancesProps {
+  currentBalances: Array<Balance>;
+  totalBalances: TotalBalances;
   isLoading: boolean;
 }
 
 const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
-  const { balances, isLoading } = props;
+  const { currentBalances, totalBalances, isLoading } = props;
 
-  const accounts = balances.filter((balance) => balance.type === CurrentBalanceTypes.ACCOUNT);
-  const investments = balances.filter((balance) => balance.type === CurrentBalanceTypes.INVESTMENT);
+  const accounts = currentBalances.filter((balance) => balance.type === CurrentBalanceTypes.ACCOUNT);
+  const investments = currentBalances.filter((balance) => balance.type === CurrentBalanceTypes.INVESTMENT);
+
+  const TOTAL_BALANCES_LABEL = {
+    general: 'Geral',
+    investments: 'Poupança Itaú',
+  };
 
   return (
     <Component>
-      <TitleContainer>Saldo Atual</TitleContainer>
-      <Body>
-        {accounts.length
-          ? (
-            <>
-              <BalancesContainer balances={accounts} type={CurrentBalanceTypes.ACCOUNT} />
-              <BalancesContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
-            </>
-          )
-          : (
-            <>
-              <InfoContainer>
-                {isLoading
+      <ComponentCurrent>
+        <Label balanceType={BalanceTypes.CURRENT}>Saldo Atual</Label>
+        <Body>
+          {accounts.length
+            ? (
+              <>
+                <DisplayBalanceContainer
+                  balances={accounts}
+                  type={CurrentBalanceTypes.ACCOUNT}
+                />
+                <DisplayBalanceContainer
+                  balances={investments}
+                  type={CurrentBalanceTypes.INVESTMENT}
+                />
+              </>
+            )
+            : (
+              <>
+                <Feedback>
+                  {isLoading
+                    ? (
+                      <Loading type="bubbles" />
+                    ) : 'Não há contas para exibir' }
+                </Feedback>
+              </>
+            )}
 
-                  ? (
-                    <Loading type="bubbles" />
-                  ) : 'Não há contas para exibir' }
-              </InfoContainer>
-            </>
-          )}
-
-      </Body>
+        </Body>
+      </ComponentCurrent>
+      <ComponentTotal>
+        <Label balanceType={BalanceTypes.TOTAL}>Saldo Total</Label>
+        <Body>
+          <DisplayTotal key={TotalBalancesTypes.GENERAL} index={0} total={2} type={TotalBalancesTypes.GENERAL}>
+            <DisplayHeader>
+              <NameHeader>
+                <TextName>{TOTAL_BALANCES_LABEL.general}</TextName>
+              </NameHeader>
+            </DisplayHeader>
+            <DisplayBody>
+              <TextValue>{currency.formatInReal(totalBalances.general.value)}</TextValue>
+            </DisplayBody>
+          </DisplayTotal>
+          <DisplayTotal key={TotalBalancesTypes.INVESTMENTS} index={1} total={2} type={TotalBalancesTypes.INVESTMENTS}>
+            <DisplayHeader>
+              <NameHeader>
+                <TextName>{TOTAL_BALANCES_LABEL.investments}</TextName>
+              </NameHeader>
+            </DisplayHeader>
+            <DisplayBody>
+              <TextValue>{currency.formatInReal(totalBalances.investments.value)}</TextValue>
+            </DisplayBody>
+          </DisplayTotal>
+        </Body>
+      </ComponentTotal>
     </Component>
   );
 };

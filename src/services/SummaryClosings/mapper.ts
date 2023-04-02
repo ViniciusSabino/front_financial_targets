@@ -1,4 +1,4 @@
-import { TypesOfClosings } from '../../utils/enums/balances';
+import { TypesOfClosings } from '../../utils/enums/accounts.enum';
 import { SummarizedClosings, Closing } from './service';
 
 const summaryClosingsMapping = (closings: Array<Closing>): SummarizedClosings => {

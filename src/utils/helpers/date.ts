@@ -1,10 +1,10 @@
 import moment from 'moment';
 
-import { MonthNumberByName, Months, MonthsTranslated } from '../enums/date';
+import { MonthNumberByName, Months, MonthsTranslated } from '../enums/date.enum';
 
 export interface Month {
-  name: MonthsTranslated,
-  month: MonthNumberByName,
+  name: MonthsTranslated;
+  month: MonthNumberByName;
 }
 
 const translationMonthsByName = (monthName: Months): MonthsTranslated => ({
@@ -35,7 +35,7 @@ const getMonthNameByNumber = (number: number): Months => ({
   10: Months.OCTOBER,
   11: Months.NOVEMBER,
   12: Months.DECEMBER,
-})[number];
+}[number]);
 
 const getCurrentMonth = (): number => new Date().getMonth() + 1;
 

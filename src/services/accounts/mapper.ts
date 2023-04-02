@@ -1,16 +1,16 @@
-import { CurrentBalancesResponseKeys, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/balances';
+import { CurrentBalancesResponseKeys, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/accounts.enum';
 import { CurrentBalancesApi } from './service';
 
-interface ITotalBalance {
+interface TotalBalance {
   type: TotalBalancesTypes;
   value: number;
 }
-export interface ITotalBalances {
-  general: ITotalBalance;
-  investments: ITotalBalance;
+export interface TotalBalances {
+  general: TotalBalance;
+  investments: TotalBalance;
 }
 
-export interface IBalance {
+export interface Balance {
   id: number;
   name: string;
   type: CurrentBalanceTypes;
@@ -18,10 +18,10 @@ export interface IBalance {
   isMain: boolean;
 }
 
-const currentBalancesMapping = (data: CurrentBalancesApi): Array<IBalance> => {
+const currentBalancesMapping = (data: CurrentBalancesApi): Array<Balance> => {
   const infoTypes = [CurrentBalancesResponseKeys.accounts, CurrentBalancesResponseKeys.investments];
 
-  const initialState: Array<IBalance> = [];
+  const initialState: Array<Balance> = [];
 
   const currentBalances = infoTypes.reduce(
     (allBalances, type) => [...allBalances, ...data[type]].map((balance) => balance),
@@ -31,7 +31,7 @@ const currentBalancesMapping = (data: CurrentBalancesApi): Array<IBalance> => {
   return currentBalances;
 };
 
-const totalBalancesMapping = (currentBalances: Array<IBalance>): ITotalBalances => {
+const totalBalancesMapping = (currentBalances: Array<Balance>): TotalBalances => {
   const totalEmptyState = {
     general: {
       type: TotalBalancesTypes.GENERAL,

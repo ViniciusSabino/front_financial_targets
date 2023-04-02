@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { Header, SummaryBalances, SummaryClosings } from '../../components/organisms';
+import {
+  BalanceClosings,
+} from '../../components/organisms';
+
+import Header from '../../components/templates/Header/Header';
 
 import { Page, Main, Section } from './styles';
 
@@ -9,8 +13,7 @@ const Home = (): JSX.Element => (
     <Main>
       <Section>
         <Header title="Financial Targets" />
-        <SummaryBalances />
-        <SummaryClosings />
+        <BalanceClosings />
       </Section>
     </Main>
   </Page>

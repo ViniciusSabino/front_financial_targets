@@ -1,4 +1,4 @@
-import { TypesOfClosings } from '../../utils/enums/balances';
+import { TypesOfClosings } from '../../utils/enums/accounts.enum';
 import mapper from './mapper';
 import api from '../apis/accounts';
 

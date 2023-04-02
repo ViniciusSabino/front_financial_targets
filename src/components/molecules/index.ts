@@ -1,9 +1,4 @@
-import Balances from './Balances/Balances';
-import CurrentBalances from './CurrentBalances/CurrentBalances';
-import TotalBalances from './TotalBalances/TotalBalances';
+import CurrentBalancesContainer from './CurrentBalances/CurrentBalancesContainer';
+import SummaryClosingsContainer from './SummaryClosings/SummaryClosingsContainer';
 
-export {
-  Balances,
-  CurrentBalances,
-  TotalBalances,
-};
+export { CurrentBalancesContainer, SummaryClosingsContainer };

@@ -1,5 +1,4 @@
-import Header from './Header/Header';
-import SummaryBalances from './SummaryBalances/SummaryBalancesContainer';
-import SummaryClosings from './SummaryClosings/SummaryClosingsContainer';
+import BalanceClosings from './BalanceClosings/BalanceClosings';
 
-export { Header, SummaryBalances, SummaryClosings };
+// eslint-disable-next-line import/prefer-default-export
+export { BalanceClosings };
