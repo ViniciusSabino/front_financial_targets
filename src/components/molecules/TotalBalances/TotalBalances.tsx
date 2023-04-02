@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ITotalBalances } from '../../../services/accounts/balances/mapper';
+import { ITotalBalances } from '../../../services/accounts/mapper';
 import { TotalBalancesTypes } from '../../../utils/enums/balances';
 
 import { Balance } from '../../atoms';
@@ -13,7 +13,7 @@ interface TotalBalancesProps {
 
 const TOTAL_BALANCES_LABEL = {
   general: 'Geral',
-  investments: 'Investimentos de Curto Prazo',
+  investments: 'Poupança Itaú',
 };
 
 const CurrentBalances = (props: TotalBalancesProps): JSX.Element => {

@@ -9,21 +9,25 @@ interface BalanceComponentProps {
 }
 
 interface NameAreaProps {
-  hasIteration: boolean
+  hasIteration: boolean;
 }
 
 const Component = styled.div<BalanceComponentProps>`
-  ${(props) => (props.type === CurrentBalanceTypes.ACCOUNT || props.type === TotalBalancesTypes.GENERAL) && 'border-right: 1px solid #8d8d8d;'}
+  ${(props) => (props.type === CurrentBalanceTypes.ACCOUNT || props.type === TotalBalancesTypes.GENERAL)
+    && 'border-right: 1px solid #143736;'}
   height: 100%;
-  ${(props) => ((props.type === TotalBalancesTypes.INVESTMENTS || props.type === TotalBalancesTypes.GENERAL) ? 'width: 50%;' : 'width: 100%')}
-  ${(props) => ((props.type === TotalBalancesTypes.GENERAL) ? 'float: left;' : '')}
-  ${(props) => ((props.type === TotalBalancesTypes.INVESTMENTS) ? 'float: right;' : '')}
+  ${(props) => (props.type === TotalBalancesTypes.INVESTMENTS || props.type === TotalBalancesTypes.GENERAL
+    ? 'width: 50%;'
+    : 'width: 100%')}
+  ${(props) => (props.type === TotalBalancesTypes.GENERAL ? 'float: left;' : '')}
+  ${(props) => (props.type === TotalBalancesTypes.INVESTMENTS ? 'float: right;' : '')}
 `;
 
 const Header = styled.div`
-  background-color: #637580; 
-  height: 35%;
+  background-color: #143736;
+  height: 40%;
   width: 100%;
+  padding: 5px 0px 0px 0px;
 `;
 
 const NameArea = styled.div<NameAreaProps>`
@@ -33,7 +37,7 @@ const NameArea = styled.div<NameAreaProps>`
 `;
 
 const PreviousBalance = styled.div`
-  color: #FFF;
+  color: #fff;
   float: left;
   font-size: 18px;
   height: 100%;
@@ -43,9 +47,9 @@ const PreviousBalance = styled.div`
 `;
 
 const Name = styled.h1`
-  color: #FFF;
+  color: #fff;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   line-height: 27.3px;
   text-align: center;
@@ -57,12 +61,12 @@ const NextBalance = styled(PreviousBalance)`
 `;
 
 const Body = styled.div`
-  background-color: #637580;  
-  height: 65%;
+  background-color: #143736;
+  height: 60%;
 `;
 
 const Value = styled(Name)`
-  font-size: 20px;
+  font-size: 18px;
   line-height: 50.7px;
 `;
 

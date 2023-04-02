@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header, SummaryBalances, SummaryClosings } from '../../organisms';
+import { Header, SummaryBalances, SummaryClosings } from '../../components/organisms';
 
 import { Page, Main, Section } from './styles';
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '../../../hooks';
-import service from '../../../services/accounts/balances/service';
-import { IBalance, ITotalBalances } from '../../../services/accounts/balances/mapper';
+import service from '../../../services/accounts/service';
+import { IBalance, ITotalBalances } from '../../../services/accounts/mapper';
 import { summaryBalancesActions } from '../../../slices/SummaryBalancesSlice';
 import { TotalBalancesTypes } from '../../../utils/enums/balances';
 

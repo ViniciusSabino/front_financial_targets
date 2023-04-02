@@ -1,12 +1,7 @@
 APLICAÇÃO GERAL
 
-- Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib Joi como base)
-- Atualizar as informações do Package.json
-- Configurar para a aplicação atualizar automaticamente quando um arquivo for salvo
-
-COMPONENTS -> TABLE
-
-- Possibilidade de passar via props um array de campos que deverão ser desconsiderados para o componente tabela
-com base nos dados enviados
-- As cores dos elementos da tabela, está definido na própria tabela, mas e se for preciso reutilizar o componente de tabela em outra pagina ou componente, mas com outras cores? 
-como deverá ser feito?
+- P3 - Criar uma lib para validação de modelos (validação de dados) para ser utilizado por toda a aplicação (Utilizar a lib Joi como base)
+- P3 - Atualizar as informações do Package.json
+- P2 - Configurar para a aplicação atualizar automaticamente quando um arquivo for salvo
+- P1 - Criar uma constante para manter as principais cores da aplicação em um único lugar (arquivo)
+- P1 - Simplificar o componente de SummaryBalances (Remover o BalancesContainer.tsx- Aplicar código no CurrentBalances.tsx (Criar um CurrentBalancesContainer))

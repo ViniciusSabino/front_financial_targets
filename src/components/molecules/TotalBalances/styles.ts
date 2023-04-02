@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  background-color: #79AEA5;
+  background-color: #143736;
   height: 100%;
   width: 100%;
 `;
 
 const TitleContainer = styled.div`
-  background-color: #79AEA5;
-  color: #FFFFFF;
+  background-color: #143736;
+  color: #ffffff;
   height: 100%;
   float: right;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

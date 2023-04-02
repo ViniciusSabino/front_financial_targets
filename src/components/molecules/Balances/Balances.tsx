@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IBalance } from '../../../services/accounts/balances/mapper';
+import { IBalance } from '../../../services/accounts/mapper';
 import { CurrentBalanceTypes } from '../../../utils/enums/balances';
 import { Balance } from '../../atoms';
 

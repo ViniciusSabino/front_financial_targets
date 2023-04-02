@@ -7,7 +7,7 @@ interface BalancesComponentProps {
 }
 
 const Component = styled.div<BalancesComponentProps>`
- ${(props) => (props.type === CurrentBalanceTypes.ACCOUNT ? 'float: left;' : 'float: right;')}
+  ${(props) => (props.type === CurrentBalanceTypes.ACCOUNT ? 'float: left;' : 'float: right;')}
   height: 100%;
   width: 50%;
 `;

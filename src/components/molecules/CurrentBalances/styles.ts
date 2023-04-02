@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  background-color: #79aea5;
+  background-color: #143736;
   height: 100%;
   width: 100%;
 `;
 
 const TitleContainer = styled.div`
-  background-color: #79aea5;
-  color: #ffffff;
+  background-color: #143736;
+  color: #000000;
   height: 100%;
   float: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -27,7 +27,7 @@ const Body = styled.div`
 
 const InfoContainer = styled.div`
   align-items: center;
-  background-color: #637580;
+  background-color: #143736;
   color: #ffffff;
   display: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

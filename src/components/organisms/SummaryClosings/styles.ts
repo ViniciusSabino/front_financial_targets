@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  background-color: #79AEA5;
+  background-color: #0e2726;
   height: 80px;
   width: 100%;
 `;
 
 const Header = styled.div`
-  background-color: #7A9CB5;
-  color: #FFF;
+  background-color: #eef6fc;
+  color: #fff;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   height: 40%;
   line-height: 32px;
@@ -25,7 +25,7 @@ const ClosingsContainer = styled.div`
 `;
 
 const CurrentClosing = styled.div`
-  background-color: #637580;
+  background-color: #143736;
   float: left;
   height: 100%;
   width: 47%;
@@ -36,11 +36,11 @@ const EstimatedClosing = styled(CurrentClosing)`
 `;
 
 const CurrentTitle = styled.div`
-  border-right: 1px solid #FFF;
-  color: #FFF;
+  border-right: 1px solid #fff;
+  color: #fff;
   float: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   height: 100%;
   line-height: 48px;
@@ -50,12 +50,12 @@ const CurrentTitle = styled.div`
 `;
 
 const EstimatedTitle = styled(CurrentTitle)`
-  border-left: 1px solid #FFF;
+  border-left: 1px solid #fff;
   float: right;
 `;
 
 const CurrentValue = styled.div`
-  color: #FFF;
+  color: #fff;
   float: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 16px;

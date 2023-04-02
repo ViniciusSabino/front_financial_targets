@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  background-color: #79AEA5;
+  background-color: #0e2726;
   height: 78px;
   width: 100%;
 `;
@@ -16,8 +16,4 @@ const TotalBalancesContainer = styled(CurrentBalancesContainer)`
   float: right;
 `;
 
-export {
-  Component,
-  CurrentBalancesContainer,
-  TotalBalancesContainer,
-};
+export { Component, CurrentBalancesContainer, TotalBalancesContainer };

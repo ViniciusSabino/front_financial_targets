@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 const Page = styled.div`
   margin: 0px auto;
-  width: 95%;
+  width: 100%;
 `;
 
 const Main = styled.main``;
 
 const Section = styled.section`
-  background-color: #CCCC;
-  height: 900px;
+  background-color: #eeeeee;
 `;
 
 export { Page, Main, Section };

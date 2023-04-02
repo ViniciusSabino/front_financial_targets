@@ -1,8 +1,8 @@
-import { Months } from '../../../utils/enums/date';
+import { Months } from '../../utils/enums/date';
 import {
   currentBalancesMapping, IBalance, ITotalBalances, totalBalancesMapping,
 } from './mapper';
-import api from '../../apis/accounts';
+import api from '../apis/accounts';
 
 export interface CurrentBalancesApi {
   month: Months;
