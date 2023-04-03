@@ -34,7 +34,7 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
       <ComponentCurrent>
         <Label balanceType={BalanceTypes.CURRENT}>Saldo Atual</Label>
         <Body>
-          {accounts.length
+          {accounts.length && !isLoading
             ? (
               <>
                 <DisplayBalanceContainer
@@ -48,41 +48,50 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
               </>
             )
             : (
-              <>
-                <Feedback>
-                  {isLoading
-                    ? (
-                      <Loading type="bubbles" />
-                    ) : 'Não há contas para exibir' }
-                </Feedback>
-              </>
+              <Feedback>
+                {isLoading
+                  ? (
+                    <Loading type="bubbles" />
+                  ) : 'Não há contas para exibir' }
+              </Feedback>
             )}
-
         </Body>
       </ComponentCurrent>
       <ComponentTotal>
         <Label balanceType={BalanceTypes.TOTAL}>Saldo Total</Label>
         <Body>
-          <DisplayTotal key={TotalBalancesTypes.GENERAL} index={0} total={2} type={TotalBalancesTypes.GENERAL}>
-            <DisplayHeader>
-              <NameHeader>
-                <TextName>{TOTAL_BALANCES_LABEL.general}</TextName>
-              </NameHeader>
-            </DisplayHeader>
-            <DisplayBody>
-              <TextValue>{currency.formatInReal(totalBalances.general.value)}</TextValue>
-            </DisplayBody>
-          </DisplayTotal>
-          <DisplayTotal key={TotalBalancesTypes.INVESTMENTS} index={1} total={2} type={TotalBalancesTypes.INVESTMENTS}>
-            <DisplayHeader>
-              <NameHeader>
-                <TextName>{TOTAL_BALANCES_LABEL.investments}</TextName>
-              </NameHeader>
-            </DisplayHeader>
-            <DisplayBody>
-              <TextValue>{currency.formatInReal(totalBalances.investments.value)}</TextValue>
-            </DisplayBody>
-          </DisplayTotal>
+          {!isLoading ? (
+            <>
+              <DisplayTotal key={TotalBalancesTypes.GENERAL} index={0} total={2} type={TotalBalancesTypes.GENERAL}>
+                <DisplayHeader>
+                  <NameHeader>
+                    <TextName>{TOTAL_BALANCES_LABEL.general}</TextName>
+                  </NameHeader>
+                </DisplayHeader>
+                <DisplayBody>
+                  <TextValue>{currency.formatInReal(totalBalances.general.value)}</TextValue>
+                </DisplayBody>
+              </DisplayTotal>
+              <DisplayTotal key={TotalBalancesTypes.INVESTMENTS} index={1} total={2} type={TotalBalancesTypes.INVESTMENTS}>
+                <DisplayHeader>
+                  <NameHeader>
+                    <TextName>{TOTAL_BALANCES_LABEL.investments}</TextName>
+                  </NameHeader>
+                </DisplayHeader>
+                <DisplayBody>
+                  <TextValue>{currency.formatInReal(totalBalances.investments.value)}</TextValue>
+                </DisplayBody>
+              </DisplayTotal>
+            </>
+          )
+            : (
+              <Feedback>
+                {isLoading
+                  ? (
+                    <Loading type="bubbles" />
+                  ) : 'Não há totais para exibir' }
+              </Feedback>
+            )}
         </Body>
       </ComponentTotal>
     </Component>
