@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Component = styled.div`
   background-color: #0e2726;
-  height: 80px;
+  height: 105px;
   width: 100%;
 `;
 
@@ -12,26 +12,26 @@ const Header = styled.div`
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
-  height: 40%;
-  line-height: 32px;
+  height: 35%;
+  line-height: 37px;
   text-align: center;
   text-transform: uppercase;
   width: 100%;
 `;
 
 const ClosingsContainer = styled.div`
-  height: 60%;
-  width: 100.1%;
+  height: 45%;
+  width: 100%;
 `;
 
-const CurrentClosing = styled.div`
+const Current = styled.div`
   background-color: #143736;
   float: left;
   height: 100%;
   width: 47%;
 `;
 
-const EstimatedClosing = styled(CurrentClosing)`
+const Estimated = styled(Current)`
   float: right;
 `;
 
@@ -71,14 +71,20 @@ const EstimatedValue = styled(CurrentValue)`
   float: right;
 `;
 
+const Footer = styled.footer`
+  background-color: #eef6fc;
+  height: 20%;
+`;
+
 export {
   Component,
   Header,
   ClosingsContainer,
-  CurrentClosing,
-  EstimatedClosing,
+  Current,
+  Estimated,
   CurrentTitle,
   EstimatedTitle,
   CurrentValue,
   EstimatedValue,
+  Footer,
 };

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {
-  BalanceClosings,
-} from '../../components/organisms';
+import { BalanceClosings } from '../../components/organisms';
 
 import Header from '../../components/templates/Header/Header';
 
-import { Page, Main, Section } from './styles';
+import {
+  Page, Main, Section, Module,
+} from './styles';
 
 const Home = (): JSX.Element => (
   <Page>
@@ -14,6 +14,7 @@ const Home = (): JSX.Element => (
       <Section>
         <Header title="Financial Targets" />
         <BalanceClosings />
+        <Module />
       </Section>
     </Main>
   </Page>

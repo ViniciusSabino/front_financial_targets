@@ -1,17 +1,17 @@
-import { Months } from '../../utils/enums/date';
+import { Months } from '../../utils/enums/date.enum';
 import {
-  currentBalancesMapping, IBalance, ITotalBalances, totalBalancesMapping,
+  currentBalancesMapping, Balance, TotalBalances, totalBalancesMapping,
 } from './mapper';
 import api from '../apis/accounts';
 
 export interface CurrentBalancesApi {
   month: Months;
   year: number;
-  accounts: Array<IBalance>;
-  investments: Array<IBalance>;
+  accounts: Array<Balance>;
+  investments: Array<Balance>;
 }
 
-const getCurrentBalances = async (): Promise<Array<IBalance>> => {
+const getCurrentBalances = async (): Promise<Array<Balance>> => {
   try {
     const response = await api.get('/private/balances/current', {
       headers: { userId: '62019c68cfdad112f35788e4' },
@@ -28,7 +28,7 @@ const getCurrentBalances = async (): Promise<Array<IBalance>> => {
   }
 };
 
-const getTotalBalances = (currentBalances: Array<IBalance>): ITotalBalances => {
+const getTotalBalances = (currentBalances: Array<Balance>): TotalBalances => {
   const totalBalances = totalBalancesMapping(currentBalances);
 
   return totalBalances;

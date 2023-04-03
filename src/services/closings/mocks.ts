@@ -1,4 +1,4 @@
-import { TypesOfClosings } from '../../utils/enums/balances';
+import { TypesOfClosings } from '../../utils/enums/accounts.enum';
 import { Closing } from './service';
 
 const SUMMARIZED_CLOSINGS_DATA = [
@@ -12,7 +12,8 @@ const SUMMARIZED_CLOSINGS_DATA = [
   },
 ];
 
-const getSummarizedClosings = (): Promise<Array<Closing>> => Promise.resolve(SUMMARIZED_CLOSINGS_DATA);
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getSummarizedClosings = (userId: string): Promise<Array<Closing>> => Promise.resolve(SUMMARIZED_CLOSINGS_DATA);
 
 export default {
   getSummarizedClosings,

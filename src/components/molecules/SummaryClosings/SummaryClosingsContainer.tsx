@@ -1,20 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { TypesOfClosings } from '../../../utils/enums/accounts.enum';
-import service, { SummarizedClosings } from '../../../services/SummaryClosings/service';
+import service from '../../../services/closings/service';
 import SummaryClosings from './SummaryClosings';
 import { IInitialDataState } from '../../../slices/initialDataSlice';
 import { useAppSelector } from '../../../hooks';
 
-const summarizedClosingsEmptyState: SummarizedClosings = {
-  current: { type: TypesOfClosings.CURRENT, value: 0 },
-  estimated: { type: TypesOfClosings.ESTIMATED, value: 0 },
-  isError: false,
-};
-
 const SummaryClosingsContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);
-  const [summarizedClosings, setSummarizedClosings] = useState(summarizedClosingsEmptyState);
+  const [summarizedClosings, setSummarizedClosings] = useState({
+    current: { type: TypesOfClosings.CURRENT, value: 0 },
+    estimated: { type: TypesOfClosings.ESTIMATED, value: 0 },
+  });
 
   const initialDataState = useAppSelector<IInitialDataState>((state) => state.initialData);
 
@@ -36,10 +33,9 @@ const SummaryClosingsContainer = (): JSX.Element => {
 
   return (
     <SummaryClosings
-      currentClosing={summarizedClosings.current}
-      estimatedClosing={summarizedClosings.estimated}
+      current={summarizedClosings.current}
+      estimated={summarizedClosings.estimated}
       initialData={initialDataState}
-      isError={summarizedClosings.isError}
     />
   );
 };

@@ -1,6 +1,4 @@
 import { TypesOfClosings } from '../../utils/enums/accounts.enum';
-import mapper from './mapper';
-import api from '../apis/accounts';
 
 export interface Closing {
   type: TypesOfClosings;
@@ -9,23 +7,23 @@ export interface Closing {
 export interface SummarizedClosings {
   current: Closing;
   estimated: Closing;
-  isError: boolean;
 }
 
+// eslint-disable-next-line require-await
 const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
   try {
-    const response = await api.get('/private/closings/current', {
-      headers: { userId: '62019c68cfdad112f35788e4' },
-    });
+    throw new Error('Criar essa rota');
+    // const response = await api.get('/private/closings/current', {
+    //   headers: { userId: '62019c68cfdad112f35788e4' },
+    // });
 
-    const { data } = response;
+    // const { data } = response;
 
-    const closings = mapper.summaryClosingsMapping(data);
+    // const closings = mapper.summaryClosingsMapping(data);
 
-    return closings;
+    // return closings;
   } catch (error) {
     return {
-      // TODO: Adicionar tratamento de erro
       current: {
         type: TypesOfClosings.CURRENT,
         value: 0,
@@ -34,7 +32,6 @@ const getSummarizedClosings = async (): Promise<SummarizedClosings> => {
         type: TypesOfClosings.ESTIMATED,
         value: 0,
       },
-      isError: true,
     };
   }
 };

@@ -4,4 +4,3 @@ APLICAÇÃO GERAL
 - P3 - Atualizar as informações do Package.json
 - P2 - Configurar para a aplicação atualizar automaticamente quando um arquivo for salvo
 - P1 - Criar uma constante para manter as principais cores da aplicação em um único lugar (arquivo)
-- P1 - Simplificar o componente de SummaryBalances (Remover o BalancesContainer.tsx- Aplicar código no CurrentBalances.tsx (Criar um CurrentBalancesContainer))

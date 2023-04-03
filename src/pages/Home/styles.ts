@@ -11,4 +11,8 @@ const Section = styled.section`
   background-color: #eeeeee;
 `;
 
-export { Page, Main, Section };
+const Module = styled.div``;
+
+export {
+  Page, Main, Section, Module,
+};
