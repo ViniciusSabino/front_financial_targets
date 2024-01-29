@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Title } from '../../atoms';
+import Style from './styles';
 
-import { HeaderStyle } from './styles';
+const { HeaderStyle, Title } = Style;
 
 interface HeaderProps {
   title: string,
@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const Header = ({ title }: HeaderProps): JSX.Element => (
   <HeaderStyle>
-    <Title text={title} />
+    <Title>{title}</Title>
   </HeaderStyle>
 );
 

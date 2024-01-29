@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+
 import styled from 'styled-components';
 
 import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
@@ -7,20 +8,19 @@ interface LabelProps {
   balanceType: BalanceTypes
 }
 
-interface DisplayTotalProps {
+interface TotalComponentProps {
   index: number;
   total: number;
   type: CurrentBalanceTypes | TotalBalancesTypes;
 }
 
 const Component = styled.div`
-  background-color: #0e2726;
+  background-color: #264654;
   height: 78px;
   width: 100%;
 `;
 
 const ComponentCurrent = styled.div`
-  background-color: #143736;
   float: left;
   height: 100%;
   width: 47%;
@@ -31,8 +31,8 @@ const ComponentTotal = styled(ComponentCurrent)`
 `;
 
 const Label = styled.div<LabelProps>`
-  background-color: #143736;
-  color: #000000;
+  background-color: #233C4A;
+  color: #FFFFFF;
   height: 100%;
   ${(props) => (props.balanceType === BalanceTypes.CURRENT ? 'float: left;' : 'float: right')};
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -51,8 +51,7 @@ const Body = styled.div`
 
 const Feedback = styled.div`
   align-items: center;
-  background-color: #143736;
-  color: #ffffff;
+  color: #FFFFFF;
   display: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
@@ -65,7 +64,7 @@ const Feedback = styled.div`
   width: 100%;
 `;
 
-const DisplayTotal = styled.div<DisplayTotalProps>`
+const TotalComponent = styled.div<TotalComponentProps>`
   ${(props) => (props.type === TotalBalancesTypes.GENERAL)
     && 'border-right: 1px solid #143736;'}
   height: 100%;
@@ -76,21 +75,20 @@ const DisplayTotal = styled.div<DisplayTotalProps>`
   ${(props) => (props.type === TotalBalancesTypes.INVESTMENTS ? 'float: right;' : '')}
 `;
 
-const DisplayHeader = styled.div`
-  background-color: #143736;
+const TotalComponentHeader = styled.div`
   height: 40%;
   width: 100%;
   padding: 5px 0px 0px 0px;
 `;
 
-const NameHeader = styled.div`
+const TotalLabel = styled.div`
   float: left;
   height: 100%;
   width: 100%;
 `;
 
-const TextName = styled.h1`
-  color: #fff;
+const TextLabel = styled.h1`
+  color: #FFFFFF;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -99,16 +97,27 @@ const TextName = styled.h1`
   text-transform: uppercase;
 `;
 
-const DisplayBody = styled.div`
-  background-color: #143736;
+const ComponentTotalBody = styled.div`
+  background-color: #233C4A;
   height: 60%;
 `;
 
-const TextValue = styled(TextName)`
+const TotalValue = styled(TextLabel)`
   font-size: 18px;
   line-height: 50.7px;
 `;
 
 export {
-  Component, ComponentCurrent, ComponentTotal, Label, Body, Feedback, DisplayTotal, DisplayHeader, NameHeader, TextName, DisplayBody, TextValue,
+  Component,
+  ComponentCurrent,
+  ComponentTotal,
+  Label,
+  Body,
+  Feedback,
+  TotalComponent,
+  TotalComponentHeader,
+  TotalLabel,
+  TextLabel,
+  ComponentTotalBody,
+  TotalValue,
 };

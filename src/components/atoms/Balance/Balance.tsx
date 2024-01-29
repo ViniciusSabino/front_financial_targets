@@ -18,7 +18,7 @@ interface DisplayBalancesProps {
   type: CurrentBalanceTypes;
 }
 
-const DisplayBalance = (props: DisplayBalancesProps): JSX.Element => {
+const Balance = (props: DisplayBalancesProps): JSX.Element => {
   const {
     balance, index, balances, handlePrevious, handleNext, type,
   } = props;
@@ -49,4 +49,4 @@ const DisplayBalance = (props: DisplayBalancesProps): JSX.Element => {
   return null;
 };
 
-export default DisplayBalance;
+export default Balance;

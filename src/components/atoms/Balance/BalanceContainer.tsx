@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Balance } from '../../../services/accounts/mapper';
 import { CurrentBalanceTypes } from '../../../utils/enums/accounts.enum';
 
-import DisplayBalance from './DisplayBalance';
+import BalanceComponent from './Balance';
 
-interface DisplayBalanceProps {
+interface BalanceProps {
   balances: Array<Balance>;
   type: CurrentBalanceTypes
 }
 
-const DisplayBalanceContainer = (props: DisplayBalanceProps): JSX.Element => {
+const BalanceContainer = (props: BalanceProps): JSX.Element => {
   const { balances, type } = props;
 
   const [current, setCurrent] = useState<Balance>();
@@ -38,7 +38,7 @@ const DisplayBalanceContainer = (props: DisplayBalanceProps): JSX.Element => {
   }, [balances]);
 
   return (
-    <DisplayBalance
+    <BalanceComponent
       balance={current}
       index={currentIndex}
       balances={allBalances}
@@ -49,4 +49,4 @@ const DisplayBalanceContainer = (props: DisplayBalanceProps): JSX.Element => {
   );
 };
 
-export default DisplayBalanceContainer;
+export default BalanceContainer;

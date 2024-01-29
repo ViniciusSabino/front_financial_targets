@@ -7,9 +7,7 @@ const Page = styled.div`
 
 const Main = styled.main``;
 
-const Section = styled.section`
-  background-color: #eeeeee;
-`;
+const Section = styled.section``;
 
 const Module = styled.div``;
 

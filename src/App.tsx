@@ -11,7 +11,7 @@ const App = (): JSX.Element => (
   <>
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/inicio" component={Home} />
       </Switch>
     </Router>
     <GlobalStyle />

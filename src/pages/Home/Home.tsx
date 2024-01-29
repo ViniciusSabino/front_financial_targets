@@ -2,10 +2,13 @@ import React from 'react';
 
 import { BalanceClosings } from '../../components/organisms';
 
-import Header from '../../components/templates/Header/Header';
+import Header from '../../components/template/Header/Header';
 
 import {
-  Page, Main, Section, Module,
+  Page,
+  Main,
+  Section,
+  Module,
 } from './styles';
 
 const Home = (): JSX.Element => (

@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { TypesOfClosings } from '../../../utils/enums/accounts.enum';
-import service from '../../../services/closings/service';
-import SummaryClosings from './SummaryClosings';
 import { IInitialDataState } from '../../../slices/initialDataSlice';
 import { useAppSelector } from '../../../hooks';
+
+import service from '../../../services/closings/service';
+
+import SummaryClosings from './SummaryClosings';
 
 const SummaryClosingsContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);

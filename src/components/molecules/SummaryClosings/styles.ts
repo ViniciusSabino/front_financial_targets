@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 const Component = styled.div`
-  background-color: #0e2726;
   height: 105px;
   width: 100%;
 `;
 
 const Header = styled.div`
-  background-color: #eef6fc;
-  color: #fff;
+  color: #233c4a;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -25,7 +23,7 @@ const ClosingsContainer = styled.div`
 `;
 
 const Current = styled.div`
-  background-color: #143736;
+  background-color: #233c4a;
   float: left;
   height: 100%;
   width: 47%;
@@ -72,7 +70,6 @@ const EstimatedValue = styled(CurrentValue)`
 `;
 
 const Footer = styled.footer`
-  background-color: #eef6fc;
   height: 20%;
 `;
 

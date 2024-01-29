@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '../../../hooks';
-import service from '../../../services/accounts/service';
 import { Balance, TotalBalances } from '../../../services/accounts/mapper';
 import { currentBalancesActions } from '../../../slices/CurrentBalancesSlice';
 import { TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
+
+import service from '../../../services/accounts/service';
 
 import CurrentBalances from './CurrentBalances';
 

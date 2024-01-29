@@ -1,5 +1,5 @@
-import Title from './Title/Title';
-import Loading from './Loading/Loading';
-import DisplayBalanceContainer from './DisplayBalance/DisplayBalanceContainer';
+/* eslint-disable import/prefer-default-export */
 
-export { Title, Loading, DisplayBalanceContainer };
+import BalanceContainer from './Balance/BalanceContainer';
+
+export { BalanceContainer };
