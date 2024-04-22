@@ -33,8 +33,8 @@ const BalanceContainer = (props: BalanceProps): JSX.Element => {
 
   useEffect(() => {
     setAllBalances(balances);
-    setCurrent(balances.find(((balance) => balance.isMain)));
-    setCurrentIndex(balances.findIndex((balance) => balance.isMain));
+    setCurrent(balances.find(((balance) => balance.account.main)));
+    setCurrentIndex(balances.findIndex((balance) => balance.account.main));
   }, [balances]);
 
   return (

@@ -2,17 +2,24 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Balance } from '../services/accounts/mapper';
 
-export interface CurrentBalances {
-  all: Array<Balance>;
+interface CurrentBalances {
+  accounts: Balance[];
+  investments: Balance[];
+}
+export interface Balances {
+  current: CurrentBalances;
 }
 
 export interface CurrentBalancesState {
-  currentBalances: CurrentBalances;
+  balances: Balances;
 }
 
 const initialState: CurrentBalancesState = {
-  currentBalances: {
-    all: [],
+  balances: {
+    current: {
+      accounts: [],
+      investments: [],
+    },
   },
 };
 
@@ -20,11 +27,14 @@ export const currentBalancesSlice = createSlice({
   name: 'summaryBalances',
   initialState,
   reducers: {
-    loadAllCurrentBalances: (state, action: PayloadAction<Array<Balance>>) => ({
+    loadAllCurrentBalances: (state, action: PayloadAction<CurrentBalances>) => ({
       ...state,
-      currentBalances: {
-        ...state.currentBalances,
-        all: action.payload,
+      balances: {
+        current: {
+          account: action.payload.accounts,
+          investments: action.payload.investments,
+        },
+        ...state.balances,
       },
     }),
   },

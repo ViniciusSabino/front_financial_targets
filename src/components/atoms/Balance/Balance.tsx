@@ -32,7 +32,7 @@ const Balance = (props: DisplayBalancesProps): JSX.Element => {
               {index > 0 && <AiOutlineCaretLeft onClick={() => handlePrevious(index - 1)} />}
             </Previous>
             <NameHeader>
-              <TextName>{balance.name}</TextName>
+              <TextName>{balance.account.name}</TextName>
             </NameHeader>
             <Next>
               {(index < balances.length - 1) && <AiOutlineCaretRight onClick={() => handleNext(index + 1)} />}

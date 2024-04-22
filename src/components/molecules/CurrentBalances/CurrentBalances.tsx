@@ -22,16 +22,15 @@ import {
 } from './styles';
 
 export interface CurrentBalancesProps {
-  currentBalances: Array<Balance>;
+  accounts: Array<Balance>;
+  investments: Array<Balance>;
   totalBalances: TotalBalances;
   isLoading: boolean;
 }
 
 const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
-  const { currentBalances, totalBalances, isLoading } = props;
+  const { accounts, investments, totalBalances, isLoading } = props;
 
-  const accounts = currentBalances.filter((balance) => balance.type === CurrentBalanceTypes.ACCOUNT);
-  const investments = currentBalances.filter((balance) => balance.type === CurrentBalanceTypes.INVESTMENT);
 
   const TOTAL_BALANCES_LABEL = {
     general: 'Geral',

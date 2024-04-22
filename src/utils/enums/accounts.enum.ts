@@ -1,11 +1,11 @@
-enum CurrentBalanceTypes {
-  ACCOUNT = 'ACCOUNT',
+enum AccountType {
+  CHECKING_ACCOUNT = 'CHECKING_ACCOUNT',
   INVESTMENT = 'INVESTMENT',
 }
 
-enum CurrentBalancesResponseKeys {
-  accounts = 'accounts',
-  investments = 'investments',
+enum CurrentBalanceTypes {
+  ACCOUNT = 'ACCOUNT',
+  INVESTMENT = 'INVESTMENT',
 }
 
 enum TotalBalancesTypes {
@@ -24,5 +24,5 @@ enum TypesOfClosings {
 }
 
 export {
-  CurrentBalanceTypes, CurrentBalancesResponseKeys, TotalBalancesTypes, BalanceTypes, TypesOfClosings,
+  AccountType, CurrentBalanceTypes, TotalBalancesTypes, BalanceTypes, TypesOfClosings,
 };

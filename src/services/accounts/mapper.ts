@@ -1,72 +1,70 @@
-import { CurrentBalancesResponseKeys, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/accounts.enum';
-import { CurrentBalancesApi } from './service';
+import { AccountType, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/accounts.enum';
+import { Months } from '../../utils/enums/date.enum';
+import { CurrentBalancesResponse } from './service';
 
-interface TotalBalance {
+interface Account {
+  id: string;
+  name: string;
+  type: AccountType;
+  user: string;
+  main: boolean;
+}
+
+export interface TotalBalanceValue {
   type: TotalBalancesTypes;
   value: number;
 }
 export interface TotalBalances {
-  general: TotalBalance;
-  investments: TotalBalance;
+  general: TotalBalanceValue;
+  investments: TotalBalanceValue;
 }
 
 export interface Balance {
-  id: number;
-  name: string;
-  type: CurrentBalanceTypes;
+  id: string;
+  account: Account;
+  month: Months;
+  year: number;
   value: number;
-  isMain: boolean;
 }
 
-const currentBalancesMapping = (data: CurrentBalancesApi): Array<Balance> => {
-  const infoTypes = [CurrentBalancesResponseKeys.accounts, CurrentBalancesResponseKeys.investments];
+export interface CurrentBalances {
+  accounts: Balance[];
+  investments: Balance[];
+}
 
-  const initialState: Array<Balance> = [];
+const currentBalancesMapping = (data: CurrentBalancesResponse): CurrentBalances => {
+  const { accounts, investments } = data;
 
-  const currentBalances = infoTypes.reduce(
-    (allBalances, type) => [...allBalances, ...data[type]].map((balance) => balance),
-    initialState,
-  );
-
-  return currentBalances;
+  return { accounts, investments };
 };
 
-const totalBalancesMapping = (currentBalances: Array<Balance>): TotalBalances => {
-  const totalEmptyState = {
+const totalBalancesMapping = (accounts: Array<Balance>, investments: Array<Balance>): TotalBalances => {
+  const allBalances = [...accounts, ...investments];
+
+  const initialState: TotalBalances = {
     general: {
       type: TotalBalancesTypes.GENERAL,
-      value: 0,
+      value: 0.0,
     },
     investments: {
       type: TotalBalancesTypes.INVESTMENTS,
-      value: 0,
+      value: 0.0,
     },
   };
 
-  const totalBalances = currentBalances.reduce((total, balance) => {
-    if (balance.type === CurrentBalanceTypes.ACCOUNT) {
-      return {
-        ...total,
-        general: {
-          ...total.general,
-          value: total.general.value + balance.value,
-        },
-      };
-    }
-
-    return {
+  return allBalances.reduce(
+    (totalBalances, balance) => ({
       general: {
-        ...total.general,
-        value: total.general.value + balance.value,
+        ...totalBalances.general,
+        value: totalBalances.general.value + balance.value,
       },
       investments: {
-        ...total.investments,
-        value: total.investments.value + balance.value,
+        ...totalBalances.investments,
+        value: totalBalances.investments.value + (balance.account.type === AccountType.INVESTMENT ? balance.value : 0),
       },
-    };
-  }, totalEmptyState);
-
-  return totalBalances;
+    }),
+    initialState,
+  );
 };
 
 export { currentBalancesMapping, totalBalancesMapping };

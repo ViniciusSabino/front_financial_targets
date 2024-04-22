@@ -1,18 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '../../../hooks';
-import { Balance, TotalBalances } from '../../../services/accounts/mapper';
 import { currentBalancesActions } from '../../../slices/CurrentBalancesSlice';
 import { TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
 
 import service from '../../../services/accounts/service';
 
 import CurrentBalances from './CurrentBalances';
+import { Balance, TotalBalances } from '../../../services/accounts/mapper';
 
 const CurrentBalancesContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);
 
-  const [currentBalances, setCurrentBalances] = useState([] as Array<Balance>);
+  const [accounts, setAccounts] = useState([] as Array<Balance>);
+  const [investments, setInvestments] = useState([] as Array<Balance>);
+
   const [totalBalances, setTotalBalances] = useState({
     general: { type: TotalBalancesTypes.GENERAL, value: 0 },
     investments: { type: TotalBalancesTypes.INVESTMENTS, value: 0 },
@@ -23,25 +25,27 @@ const CurrentBalancesContainer = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const getAllBalances = async () => {
-    const balances = await service.getCurrentBalances();
+    const currentBalances = await service.getCurrentBalances();
+    console.log(currentBalances)
 
-    dispatch(currentBalancesActions.loadAllCurrentBalances(balances));
+    dispatch(currentBalancesActions.loadAllCurrentBalances(currentBalances));
 
-    return balances;
+    return currentBalances;
   };
 
   const getTotalBalances = () => {
-    const total = service.getTotalBalances(currentBalances);
+    const totalBalances = service.getTotalBalances(accounts, investments);
 
-    setTotalBalances(total);
+    setTotalBalances(totalBalances);
   };
 
   useEffect(() => {
     isMountedRef.current = true;
 
-    getAllBalances().then((balances) => {
+    getAllBalances().then((currentBalances) => {
       if (isMountedRef.current) {
-        setCurrentBalances(balances);
+        setAccounts(currentBalances.accounts)
+        setInvestments(currentBalances.investments)
         setLoading(false);
       }
     });
@@ -53,11 +57,12 @@ const CurrentBalancesContainer = (): JSX.Element => {
 
   useEffect(() => {
     getTotalBalances();
-  }, [currentBalances]);
+  }, [accounts, investments]);
 
   return (
     <CurrentBalances
-      currentBalances={currentBalances}
+      accounts={accounts}
+      investments={investments}
       totalBalances={totalBalances}
       isLoading={isLoading}
     />
