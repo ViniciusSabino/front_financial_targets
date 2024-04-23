@@ -4,7 +4,7 @@ import config from '../../config';
 
 const instance = axios.create({
   baseURL: `${config.apis.accountsAPI.url}/api`,
-  timeout: 1000,
+  timeout: 7000,
 });
 
 export default instance;

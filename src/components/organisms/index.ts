@@ -1,4 +1,3 @@
-import BalanceClosings from './BalanceClosings/BalanceClosings';
+import BalancePanel from './BalancePanel/BalancePanel';
 
-// eslint-disable-next-line import/prefer-default-export
-export { BalanceClosings };
+export { BalancePanel };

@@ -3,9 +3,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import date, { Month } from '../utils/helpers/date';
 
 export interface IInitialDataState {
-  currentDate: string,
-  currentMonth: Month,
-  currentYear: number
+  currentDate: string;
+  currentMonth: Month;
+  currentYear: number;
 }
 
 const initialState: IInitialDataState = {

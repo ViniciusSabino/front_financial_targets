@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Closing } from '../../../services/closings/service';
+import { Entry } from '../../../types/accounts/entries.type';
 import currency from '../../../utils/helpers/currency';
 import { IInitialDataState } from '../../../slices/initialDataSlice';
 
 import {
   Component,
   Header,
-  ClosingsContainer,
+  EntriesContainer,
   Current,
   Estimated,
   CurrentTitle,
@@ -18,9 +18,9 @@ import {
 } from './styles';
 
 interface SummaryClosingsProps {
-  current: Closing,
-  estimated: Closing,
-  initialData: IInitialDataState
+  current: Entry;
+  estimated: Entry;
+  initialData: IInitialDataState;
 }
 
 const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
@@ -28,19 +28,17 @@ const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
 
   return (
     <Component>
-      <Header>
-        {`Fechamento de ${initialData.currentMonth.name} de ${initialData.currentYear}`}
-      </Header>
-      <ClosingsContainer>
+      <Header>{`${initialData.currentMonth.name} de ${initialData.currentYear}`}</Header>
+      <EntriesContainer>
         <Current>
-          <CurrentTitle>Fechamento Atual</CurrentTitle>
+          <CurrentTitle>Total de Entradas Atual</CurrentTitle>
           <CurrentValue>{currency.formatInReal(current.value)}</CurrentValue>
         </Current>
         <Estimated>
-          <EstimatedTitle>Fechamento Estimado</EstimatedTitle>
+          <EstimatedTitle>Total de Entradas Previstas</EstimatedTitle>
           <EstimatedValue>{currency.formatInReal(estimated.value)}</EstimatedValue>
         </Estimated>
-      </ClosingsContainer>
+      </EntriesContainer>
       <Footer />
     </Component>
   );

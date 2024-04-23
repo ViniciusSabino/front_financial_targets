@@ -43,8 +43,4 @@ enum MonthNumberByName {
   DECEMBER = 12,
 }
 
-export {
-  Months,
-  MonthsTranslated,
-  MonthNumberByName,
-};
+export { Months, MonthsTranslated, MonthNumberByName };

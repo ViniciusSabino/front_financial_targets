@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Balance } from '../services/accounts/mapper';
+import { Balance } from '../types/accounts/balance.type';
 
 interface CurrentBalances {
-  accounts: Balance[];
-  investments: Balance[];
+  accounts: Array<Balance>;
+  investments: Array<Balance>;
 }
 export interface Balances {
   current: CurrentBalances;

@@ -1,11 +1,8 @@
-/* eslint-disable max-lines */
-
 import styled from 'styled-components';
-
-import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
+import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
 
 interface LabelProps {
-  balanceType: BalanceTypes
+  balanceType: BalanceTypes;
 }
 
 interface TotalComponentProps {
@@ -31,8 +28,8 @@ const ComponentTotal = styled(ComponentCurrent)`
 `;
 
 const Label = styled.div<LabelProps>`
-  background-color: #233C4A;
-  color: #FFFFFF;
+  background-color: #233c4a;
+  color: #ffffff;
   height: 100%;
   ${(props) => (props.balanceType === BalanceTypes.CURRENT ? 'float: left;' : 'float: right')};
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -51,7 +48,7 @@ const Body = styled.div`
 
 const Feedback = styled.div`
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
@@ -65,12 +62,12 @@ const Feedback = styled.div`
 `;
 
 const TotalComponent = styled.div<TotalComponentProps>`
-  ${(props) => (props.type === TotalBalancesTypes.GENERAL)
-    && 'border-right: 1px solid #143736;'}
+  ${(props) => props.type === TotalBalancesTypes.GENERAL && 'border-right: 1px solid #143736;'}
   height: 100%;
-  ${(props) => (props.type === TotalBalancesTypes.INVESTMENTS || props.type === TotalBalancesTypes.GENERAL
-    ? 'width: 50%;'
-    : 'width: 100%')}
+  ${(props) =>
+    props.type === TotalBalancesTypes.INVESTMENTS || props.type === TotalBalancesTypes.GENERAL
+      ? 'width: 50%;'
+      : 'width: 100%'}
   ${(props) => (props.type === TotalBalancesTypes.GENERAL ? 'float: left;' : '')}
   ${(props) => (props.type === TotalBalancesTypes.INVESTMENTS ? 'float: right;' : '')}
 `;
@@ -88,7 +85,7 @@ const TotalLabel = styled.div`
 `;
 
 const TextLabel = styled.h1`
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -98,7 +95,7 @@ const TextLabel = styled.h1`
 `;
 
 const ComponentTotalBody = styled.div`
-  background-color: #233C4A;
+  background-color: #233c4a;
   height: 60%;
 `;
 

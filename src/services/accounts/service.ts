@@ -1,15 +1,9 @@
-import { Months } from '../../utils/enums/date.enum';
 import {
-  currentBalancesMapping, Balance, TotalBalances, totalBalancesMapping, CurrentBalances,
-} from './mapper';
-import api from '../apis/accounts';
+  Balance, CurrentBalances, CurrentBalancesAPIResponse, TotalBalances,
+} from '../../types/accounts/balance.type';
 
-export interface CurrentBalancesResponse {
-  month: Months;
-  year: number;
-  accounts: Array<Balance>;
-  investments: Array<Balance>;
-}
+import { currentBalancesMapping, totalBalancesMapping } from './mapper';
+import api from '../apis/accounts';
 
 const getCurrentBalances = async (): Promise<CurrentBalances> => {
   try {
@@ -17,7 +11,7 @@ const getCurrentBalances = async (): Promise<CurrentBalances> => {
 
     const { data } = response;
 
-    const currentBalances = currentBalancesMapping(data as CurrentBalancesResponse);
+    const currentBalances = currentBalancesMapping(data as CurrentBalancesAPIResponse);
 
     return currentBalances;
   } catch (error) {

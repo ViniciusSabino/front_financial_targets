@@ -17,7 +17,7 @@ const Header = styled.div`
   width: 100%;
 `;
 
-const ClosingsContainer = styled.div`
+const EntriesContainer = styled.div`
   height: 45%;
   width: 100%;
 `;
@@ -76,7 +76,7 @@ const Footer = styled.footer`
 export {
   Component,
   Header,
-  ClosingsContainer,
+  EntriesContainer,
   Current,
   Estimated,
   CurrentTitle,

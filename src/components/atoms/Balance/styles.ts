@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
+import { CurrentBalanceTypes, TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
 
 interface ComponentProps {
   type: CurrentBalanceTypes;

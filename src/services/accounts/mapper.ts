@@ -1,38 +1,10 @@
-import { AccountType, CurrentBalanceTypes, TotalBalancesTypes } from '../../utils/enums/accounts.enum';
-import { Months } from '../../utils/enums/date.enum';
-import { CurrentBalancesResponse } from './service';
+import { TotalBalancesTypes } from '../../enums/accounts/balance.enum';
+import { AccountType } from '../../enums/accounts/accounts.enum';
+import {
+  Balance, CurrentBalances, CurrentBalancesAPIResponse, TotalBalances,
+} from '../../types/accounts/balance.type';
 
-interface Account {
-  id: string;
-  name: string;
-  type: AccountType;
-  user: string;
-  main: boolean;
-}
-
-export interface TotalBalanceValue {
-  type: TotalBalancesTypes;
-  value: number;
-}
-export interface TotalBalances {
-  general: TotalBalanceValue;
-  investments: TotalBalanceValue;
-}
-
-export interface Balance {
-  id: string;
-  account: Account;
-  month: Months;
-  year: number;
-  value: number;
-}
-
-export interface CurrentBalances {
-  accounts: Balance[];
-  investments: Balance[];
-}
-
-const currentBalancesMapping = (data: CurrentBalancesResponse): CurrentBalances => {
+const currentBalancesMapping = (data: CurrentBalancesAPIResponse): CurrentBalances => {
   const { accounts, investments } = data;
 
   return { accounts, investments };

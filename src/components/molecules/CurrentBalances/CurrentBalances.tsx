@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Balance, TotalBalances } from '../../../services/accounts/mapper';
-import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
+import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
 import currency from '../../../utils/helpers/currency';
 
 import { BalanceContainer } from '../../atoms';
@@ -20,8 +19,9 @@ import {
   TextLabel,
   TotalValue,
 } from './styles';
+import { Balance, TotalBalances } from '../../../types/accounts/balance.type';
 
-export interface CurrentBalancesProps {
+interface CurrentBalancesProps {
   accounts: Array<Balance>;
   investments: Array<Balance>;
   totalBalances: TotalBalances;
@@ -30,7 +30,6 @@ export interface CurrentBalancesProps {
 
 const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
   const { accounts, investments, totalBalances, isLoading } = props;
-
 
   const TOTAL_BALANCES_LABEL = {
     general: 'Geral',
@@ -42,27 +41,14 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
       <ComponentCurrent>
         <Label balanceType={BalanceTypes.CURRENT}>Saldo Atual</Label>
         <Body>
-          {accounts.length && !isLoading
-            ? (
-              <>
-                <BalanceContainer
-                  balances={accounts}
-                  type={CurrentBalanceTypes.ACCOUNT}
-                />
-                <BalanceContainer
-                  balances={investments}
-                  type={CurrentBalanceTypes.INVESTMENT}
-                />
-              </>
-            )
-            : (
-              <Feedback>
-                {isLoading
-                  ? (
-                    'Implementar loading'
-                  ) : 'Não há contas para exibir' }
-              </Feedback>
-            )}
+          {accounts.length && !isLoading ? (
+            <>
+              <BalanceContainer balances={accounts} type={CurrentBalanceTypes.ACCOUNT} />
+              <BalanceContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
+            </>
+          ) : (
+            <Feedback>{isLoading ? 'Implementar loading' : 'Não há contas para exibir'}</Feedback>
+          )}
         </Body>
       </ComponentCurrent>
       <ComponentTotal>
@@ -80,7 +66,11 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
                   <TotalValue>{currency.formatInReal(totalBalances.general.value)}</TotalValue>
                 </ComponentTotalBody>
               </TotalComponent>
-              <TotalComponent key={TotalBalancesTypes.INVESTMENTS} index={1} total={2} type={TotalBalancesTypes.INVESTMENTS}>
+              <TotalComponent
+                key={TotalBalancesTypes.INVESTMENTS}
+                index={1}
+                total={2}
+                type={TotalBalancesTypes.INVESTMENTS}>
                 <TotalComponentHeader>
                   <TotalLabel>
                     <TextLabel>{TOTAL_BALANCES_LABEL.investments}</TextLabel>
@@ -91,15 +81,9 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
                 </ComponentTotalBody>
               </TotalComponent>
             </>
-          )
-            : (
-              <Feedback>
-                {isLoading
-                  ? (
-                    'Implementar loading'
-                  ) : 'Não há totais para exibir' }
-              </Feedback>
-            )}
+          ) : (
+            <Feedback>{isLoading ? 'Implementar loading' : 'Não há totais para exibir'}</Feedback>
+          )}
         </Body>
       </ComponentTotal>
     </Component>

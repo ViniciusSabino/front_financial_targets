@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-import { Balance } from '../../../services/accounts/mapper';
-import { CurrentBalanceTypes } from '../../../utils/enums/accounts.enum';
+import { Balance } from '../../../types/accounts/balance.type';
+import { CurrentBalanceTypes } from '../../../enums/accounts/balance.enum';
 
 import BalanceComponent from './Balance';
 
 interface BalanceProps {
   balances: Array<Balance>;
-  type: CurrentBalanceTypes
+  type: CurrentBalanceTypes;
 }
 
 const BalanceContainer = (props: BalanceProps): JSX.Element => {
@@ -33,7 +33,7 @@ const BalanceContainer = (props: BalanceProps): JSX.Element => {
 
   useEffect(() => {
     setAllBalances(balances);
-    setCurrent(balances.find(((balance) => balance.account.main)));
+    setCurrent(balances.find((balance) => balance.account.main));
     setCurrentIndex(balances.findIndex((balance) => balance.account.main));
   }, [balances]);
 

@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { useAppDispatch } from '../../../hooks';
 import { currentBalancesActions } from '../../../slices/CurrentBalancesSlice';
-import { TotalBalancesTypes } from '../../../utils/enums/accounts.enum';
-
+import { TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
+import { Balance, TotalBalances } from '../../../types/accounts/balance.type';
 import service from '../../../services/accounts/service';
 
 import CurrentBalances from './CurrentBalances';
-import { Balance, TotalBalances } from '../../../services/accounts/mapper';
 
 const CurrentBalancesContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);
@@ -26,7 +25,7 @@ const CurrentBalancesContainer = (): JSX.Element => {
 
   const getAllBalances = async () => {
     const currentBalances = await service.getCurrentBalances();
-    console.log(currentBalances)
+    console.log(currentBalances);
 
     dispatch(currentBalancesActions.loadAllCurrentBalances(currentBalances));
 
@@ -44,8 +43,8 @@ const CurrentBalancesContainer = (): JSX.Element => {
 
     getAllBalances().then((currentBalances) => {
       if (isMountedRef.current) {
-        setAccounts(currentBalances.accounts)
-        setInvestments(currentBalances.investments)
+        setAccounts(currentBalances.accounts);
+        setInvestments(currentBalances.investments);
         setLoading(false);
       }
     });

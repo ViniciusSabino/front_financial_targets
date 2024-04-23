@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { MonthNumberByName, Months, MonthsTranslated } from '../enums/date.enum';
+import { MonthNumberByName, Months, MonthsTranslated } from '../../enums/date.enum';
 
 export interface Month {
   name: MonthsTranslated;

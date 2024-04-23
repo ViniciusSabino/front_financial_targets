@@ -5,7 +5,7 @@ import Style from './styles';
 const { HeaderStyle, Title } = Style;
 
 interface HeaderProps {
-  title: string,
+  title: string;
 }
 
 const Header = ({ title }: HeaderProps): JSX.Element => (

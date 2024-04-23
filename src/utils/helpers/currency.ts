@@ -3,17 +3,15 @@ const formatInReal = (value: number): string => {
 
   const numbers: string[] = [...reais];
 
-  const formattedValue = numbers
-    .reverse()
-    .reduce((formatted, number, index) => {
-      const realPosition = index + 1;
+  const formattedValue = numbers.reverse().reduce((formatted, number, index) => {
+    const realPosition = index + 1;
 
-      if (realPosition % 3 === 0 && realPosition < numbers.length) {
-        return `.${number}${formatted}`;
-      }
+    if (realPosition % 3 === 0 && realPosition < numbers.length) {
+      return `.${number}${formatted}`;
+    }
 
-      return `${number}${formatted}`;
-    }, '');
+    return `${number}${formatted}`;
+  }, '');
 
   const partiallyFormatted = `R$ ${formattedValue},`;
 
