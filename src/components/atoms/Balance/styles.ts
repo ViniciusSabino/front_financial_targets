@@ -26,10 +26,8 @@ const BalanceComponent = styled.div<BalanceProps>`
 `;
 
 const Header = styled.div`
-  background-color: #143736;
   height: 40%;
   width: 100%;
-  padding: 5px 0px 0px 0px;
 `;
 
 const NameHeader = styled.div`
@@ -41,11 +39,18 @@ const NameHeader = styled.div`
 const Previous = styled.div`
   color: #fff;
   float: left;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   height: 100%;
   line-height: 30px;
   text-align: center;
   width: 25%;
+
+  :hover {
+    color: #cacaca;
+    font-size: 22px;
+    line-height: 28px;
+  }
 `;
 
 const TextName = styled.h1`
@@ -53,7 +58,7 @@ const TextName = styled.h1`
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
-  line-height: 27.3px;
+  line-height: 35px;
   text-align: center;
   text-transform: uppercase;
 `;
@@ -63,7 +68,7 @@ const Next = styled(Previous)`
 `;
 
 const Body = styled.div`
-  background-color: #143736;
+  background-color: #233c4a;
   height: 60%;
 `;
 

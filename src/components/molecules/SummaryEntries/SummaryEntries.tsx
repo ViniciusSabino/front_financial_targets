@@ -1,12 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Entry } from '../../../types/accounts/entries.type';
 import currency from '../../../utils/helpers/currency';
-import { IInitialDataState } from '../../../slices/initialDataSlice';
 
 import {
   Component,
-  Header,
   EntriesContainer,
   Current,
   Estimated,
@@ -20,22 +19,24 @@ import {
 interface SummaryClosingsProps {
   current: Entry;
   estimated: Entry;
-  initialData: IInitialDataState;
 }
 
 const SummaryBalances = (props: SummaryClosingsProps): JSX.Element => {
-  const { current, estimated, initialData } = props;
+  const { current, estimated } = props;
 
   return (
     <Component>
-      <Header>{`${initialData.currentMonth.name} de ${initialData.currentYear}`}</Header>
       <EntriesContainer>
         <Current>
-          <CurrentTitle>Total de Entradas Atual</CurrentTitle>
+          <Link to={{ pathname: '/entradas' }}>
+            <CurrentTitle>Total de Entradas Atual</CurrentTitle>
+          </Link>
           <CurrentValue>{currency.formatInReal(current.value)}</CurrentValue>
         </Current>
         <Estimated>
-          <EstimatedTitle>Total de Entradas Previstas</EstimatedTitle>
+          <Link to={{ pathname: '/entradas' }}>
+            <EstimatedTitle>Total de Entradas Previstas</EstimatedTitle>
+          </Link>
           <EstimatedValue>{currency.formatInReal(estimated.value)}</EstimatedValue>
         </Estimated>
       </EntriesContainer>

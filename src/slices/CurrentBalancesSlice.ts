@@ -6,20 +6,14 @@ interface CurrentBalances {
   accounts: Array<Balance>;
   investments: Array<Balance>;
 }
-export interface Balances {
+export interface CurrentBalancesState {
   current: CurrentBalances;
 }
 
-export interface CurrentBalancesState {
-  balances: Balances;
-}
-
 const initialState: CurrentBalancesState = {
-  balances: {
-    current: {
-      accounts: [],
-      investments: [],
-    },
+  current: {
+    accounts: [],
+    investments: [],
   },
 };
 
@@ -29,12 +23,10 @@ export const currentBalancesSlice = createSlice({
   reducers: {
     loadAllCurrentBalances: (state, action: PayloadAction<CurrentBalances>) => ({
       ...state,
-      balances: {
-        current: {
-          account: action.payload.accounts,
-          investments: action.payload.investments,
-        },
-        ...state.balances,
+      current: {
+        ...state.current,
+        accounts: action.payload.accounts,
+        investments: action.payload.investments,
       },
     }),
   },

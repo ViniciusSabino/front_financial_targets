@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactLoading from 'react-loading';
 
 import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
 import currency from '../../../utils/helpers/currency';
+import { Balance, TotalBalances } from '../../../types/accounts/balance.type';
 
 import { BalanceContainer } from '../../atoms';
 
@@ -19,7 +21,6 @@ import {
   TextLabel,
   TotalValue,
 } from './styles';
-import { Balance, TotalBalances } from '../../../types/accounts/balance.type';
 
 interface CurrentBalancesProps {
   accounts: Array<Balance>;
@@ -47,7 +48,9 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
               <BalanceContainer balances={investments} type={CurrentBalanceTypes.INVESTMENT} />
             </>
           ) : (
-            <Feedback>{isLoading ? 'Implementar loading' : 'Não há contas para exibir'}</Feedback>
+            <Feedback>
+              {isLoading ? <ReactLoading type='bubbles' color='#fff' /> : 'Não há contas para exibir'}
+            </Feedback>
           )}
         </Body>
       </ComponentCurrent>
@@ -82,7 +85,9 @@ const CurrentBalances = (props: CurrentBalancesProps): JSX.Element => {
               </TotalComponent>
             </>
           ) : (
-            <Feedback>{isLoading ? 'Implementar loading' : 'Não há totais para exibir'}</Feedback>
+            <Feedback>
+              {isLoading ? <ReactLoading type='bubbles' color='#fff' /> : 'Não há totais para exibir'}
+            </Feedback>
           )}
         </Body>
       </ComponentTotal>

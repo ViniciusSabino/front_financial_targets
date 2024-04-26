@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { BalanceTypes, CurrentBalanceTypes, TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
 
 interface LabelProps {

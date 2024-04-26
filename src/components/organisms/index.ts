@@ -1,3 +1,3 @@
-import BalancePanel from './BalancePanel/BalancePanel';
+import BalancePanelContainer from './BalancePanel/BalancePanelContainer';
 
-export { BalancePanel };
+export { BalancePanelContainer };

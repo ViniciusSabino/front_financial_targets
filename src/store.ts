@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import initialDataReducer from './slices/initialDataSlice';
+import pageInfoSlice from './slices/pageInfoSlice';
+import dateInfoSlice from './slices/dateInfoSlice';
 import currentBalancesReducer from './slices/CurrentBalancesSlice';
 
 export const store = configureStore({
   reducer: {
-    initialData: initialDataReducer,
-    currentBalances: currentBalancesReducer,
+    pageInfo: pageInfoSlice,
+    dateInfo: dateInfoSlice,
+    balances: currentBalancesReducer,
   },
 });
 

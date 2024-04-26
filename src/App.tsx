@@ -5,13 +5,14 @@ import GlobalStyle from './styles/global';
 
 import Pages from './pages';
 
-const { Home } = Pages;
+const { Home, Entries } = Pages;
 
 const App = (): JSX.Element => (
   <>
     <Router>
       <Switch>
-        <Route exact path="/inicio" component={Home} />
+        <Route exact path='/inicio' component={Home} />
+        <Route exact path='/entradas' component={Entries} />
       </Switch>
     </Router>
     <GlobalStyle />

@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import date, { Month } from '../utils/helpers/date';
 
-export interface IInitialDataState {
+export interface IDateInfoState {
   currentDate: string;
   currentMonth: Month;
   currentYear: number;
 }
 
-const initialState: IInitialDataState = {
+const initialState: IDateInfoState = {
   currentDate: date.getCurrentDate(),
   currentMonth: {
     name: date.translationMonthsByName(date.getCurrentMonthName()),
@@ -17,11 +17,11 @@ const initialState: IInitialDataState = {
   currentYear: date.getCurrentYear(),
 };
 
-export const initialDataSlice = createSlice({
-  name: 'initialData',
+export const dateInfoSlice = createSlice({
+  name: 'dateInfo',
   initialState,
   reducers: {
-    load: (_state, action: PayloadAction<IInitialDataState>) => ({
+    load: (_state, action: PayloadAction<IDateInfoState>) => ({
       currentDate: action.payload.currentDate,
       currentMonth: {
         name: action.payload.currentMonth.name,
@@ -33,11 +33,11 @@ export const initialDataSlice = createSlice({
 });
 
 // reducer
-export default initialDataSlice.reducer;
+export default dateInfoSlice.reducer;
 
 // actions
-const { load } = initialDataSlice.actions;
+const { load } = dateInfoSlice.actions;
 
-export const initialDataActions = {
+export const dateInfoActions = {
   load,
 };

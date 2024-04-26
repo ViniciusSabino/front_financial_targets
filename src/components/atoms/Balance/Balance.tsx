@@ -1,9 +1,10 @@
 import React from 'react';
-import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 import { CurrentBalanceTypes } from '../../../enums/accounts/balance.enum';
 import { Balance } from '../../../types/accounts/balance.type';
 import currency from '../../../utils/helpers/currency';
+import { AccountType } from '../../../enums/accounts/accounts.enum';
 
 import { Component, BalanceComponent, Header, Previous, NameHeader, TextName, Next, Body, TextValue } from './styles';
 
@@ -16,6 +17,10 @@ interface DisplayBalancesProps {
   type: CurrentBalanceTypes;
 }
 
+const reduceAccountName = (name: string) => {
+  return name.length > 8 ? `${name.substring(0, 5)}...` : name;
+};
+
 const Balance = (props: DisplayBalancesProps): JSX.Element => {
   const { balance, index, balances, handlePrevious, handleNext, type } = props;
 
@@ -24,11 +29,22 @@ const Balance = (props: DisplayBalancesProps): JSX.Element => {
       <Component type={type}>
         <BalanceComponent key={balance.id} index={index + 1} total={balances.length} type={type}>
           <Header>
-            <Previous>{index > 0 && <AiOutlineCaretLeft onClick={() => handlePrevious(index - 1)} />}</Previous>
+            <Previous>
+              <AiOutlineLeft color={index ? '#fff' : '#2F5164'} onClick={() => handlePrevious(index - 1)} />
+            </Previous>
             <NameHeader>
-              <TextName>{balance.account.name}</TextName>
+              <TextName>
+                {balance.account.main && balance.account.type == AccountType.CHECKING_ACCOUNT
+                  ? reduceAccountName(balance.account.name)
+                  : balance.account.name}
+              </TextName>
             </NameHeader>
-            <Next>{index < balances.length - 1 && <AiOutlineCaretRight onClick={() => handleNext(index + 1)} />}</Next>
+            <Next>
+              <AiOutlineRight
+                color={index < balances.length - 1 ? '#fff' : '#2F5164'}
+                onClick={() => handleNext(index + 1)}
+              />
+            </Next>
           </Header>
           <Body>
             <TextValue>{currency.formatInReal(balance.value)}</TextValue>

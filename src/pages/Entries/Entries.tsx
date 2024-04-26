@@ -4,17 +4,17 @@ import { useAppDispatch } from '../../hooks';
 import { IPageInfoState, pageInfoActions } from '../../slices/pageInfoSlice';
 
 import Header from '../../components/template/Header/Header';
-import { BalancePanelContainer } from '../../components/organisms';
+import BalancePanelContainer from '../../components/organisms/BalancePanel/BalancePanelContainer';
 
 import { Page, Main, Section, Module } from './styles';
 
-const Home = (): JSX.Element => {
+const Entries = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const setCurrentPage = () => {
     const pageInfo: IPageInfoState = {
       currentRoute: location.pathname,
-      currentModule: 'Início',
+      currentModule: 'Entradas',
       dataLoaded: false,
     };
 
@@ -38,4 +38,4 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default Entries;

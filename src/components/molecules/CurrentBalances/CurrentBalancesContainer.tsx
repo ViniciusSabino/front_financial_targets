@@ -5,11 +5,14 @@ import { currentBalancesActions } from '../../../slices/CurrentBalancesSlice';
 import { TotalBalancesTypes } from '../../../enums/accounts/balance.enum';
 import { Balance, TotalBalances } from '../../../types/accounts/balance.type';
 import service from '../../../services/accounts/service';
+import { pageInfoActions } from '../../../slices/pageInfoSlice';
 
 import CurrentBalances from './CurrentBalances';
 
 const CurrentBalancesContainer = (): JSX.Element => {
   const isMountedRef = useRef(false);
+
+  const dispatch = useAppDispatch();
 
   const [accounts, setAccounts] = useState([] as Array<Balance>);
   const [investments, setInvestments] = useState([] as Array<Balance>);
@@ -21,13 +24,11 @@ const CurrentBalancesContainer = (): JSX.Element => {
 
   const [isLoading, setLoading] = useState(true);
 
-  const dispatch = useAppDispatch();
-
   const getAllBalances = async () => {
     const currentBalances = await service.getCurrentBalances();
-    console.log(currentBalances);
 
     dispatch(currentBalancesActions.loadAllCurrentBalances(currentBalances));
+    dispatch(pageInfoActions.setDataLoaded(true));
 
     return currentBalances;
   };
@@ -46,6 +47,7 @@ const CurrentBalancesContainer = (): JSX.Element => {
         setAccounts(currentBalances.accounts);
         setInvestments(currentBalances.investments);
         setLoading(false);
+        dispatch(currentBalancesActions.loadAllCurrentBalances(currentBalances));
       }
     });
 
